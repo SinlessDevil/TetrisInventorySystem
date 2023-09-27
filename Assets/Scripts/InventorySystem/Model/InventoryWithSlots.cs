@@ -10,6 +10,7 @@ namespace InventorySystem.Model
     {
         public event Action<object, IInventoryItem, int> OnInventoryItemAddedEvent;
         public event Action<object, Type, int> OnInventoryItemRemovedEvent;
+        public event Action<object> OnInventoryStateChangedEvent;
 
         public int Capacity { get; set; }
 
@@ -73,6 +74,39 @@ namespace InventorySystem.Model
             return amount;
         }
 
+        public void TransitFromSlotToSlot(object sender, IInventorySlot fromSlot, IInventorySlot toSlot)
+        {
+            if (fromSlot == null)
+                return;
+
+            if (toSlot == null)
+                return;
+
+            if (!toSlot.IsEmpty && fromSlot.ItemType != toSlot.ItemType)
+                return;
+
+            var slotCapacity = fromSlot.Capacity;
+            var fits = fromSlot.Amount + toSlot.Amount <= slotCapacity;
+            var amountToAdd = fits ? fromSlot.Amount : slotCapacity - toSlot.Amount;
+            var amountLeft = fromSlot.Amount - amountToAdd;
+
+            if (toSlot.IsEmpty)
+            {
+                toSlot.SetItem(fromSlot.Item);
+                fromSlot.Clear();
+                OnInventoryStateChangedEvent?.Invoke(sender);
+            }
+
+            toSlot.Item.State.Amount += amountToAdd;
+
+            if (fits)
+                fromSlot.Clear();
+            else
+                fromSlot.Item.State.Amount = amountLeft;
+
+            OnInventoryStateChangedEvent?.Invoke(sender);
+        }
+
         public bool TryToAdd(object sender, IInventoryItem item)
         {
             var slotWithSameItemButNotEmpty = _slots.Find(slot => !slot.IsEmpty
@@ -110,6 +144,7 @@ namespace InventorySystem.Model
                         slot.Clear();
                         Debug.Log($"Item removed from inventory. ItemType : {itemType}, Amount: {amountToRemove}");
                         OnInventoryItemRemovedEvent?.Invoke(sender, itemType, amountToRemove);
+                        OnInventoryStateChangedEvent?.Invoke(sender);
                     }
 
                     break;
@@ -120,6 +155,7 @@ namespace InventorySystem.Model
                 slot.Clear();
                 Debug.Log($"Item removed from inventory. ItemType : {itemType}, Amount: {amountRemoved}");
                 OnInventoryItemRemovedEvent?.Invoke(sender, itemType, amountRemoved);
+                OnInventoryStateChangedEvent?.Invoke(sender);
             }
         }
         public bool HasItem(Type type, out IInventoryItem item)
@@ -144,6 +180,7 @@ namespace InventorySystem.Model
 
             Debug.Log($"Item added to inventory. ItemType : {item.Type}, Amount: {amountToAdd}");
             OnInventoryItemAddedEvent?.Invoke(sender, item, amountToAdd);
+            OnInventoryStateChangedEvent?.Invoke(sender);
 
             if (amountLeft <= 0)
                 return true;
