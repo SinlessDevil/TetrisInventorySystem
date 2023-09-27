@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace InventorySystem.View
+namespace InventorySystem.Controller
 {
-    public class ViewItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+    public class InventoryItemDragController : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
     {
         private RectTransform _rectTransform;
         private Canvas _mainCanvas;
@@ -22,12 +22,10 @@ namespace InventorySystem.View
             slotTransfrom.SetAsLastSibling();
             _canvasGroup.blocksRaycasts = false;
         }
-
-        public void OnDrag(PointerEventData eventData) 
+        public void OnDrag(PointerEventData eventData)
         {
             _rectTransform.anchoredPosition += eventData.delta / _mainCanvas.scaleFactor;
         }
-
         public void OnEndDrag(PointerEventData eventData)
         {
             transform.localPosition = Vector3.zero;

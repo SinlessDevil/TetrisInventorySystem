@@ -1,7 +1,7 @@
 using UnityEngine;
 using InventorySystem.Abstract;
 
-namespace Data
+namespace InventorySystem.Model.Items.Data
 {
     [CreateAssetMenu(fileName = "InventoryItemData", menuName = "Gameplay/items/Create new item data")]
     public class InventoryItemData : ScriptableObject, IInventoryItemInfo

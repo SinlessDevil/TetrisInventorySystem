@@ -538,6 +538,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6773305881254233128, guid: 43c79ed978f486f4c84f276c7bce8552, type: 3}
   m_PrefabInstance: {fileID: 973746924118499664}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7421676554089772039 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7745177789970240855, guid: 43c79ed978f486f4c84f276c7bce8552, type: 3}
+  m_PrefabInstance: {fileID: 973746924118499664}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aec9b4d09d04a44c9162434aa366be7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1536624700832131905
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1140,6 +1151,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UISlot
       objectReference: {fileID: 0}
+    - target: {fileID: 8205370313324300121, guid: 28aff536d80a7324cbbb7d7db08bdf44, type: 3}
+      propertyPath: _viewInventoryItem
+      value: 
+      objectReference: {fileID: 7421676554089772039}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

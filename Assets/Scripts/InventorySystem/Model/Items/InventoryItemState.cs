@@ -1,10 +1,10 @@
 using System;
 using InventorySystem.Abstract;
 
-namespace InventorySystem.Controller
+namespace InventorySystem.Model.Items
 {
     [Serializable]
-    public class InventoryItemStateController : IInventoryItemState
+    public class InventoryItemState : IInventoryItemState
     {
         public int itemAmount;
         public bool isItemEquipped;
@@ -12,7 +12,7 @@ namespace InventorySystem.Controller
         public int Amount { get => itemAmount; set => itemAmount = value; }
         public bool IsEquipped { get => isItemEquipped; set => isItemEquipped = value; }
 
-        public InventoryItemStateController()
+        public InventoryItemState()
         {
             itemAmount = 0;
             isItemEquipped = false;

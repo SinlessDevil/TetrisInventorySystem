@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4238623470740090370}
   - component: {fileID: 8601756170544588015}
   - component: {fileID: 8012534990177697439}
+  - component: {fileID: 8205370313324300121}
   m_Layer: 5
   m_Name: UISlot
   m_TagString: Untagged
@@ -88,3 +89,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0161e3dd48ad3764aafb8a4d8469ec39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8205370313324300121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6827317062884802298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32774f62975f1148b9a08e082c35344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _viewInventoryItem: {fileID: 0}

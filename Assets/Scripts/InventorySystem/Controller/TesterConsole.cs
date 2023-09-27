@@ -1,12 +1,14 @@
 using UnityEngine;
 using InventorySystem.Abstract;
 using InventorySystem.Model;
-using InventorySystem.Model.Items;
+using InventorySystem.Model.Items.Types;
+using InventorySystem.Model.Items.Data;
 
 namespace InventorySystem.Controller
 {
     public class TesterConsole : MonoBehaviour
     {
+        [SerializeField] private InventoryItemData _info;
         private IInventory _inventory;
 
         private void Awake()
@@ -28,10 +30,10 @@ namespace InventorySystem.Controller
         private void AddRandApples()
         {
             var randCount = Random.Range(1, 5);
-          //  var apple = new Apple(5);
-          //  apple.Amount = randCount;
+            var apple = new Apple(_info);
+             apple.State.Amount = randCount;
 
-          //  _inventory.TryToAdd(this, apple);
+            _inventory.TryToAdd(this, apple);
         }
         private void RemoveRandApples()
         {

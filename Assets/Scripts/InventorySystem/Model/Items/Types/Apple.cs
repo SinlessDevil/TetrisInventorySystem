@@ -2,7 +2,7 @@ using System;
 using InventorySystem.Abstract;
 using InventorySystem.Controller;
 
-namespace InventorySystem.Model.Items
+namespace InventorySystem.Model.Items.Types
 {
     public class Apple : IInventoryItem
     {
@@ -13,7 +13,7 @@ namespace InventorySystem.Model.Items
         public Apple(IInventoryItemInfo info)
         {
             this.Info = info;
-            State = new InventoryItemStateController();
+            State = new InventoryItemState();
         }
 
         public IInventoryItem Clone()
