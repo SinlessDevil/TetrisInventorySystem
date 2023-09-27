@@ -9,7 +9,7 @@ namespace InventorySystem.Model
         public bool IsEmpty => Item == null;
         public IInventoryItem Item { get; private set; }
         public Type ItemType => Item.Type;
-        public int Amount => IsEmpty ? 0 : Item.Amount;
+        public int Amount => IsEmpty ? 0 : Item.State.Amount;
         public int Capacity { get; private set; }
 
         public void SetItem(IInventoryItem item)
@@ -18,14 +18,14 @@ namespace InventorySystem.Model
                 return;
 
             this.Item = item;
-            this.Capacity = item.MaxItemsInInventorySlot;
+            this.Capacity = item.Info.MaxItemsInInventorySlot;
         }
         public void Clear()
         {
             if (IsEmpty == true)
                 return;
 
-            Item.Amount = 0;
+            Item.State.Amount = 0;
             Item = null;
         }
     }

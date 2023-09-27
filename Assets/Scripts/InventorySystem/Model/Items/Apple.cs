@@ -1,18 +1,26 @@
 using System;
 using InventorySystem.Abstract;
+using InventorySystem.Controller;
 
 namespace InventorySystem.Model.Items
 {
     public class Apple : IInventoryItem
     {
-        public bool IsEquipped { get; set; }
         public Type Type => GetType();
+        public IInventoryItemInfo Info { get; }
+        public IInventoryItemState State { get; }
 
-        public int MaxItemsInInventorySlot { get; }
-        public int Amount { get; set; }
+        public Apple(IInventoryItemInfo info)
+        {
+            this.Info = info;
+            State = new InventoryItemStateController();
+        }
 
-        public Apple(int maxItemsInInventorySlot) => MaxItemsInInventorySlot = maxItemsInInventorySlot;
-
-        public IInventoryItem Clone() => new Apple(MaxItemsInInventorySlot);
+        public IInventoryItem Clone()
+        {
+            var clonedApple = new Apple(Info);
+            clonedApple.State.Amount = State.Amount;
+            return clonedApple;
+        }
     }
 }

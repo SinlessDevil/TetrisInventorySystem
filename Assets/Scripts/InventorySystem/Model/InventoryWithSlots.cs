@@ -51,7 +51,7 @@ namespace InventorySystem.Model
         public IInventoryItem[] GetEquippedItems()
         {
             var requiredSlots = _slots.
-                FindAll(slot => !slot.IsEmpty && slot.Item.IsEquipped);
+                FindAll(slot => !slot.IsEmpty && slot.Item.State.IsEquipped);
             var equippedItems = new List<IInventoryItem>();
 
             foreach (var slot in requiredSlots)
@@ -85,7 +85,7 @@ namespace InventorySystem.Model
             if(emptySlot != null)
                 return TryAddToSlot(sender, emptySlot, item);
 
-            Debug.Log($"Cannot add item ({item.Type}), amount: {item.Amount}, " +
+            Debug.Log($"Cannot add item ({item.Type}), amount: {item.State.Amount}, " +
                 $"because there is not place for that.");
             return false;
         }
@@ -103,7 +103,7 @@ namespace InventorySystem.Model
                 var slot = slotsWithItem[i];
                 if (slot.Amount >= amountToRemove)
                 {
-                    slot.Item.Amount -= amountToRemove;
+                    slot.Item.State.Amount -= amountToRemove;
 
                     if(slot.Amount <= 0)
                     {
@@ -130,17 +130,17 @@ namespace InventorySystem.Model
 
         private bool TryAddToSlot(object sender, IInventorySlot slot, IInventoryItem item)
         {
-            var fits = slot.Amount + item.Amount <= item.MaxItemsInInventorySlot;
-            var amountToAdd = fits ? item.Amount : item.MaxItemsInInventorySlot - slot.Amount;
-            var amountLeft = item.Amount - amountToAdd;
+            var fits = slot.Amount + item.State.Amount <= item.Info.MaxItemsInInventorySlot;
+            var amountToAdd = fits ? item.State.Amount : item.Info.MaxItemsInInventorySlot - slot.Amount;
+            var amountLeft = item.State.Amount - amountToAdd;
             var clonedItem = item.Clone();
 
-            clonedItem.Amount = amountToAdd;
+            clonedItem.State.Amount = amountToAdd;
 
             if (slot.IsEmpty)
                 slot.SetItem(clonedItem);
             else
-                slot.Item.Amount += amountToAdd;
+                slot.Item.State.Amount += amountToAdd;
 
             Debug.Log($"Item added to inventory. ItemType : {item.Type}, Amount: {amountToAdd}");
             OnInventoryItemAddedEvent?.Invoke(sender, item, amountToAdd);
@@ -148,7 +148,7 @@ namespace InventorySystem.Model
             if (amountLeft <= 0)
                 return true;
 
-            item.Amount = amountLeft;
+            item.State.Amount = amountLeft;
             return TryToAdd(sender, item);
         }
     }

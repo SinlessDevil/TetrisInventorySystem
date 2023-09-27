@@ -5,9 +5,9 @@ namespace InventorySystem.Abstract
     public interface IInventoryItem
     {
         Type Type { get; }
-        bool IsEquipped { get; set; }
-        int MaxItemsInInventorySlot { get; }
-        int Amount { get; set; }
+
+        IInventoryItemInfo Info { get; }
+        IInventoryItemState State { get; }
 
         IInventoryItem Clone();
     }

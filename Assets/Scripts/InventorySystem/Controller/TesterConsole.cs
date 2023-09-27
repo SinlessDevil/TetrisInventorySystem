@@ -28,10 +28,10 @@ namespace InventorySystem.Controller
         private void AddRandApples()
         {
             var randCount = Random.Range(1, 5);
-            var apple = new Apple(5);
-            apple.Amount = randCount;
+          //  var apple = new Apple(5);
+          //  apple.Amount = randCount;
 
-            _inventory.TryToAdd(this, apple);
+          //  _inventory.TryToAdd(this, apple);
         }
         private void RemoveRandApples()
         {
