@@ -1,5 +1,5 @@
-using System;
 using InventorySystem.Abstract;
+using InventorySystem.Model.Items;
 
 namespace InventorySystem.Model
 {
@@ -8,7 +8,7 @@ namespace InventorySystem.Model
         public bool IsFull => !IsEmpty && Amount == Capacity;
         public bool IsEmpty => Item == null;
         public IInventoryItem Item { get; private set; }
-        public Type ItemType => Item.Type;
+        public TypeItem ItemType => Item.ItemType;
         public int Amount => IsEmpty ? 0 : Item.State.Amount;
         public int Capacity { get; private set; }
 

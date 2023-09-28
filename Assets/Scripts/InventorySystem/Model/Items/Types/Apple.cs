@@ -1,12 +1,10 @@
-using System;
 using InventorySystem.Abstract;
-using InventorySystem.Controller;
 
 namespace InventorySystem.Model.Items.Types
 {
     public class Apple : IInventoryItem
     {
-        public Type Type => GetType();
+        public TypeItem ItemType { get; }
         public IInventoryItemInfo Info { get; }
         public IInventoryItemState State { get; }
 

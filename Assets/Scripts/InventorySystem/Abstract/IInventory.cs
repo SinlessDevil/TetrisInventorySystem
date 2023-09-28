@@ -1,4 +1,4 @@
-using System;
+using InventorySystem.Model.Items;
 
 namespace InventorySystem.Abstract
 {
@@ -7,17 +7,17 @@ namespace InventorySystem.Abstract
         int Capacity { get; set; }
         bool IsFull { get; }
 
-        IInventoryItem GetItem(Type itemType);
+        IInventoryItem GetItem(TypeItem itemType);
         IInventoryItem[] GetAllItems();
-        IInventoryItem[] GetAllItems(Type itemType);
+        IInventoryItem[] GetAllItems(TypeItem itemType);
         IInventoryItem[] GetEquippedItems();
-        IInventorySlot[] GetAllSlots(Type itemType);
+        IInventorySlot[] GetAllSlots(TypeItem itemType);
         IInventorySlot[] GetAllSlots();
 
-        int GetItemAmount(Type itemType);
+        int GetItemAmount(TypeItem itemType);
 
         bool TryToAdd(object sender, IInventoryItem item);
-        void Remove(object sender, Type itemType, int amount = 1);
-        bool HasItem(Type type, out IInventoryItem item);
+        void Remove(object sender, TypeItem itemType, int amount = 1);
+        bool HasItem(TypeItem type, out IInventoryItem item);
     }
 }

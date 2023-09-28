@@ -1,4 +1,4 @@
-using System;
+using InventorySystem.Model.Items;
 
 namespace InventorySystem.Abstract
 {
@@ -8,7 +8,7 @@ namespace InventorySystem.Abstract
         bool IsEmpty { get; }
 
         IInventoryItem Item { get; }
-        Type ItemType { get; }
+        TypeItem ItemType { get; }
         int Amount { get; }
         int Capacity { get; }
 

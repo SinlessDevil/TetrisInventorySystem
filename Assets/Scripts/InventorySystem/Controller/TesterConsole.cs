@@ -1,8 +1,9 @@
 using UnityEngine;
 using InventorySystem.Abstract;
 using InventorySystem.Model;
+using InventorySystem.Model.Items;
 using InventorySystem.Model.Items.Types;
-using InventorySystem.Model.Items.Data;
+using InventorySystem.Model.Items.StaticData;
 
 namespace InventorySystem.Controller
 {
@@ -38,7 +39,7 @@ namespace InventorySystem.Controller
         private void RemoveRandApples()
         {
             var randCount = Random.Range(1, 10);
-            _inventory.Remove(this, typeof(Apple), randCount);
+            _inventory.Remove(this, TypeItem.Apple, randCount);
         }
     }
 }

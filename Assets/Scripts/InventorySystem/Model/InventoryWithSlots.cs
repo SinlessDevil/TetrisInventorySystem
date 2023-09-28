@@ -3,13 +3,14 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using InventorySystem.Abstract;
+using InventorySystem.Model.Items;
 
 namespace InventorySystem.Model
 {
     public class InventoryWithSlots : IInventory
     {
         public event Action<object, IInventoryItem, int> OnInventoryItemAddedEvent;
-        public event Action<object, Type, int> OnInventoryItemRemovedEvent;
+        public event Action<object, TypeItem, int> OnInventoryItemRemovedEvent;
         public event Action<object> OnInventoryStateChangedEvent;
 
         public int Capacity { get; set; }
@@ -28,7 +29,7 @@ namespace InventorySystem.Model
                 _slots.Add(new InventorySlot());
         }
 
-        public IInventoryItem GetItem(Type itemType) => _slots.Find(slot => slot.ItemType == itemType).Item;
+        public IInventoryItem GetItem(TypeItem itemType) => _slots.Find(slot => slot.ItemType == itemType).Item;
         public IInventoryItem[] GetAllItems()
         {
             var allItems = new List<IInventoryItem>();
@@ -39,7 +40,7 @@ namespace InventorySystem.Model
             }
             return allItems.ToArray();
         }
-        public IInventoryItem[] GetAllItems(Type itemType)
+        public IInventoryItem[] GetAllItems(TypeItem itemType)
         {
             var allItems = new List<IInventoryItem>();
             var slotsOfType = _slots.FindAll(slot => !slot.IsEmpty && slot.ItemType == itemType);
@@ -60,9 +61,9 @@ namespace InventorySystem.Model
 
             return equippedItems.ToArray();
         }
-        public IInventorySlot[] GetAllSlots(Type itemType) => _slots.FindAll(slot => !slot.IsEmpty && slot.ItemType == itemType).ToArray();
+        public IInventorySlot[] GetAllSlots(TypeItem itemType) => _slots.FindAll(slot => !slot.IsEmpty && slot.ItemType == itemType).ToArray();
         public IInventorySlot[] GetAllSlots() => _slots.ToArray();
-        public int GetItemAmount(Type itemType)
+        public int GetItemAmount(TypeItem itemType)
         {
             var amount = 0;
             var allItemSlots = _slots.
@@ -110,7 +111,7 @@ namespace InventorySystem.Model
         public bool TryToAdd(object sender, IInventoryItem item)
         {
             var slotWithSameItemButNotEmpty = _slots.Find(slot => !slot.IsEmpty
-            && slot.ItemType == item.Type && !slot.IsFull);
+            && slot.ItemType == item.ItemType && !slot.IsFull);
 
             if (slotWithSameItemButNotEmpty != null)
                 return TryAddToSlot(sender, slotWithSameItemButNotEmpty, item);
@@ -119,11 +120,11 @@ namespace InventorySystem.Model
             if(emptySlot != null)
                 return TryAddToSlot(sender, emptySlot, item);
 
-            Debug.Log($"Cannot add item ({item.Type}), amount: {item.State.Amount}, " +
+            Debug.Log($"Cannot add item ({item.ItemType}), amount: {item.State.Amount}, " +
                 $"because there is not place for that.");
             return false;
         }
-        public void Remove(object sender, Type itemType, int amount = 1)
+        public void Remove(object sender, TypeItem itemType, int amount = 1)
         {
             var slotsWithItem = GetAllSlots(itemType);
             if (slotsWithItem.Length == 0)
@@ -158,7 +159,7 @@ namespace InventorySystem.Model
                 OnInventoryStateChangedEvent?.Invoke(sender);
             }
         }
-        public bool HasItem(Type type, out IInventoryItem item)
+        public bool HasItem(TypeItem type, out IInventoryItem item)
         {
             item = GetItem(type);
             return item != null;
@@ -178,7 +179,7 @@ namespace InventorySystem.Model
             else
                 slot.Item.State.Amount += amountToAdd;
 
-            Debug.Log($"Item added to inventory. ItemType : {item.Type}, Amount: {amountToAdd}");
+            Debug.Log($"Item added to inventory. ItemType : {item.ItemType}, Amount: {amountToAdd}");
             OnInventoryItemAddedEvent?.Invoke(sender, item, amountToAdd);
             OnInventoryStateChangedEvent?.Invoke(sender);
 

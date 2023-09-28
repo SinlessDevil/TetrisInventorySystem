@@ -1,11 +1,10 @@
-using System;
+using InventorySystem.Model.Items;
 
 namespace InventorySystem.Abstract
 {
     public interface IInventoryItem
     {
-        Type Type { get; }
-
+        TypeItem ItemType { get; }
         IInventoryItemInfo Info { get; }
         IInventoryItemState State { get; }
 
