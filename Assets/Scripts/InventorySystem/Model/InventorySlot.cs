@@ -5,7 +5,7 @@ namespace InventorySystem.Model
 {
     public class InventorySlot : IInventorySlot
     {
-        public bool IsFull => Amount == Capacity;
+        public bool IsFull => !IsEmpty && Amount == Capacity;
         public bool IsEmpty => Item == null;
         public IInventoryItem Item { get; private set; }
         public Type ItemType => Item.Type;

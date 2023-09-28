@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using InventorySystem.Abstract;
+using Extensions;
+using TMPro;
 
 namespace InventorySystem.View
 {
@@ -10,7 +11,17 @@ namespace InventorySystem.View
         [SerializeField] private Image _imageIcon;
         [SerializeField] private TMP_Text _textAmount;
 
-        public IInventoryItem item { get; set; }
+        public IInventoryItem Item { get; set; }
+
+        private void Awake()
+        {
+            Assert();
+        }
+        private void Assert()
+        {
+            _imageIcon.LogErrorIfComponentNull();
+            _textAmount.LogErrorIfComponentNull();
+        }
 
         public void Refresh(IInventorySlot slot)
         {
@@ -20,8 +31,9 @@ namespace InventorySystem.View
                 return;
             }
 
-            item = slot.Item;
-            _imageIcon.sprite = item.Info.SpriteIcon;
+            Item = slot.Item;
+            _imageIcon.sprite = Item.Info.SpriteIcon;
+            _textAmount.transform.Activate();
 
             var textAmountEnabled = slot.Amount > 1;
             _textAmount.gameObject.SetActive(textAmountEnabled);
@@ -31,8 +43,8 @@ namespace InventorySystem.View
         }
         private void CleanUp()
         {
-            _textAmount.gameObject.SetActive(false);
-            _imageIcon.gameObject.SetActive(false);
+            _textAmount.transform.Deactivate();
+            _imageIcon.transform.Deactivate();
         }
     }
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using InventorySystem.Abstract;
 using InventorySystem.Controller;
+using Extensions;
 
 namespace InventorySystem.View
 {
@@ -12,7 +13,17 @@ namespace InventorySystem.View
 
         private void Awake()
         {
+            InitComponent();
+            Asserts();
+        }
+        private void InitComponent()
+        {
             _inventorySlotDropController = GetComponent<InventorySlotDropController>();
+        }
+        private void Asserts()
+        {
+            _viewInventoryItem.LogErrorIfComponentNull();
+            _inventorySlotDropController.LogErrorIfComponentNull();
         }
 
         private void OnEnable()
@@ -23,7 +34,6 @@ namespace InventorySystem.View
         {
             _inventorySlotDropController.OnRefreshSlotEvent -= Refresh;
         }
-
         private void Refresh(IInventorySlot slot)
         {
             if(slot != null)

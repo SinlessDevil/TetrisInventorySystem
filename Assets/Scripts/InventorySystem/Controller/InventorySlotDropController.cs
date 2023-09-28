@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using InventorySystem.Abstract;
+using Extensions;
 
 namespace InventorySystem.Controller
 {
@@ -9,31 +10,40 @@ namespace InventorySystem.Controller
     {
         public event Action<IInventorySlot> OnRefreshSlotEvent;
 
-        public IInventorySlot slot { get; private set; }
+        public IInventorySlot Slot { get; private set; }
 
         private InventoryController _inventoryController;
 
         private void Awake()
         {
+            InitComponent();
+            Asserts();
+        }
+        private void InitComponent()
+        {
             _inventoryController = GetComponentInParent<InventoryController>();
         }
+        private void Asserts()
+        {
+            _inventoryController.LogErrorIfComponentNull();
+        }
 
-        public void SetSlot(IInventorySlot newSlot) => slot = newSlot;
+        public void SetSlot(IInventorySlot newSlot) => Slot = newSlot;
         public void OnDrop(PointerEventData eventData)
         {
             var otherItemController = eventData.pointerDrag.GetComponent<InventoryItemDragController>();
             var otherSlotController = otherItemController.GetComponentInParent<InventorySlotDropController>();
-            var otherSlot = otherSlotController.slot;
+            var otherSlot = otherSlotController.Slot;
             var inventory = _inventoryController.Inventory;
 
-            inventory.TransitFromSlotToSlot(this, otherSlot, slot);
+            inventory.TransitFromSlotToSlot(this, otherSlot, Slot);
 
             RefreshSlot();
             otherSlotController.RefreshSlot();
         }
         public void RefreshSlot()
         {
-            OnRefreshSlotEvent?.Invoke(slot);
+            OnRefreshSlotEvent?.Invoke(Slot);
         }
     }
 }
