@@ -1,4 +1,4 @@
-namespace Code.Infastructure.Services.StaticData
+namespace Code.Infrastructure.Services.StaticData
 {
     public class StaticDataService : IStaticDataService
     {

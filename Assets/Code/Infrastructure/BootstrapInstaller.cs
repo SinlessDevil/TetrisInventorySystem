@@ -1,4 +1,4 @@
-using Code.Infastructure.Services.StaticData;
+using Code.Infrastructure.Services.StaticData;
 using UnityEngine.SceneManagement;
 using Zenject;
 

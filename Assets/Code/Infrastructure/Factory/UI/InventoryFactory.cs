@@ -1,4 +1,4 @@
-namespace Code.Infastructure.Factory.UI
+namespace Code.Infrastructure.Factory.UI
 {
     public class InventoryFactory : IInventoryFactory
     {

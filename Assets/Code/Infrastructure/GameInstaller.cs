@@ -1,5 +1,5 @@
 ﻿using System;
-using Code.Infastructure.Services.GameStater;
+using Code.Infrastructure.Services.GameStater;
 using Zenject;
 
 namespace CodeBase.Infrastructure
@@ -9,7 +9,7 @@ namespace CodeBase.Infrastructure
         public override void InstallBindings()
         {
             Container.BindInterfacesTo<GameInstaller>().FromInstance(this).AsSingle();
-            Container.Bind<IGameStater>().To<GameStater>().AsSingle();
+            Container.Bind<IGameStarter>().To<GameStarter>().AsSingle();
         }
 
         public void Initialize()
