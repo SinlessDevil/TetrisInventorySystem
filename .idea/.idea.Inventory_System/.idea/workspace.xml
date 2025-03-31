@@ -4,11 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="Edits names">
+    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/IPersistenceProgressService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/IPersistenceProgressService.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/PersistenceProgressService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/PersistenceProgressService.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player/InventoryData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player/InventoryData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player/InventoryOpeningData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player/InventoryOpeningData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player/PlayerData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player/PlayerData.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/BootstrapInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/BootstrapInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/StaticData/IStaticDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/StaticData/IStaticDataService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/StaticData/StaticDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/StaticData/StaticDataService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +51,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Code/Inventory/Items/Data/InventoryCharacteristics.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Inventory/Items/Factory/IItemFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Inventory/Items/Provider/ItemDataProvider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/UI/Inventory/Characteristics/InventoryCharacteristicsView.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -119,7 +132,8 @@
       <workItem from="1743164489502" duration="150000" />
       <workItem from="1743164665770" duration="1274000" />
       <workItem from="1743168082650" duration="2154000" />
-      <workItem from="1743170688152" duration="4463000" />
+      <workItem from="1743170688152" duration="4698000" />
+      <workItem from="1743194462911" duration="3831000" />
     </task>
     <task id="LOCAL-00001" summary="Delete all unused files">
       <option name="closed" value="true" />
@@ -169,7 +183,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743170961007</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added base scripts for Inventory">
+      <option name="closed" value="true" />
+      <created>1743178578662</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1743178578662</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +224,7 @@
     <MESSAGE value="Added base Installer" />
     <MESSAGE value="Added Newtonsoft" />
     <MESSAGE value="Edits names" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edits names" />
+    <MESSAGE value="Added base scripts for Inventory" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added base scripts for Inventory" />
   </component>
 </project>

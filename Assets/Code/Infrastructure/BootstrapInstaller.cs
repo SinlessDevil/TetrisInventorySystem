@@ -2,6 +2,7 @@ using Code.Infrastructure.Services.StaticData;
 using Code.Inventory;
 using Code.Inventory.Items.Factory;
 using Code.Inventory.Items.Provider;
+using Services.PersistenceProgress;
 using UnityEngine.SceneManagement;
 using Zenject;
 
@@ -17,11 +18,17 @@ namespace Code.Infrastructure
 
             BindUIFactory();
             BindStaticData();
+            BindProgressData();
         }
 
         private void BindUIFactory()
         {
             Container.Bind<IItemFactory>().To<ItemFactory>().AsSingle();
+        }
+
+        private void BindProgressData()
+        {
+            Container.Bind<IPersistenceProgressService>().To<PersistenceProgressService>().AsSingle();
         }
         
         private void BindStaticData()
