@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-namespace Services.PersistenceProgress.Player
+namespace Code.Infrastructure.Services.PersistenceProgress.Player
 {
     [Serializable]
     public class InventoryOpeningData

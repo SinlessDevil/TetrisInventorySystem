@@ -1,14 +1,16 @@
 using System;
-using Code.Inventory;
+using Code.InventoryModel;
 using JetBrains.Annotations;
+using Services.PersistenceProgress.Player;
 
-namespace Services.PersistenceProgress.Player
+namespace Code.Infrastructure.Services.PersistenceProgress.Player
 {
     [Serializable]
     public class PlayerData
     {
         public InventoryData InventoryData;
-
+        public ResourceData ResourceData = new ResourceData();
+        
         [UsedImplicitly]
         public PlayerData()
         {

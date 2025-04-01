@@ -5,22 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/IPersistenceProgressService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/IPersistenceProgressService.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/PersistenceProgressService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/PersistenceProgressService.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player/InventoryData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player/InventoryData.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player/InventoryOpeningData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player/InventoryOpeningData.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player/PlayerData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player/PlayerData.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/BootstrapInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/BootstrapInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player/InventoryData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player/InventoryData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player/InventoryOpeningData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player/InventoryOpeningData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Inventory/TetrisInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Inventory/TetrisInventory.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,10 +36,15 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/05/958422bd/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/4b/99f01f17/RectTransform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/60/fc9e4118/Transform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/69/20de43c9/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/77/5f9fbf40/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/Inventory/CellBoughtCondition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Inventory/Items/Data/InventoryCharacteristics.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Inventory/Items/Factory/IItemFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Inventory/Items/Provider/ItemDataProvider.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Code/UI/Inventory/Characteristics/InventoryCharacteristicsView.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{

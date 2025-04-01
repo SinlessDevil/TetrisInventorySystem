@@ -1,5 +1,7 @@
 ﻿using System;
+using Code.Infrastructure.Services.PersistenceProgress.Player;
 using Code.Inventory;
+using Code.InventoryModel;
 
 namespace Services.PersistenceProgress.Player
 {
