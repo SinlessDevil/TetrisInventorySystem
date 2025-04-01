@@ -4,8 +4,7 @@
     "references": [
         "Zenject",
         "DOTweenPro.Scripts",
-        "DOTween.Modules",
-        "Inventory"
+        "DOTween.Modules"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

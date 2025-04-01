@@ -6,9 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player/InventoryData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player/InventoryData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player/InventoryOpeningData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player/InventoryOpeningData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Inventory/TetrisInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Inventory/TetrisInventory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Editor/ProjectNavigationHelper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Editor/ProjectNavigationHelper.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Editor/ProjectNavigationHelperEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Editor/ProjectNavigationHelperEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Game.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/StaticData/BalanceStaticData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/StaticData/BalanceStaticData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Utilities/Editor/IdSelectorAttributeDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Utilities/Editor/IdSelectorAttributeDrawer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/InspectorConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/InspectorConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/InspectorConfig.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/InspectorConfig.asset.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,10 +48,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/60/fc9e4118/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/69/20de43c9/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/77/5f9fbf40/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Code/Inventory/CellBoughtCondition.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Code/Inventory/Items/Data/InventoryCharacteristics.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Code/Inventory/Items/Factory/IItemFactory.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Code/Inventory/Items/Provider/ItemDataProvider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PlayerExperience/IPlayerExperienceService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Data/WeaponData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryExpand/InventoryExpandService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/Utilities/Editor/WeaponIdSelectorAttributeDrawer.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -127,6 +134,15 @@
       <workItem from="1743168082650" duration="2154000" />
       <workItem from="1743170688152" duration="4698000" />
       <workItem from="1743194462911" duration="3831000" />
+      <workItem from="1743515929324" duration="5125000" />
+      <workItem from="1743521664161" duration="32000" />
+      <workItem from="1743521700808" duration="4000" />
+      <workItem from="1743521744284" duration="10000" />
+      <workItem from="1743521757812" duration="4000" />
+      <workItem from="1743521862437" duration="2000" />
+      <workItem from="1743521927003" duration="10000" />
+      <workItem from="1743522321779" duration="41000" />
+      <workItem from="1743534961342" duration="4666000" />
     </task>
     <task id="LOCAL-00001" summary="Delete all unused files">
       <option name="closed" value="true" />
@@ -184,7 +200,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743178578662</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added services for inventory">
+      <option name="closed" value="true" />
+      <created>1743519617451</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1743519617451</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,6 +242,7 @@
     <MESSAGE value="Added Newtonsoft" />
     <MESSAGE value="Edits names" />
     <MESSAGE value="Added base scripts for Inventory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added base scripts for Inventory" />
+    <MESSAGE value="Added services for inventory" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added services for inventory" />
   </component>
 </project>
