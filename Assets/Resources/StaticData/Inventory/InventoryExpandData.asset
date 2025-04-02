@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52bed0840f4a45f5918ad1918569e87a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4dc92b4eeede5a14186e6144560f6245, type: 3}
   m_Name: InventoryExpandData
   m_EditorClassIdentifier: 
   Configs:
@@ -44,12 +44,6 @@ MonoBehaviour:
   - Level: 15
     Borders: {fileID: 11400000, guid: f9e0466702cd96c4b87e34ef1217f3aa, type: 2}
   - Level: 16
-    Borders: {fileID: 11400000, guid: 6a6b24a57066f12448ea91e920647762, type: 2}
+    Borders: {fileID: 11400000, guid: f9e0466702cd96c4b87e34ef1217f3aa, type: 2}
   - Level: 17
-    Borders: {fileID: 11400000, guid: 6a6b24a57066f12448ea91e920647762, type: 2}
-  - Level: 18
-    Borders: {fileID: 11400000, guid: 6a6b24a57066f12448ea91e920647762, type: 2}
-  - Level: 19
-    Borders: {fileID: 11400000, guid: 6a6b24a57066f12448ea91e920647762, type: 2}
-  - Level: 20
-    Borders: {fileID: 11400000, guid: 6a6b24a57066f12448ea91e920647762, type: 2}
+    Borders: {fileID: 11400000, guid: f9e0466702cd96c4b87e34ef1217f3aa, type: 2}

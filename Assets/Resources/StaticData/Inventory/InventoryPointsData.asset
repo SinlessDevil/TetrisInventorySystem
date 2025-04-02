@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec7c14d69b3643aeb298cfae58592b26, type: 3}
+  m_Script: {fileID: 11500000, guid: 97858bc64c76d414e9751aff938f4df3, type: 3}
   m_Name: InventoryPointsData
   m_EditorClassIdentifier: 
   Configs:

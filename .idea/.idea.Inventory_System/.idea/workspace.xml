@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/StaticData/Items/Item.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/StaticData/Items/Item.asset" afterDir="false" />
-    </list>
+    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="Added items configs" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,6 +38,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/77/5f9fbf40/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cf872124b3f4465e87923725fbaf943219200/b0/3cc64a98/ValidateInputAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PlayerExperience/IPlayerExperienceService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/Projects/Inventory_System/Assets/Code/InventoryModel/Data/InventoryBalance.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Data/WeaponData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryExpand/InventoryExpandService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Utilities/Editor/WeaponIdSelectorAttributeDrawer.cs" root0="FORCE_HIGHLIGHTING" />
@@ -134,6 +133,7 @@
       <workItem from="1743521927003" duration="10000" />
       <workItem from="1743522321779" duration="41000" />
       <workItem from="1743534961342" duration="5654000" />
+      <workItem from="1743579476210" duration="309000" />
     </task>
     <task id="LOCAL-00001" summary="Delete all unused files">
       <option name="closed" value="true" />
@@ -207,7 +207,23 @@
       <option name="project" value="LOCAL" />
       <updated>1743542324531</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added UI sprites , added configs">
+      <option name="closed" value="true" />
+      <created>1743579760952</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1743579760952</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added items configs">
+      <option name="closed" value="true" />
+      <created>1743579774298</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1743579774298</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,6 +259,8 @@
     <MESSAGE value="Added base scripts for Inventory" />
     <MESSAGE value="Added services for inventory" />
     <MESSAGE value="Fixed Item config" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Item config" />
+    <MESSAGE value="Added UI sprites , added configs" />
+    <MESSAGE value="Added items configs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added items configs" />
   </component>
 </project>

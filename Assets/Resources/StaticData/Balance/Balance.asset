@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Balance
   m_EditorClassIdentifier: 
   Inventory:
-    DefaultOpenedCells: {fileID: 0}
+    DefaultOpenedCells: {fileID: 11400000, guid: 2361ab47e4090e148983b9a8f3f47b24, type: 2}
     DefaultItems:
-    - Id: 
-    RangColor: []
+    - Id: apple01
+    - Id: blueberry01
+    - Id: Orange01

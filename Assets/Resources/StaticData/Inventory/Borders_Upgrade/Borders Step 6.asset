@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9de3bea010e84a0ba9c340d6ea6a6cbc, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d1c7f4559ec1724bafd26698a6842b9, type: 3}
   m_Name: Borders Step 6
   m_EditorClassIdentifier: 
   serializationData:

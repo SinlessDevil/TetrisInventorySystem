@@ -16,7 +16,7 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    - {fileID: 21300000, guid: 23c39604c54f9f944ac7791b186f3dce, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -27,13 +27,13 @@ MonoBehaviour:
       Data: 0|Code.InventoryModel.Items.Data.Weapon, Game
     - Name: Id
       Entry: 1
-      Data: test02
+      Data: blueberry01
     - Name: Name
       Entry: 1
-      Data: Test
+      Data: Blueberry
     - Name: Description
       Entry: 1
-      Data: Testable weapon
+      Data: Testable weapon Blueberry
     - Name: ItemLevel
       Entry: 3
       Data: 1
