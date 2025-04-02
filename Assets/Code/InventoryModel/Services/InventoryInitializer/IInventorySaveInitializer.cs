@@ -1,5 +1,6 @@
 using Code.InventoryModel.Data;
 using Services.PersistenceProgress.Player;
+using StaticData;
 
 namespace Services.Factories.Inventory
 {

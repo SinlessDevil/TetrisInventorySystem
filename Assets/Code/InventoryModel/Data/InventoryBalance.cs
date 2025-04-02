@@ -6,7 +6,7 @@ namespace Code.InventoryModel.Data
     [Serializable]
     public class InventoryBalance
     {
-        public InventoryBorders DefaultOpenedCells;
+        public InventoryBorders DefaultOpenedCells = new();
         public ItemId[] DefaultItems = Array.Empty<ItemId>();
         
         [Serializable]

@@ -1,4 +1,6 @@
+using System;
 using Code.InventoryModel.Data;
+using Code.Utilities.Attributes;
 using UnityEngine;
 
 namespace StaticData

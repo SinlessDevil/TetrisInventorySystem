@@ -6,6 +6,7 @@ using Code.InventoryModel.Data;
 using Code.InventoryModel.Items.Data;
 using Code.InventoryModel.Items.Factory;
 using Services.PersistenceProgress.Player;
+using StaticData;
 
 namespace Services.Factories.Inventory
 {

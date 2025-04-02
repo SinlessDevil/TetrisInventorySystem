@@ -14,7 +14,7 @@ namespace CodeBase.Infrastructure
 
         public void Initialize()
         {
-            
+            Container.Resolve<IGameStarter>().Initialize();
         }
 
         public void Dispose()

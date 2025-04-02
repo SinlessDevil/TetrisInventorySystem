@@ -4,7 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="Added items configs" />
+    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="Added configs inventory">
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/SaveLoad.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/SaveLoad/ISaveLoadService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/SaveLoad/ISaveLoadService.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/SaveLoad/SaveLoadService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/SaveLoad/SaveLoadService.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryPlayer/IInventoryPlayerSetUper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryPlayer/IInventoryPlayerSetUper.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/BootstrapInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/BootstrapInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/GameInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/GameInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/GameStater/GameStarter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/GameStater/GameStarter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/GameStater/IGameStarter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/GameStater/IGameStarter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/StaticData/IStaticDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/StaticData/IStaticDataService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/StaticData/StaticDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/StaticData/StaticDataService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/StaticData/BalanceStaticData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/StaticData/BalanceStaticData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/InventoryModel/Data/InventoryBalance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Data/InventoryBalance.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryInitializer/IInventorySaveInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryInitializer/IInventorySaveInitializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryInitializer/InventorySaveInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryInitializer/InventorySaveInitializer.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +60,9 @@
     <setting file="mock://E:/Unity/Projects/Inventory_System/Assets/Code/InventoryModel/Data/InventoryBalance.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Data/WeaponData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryExpand/InventoryExpandService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryPlayer/InventoryPlayerSetUper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Utilities/Editor/WeaponIdSelectorAttributeDrawer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.33/UnityEngine.TestRunner/TestRunner/PlaymodeTestsControllerSettings.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -133,7 +154,7 @@
       <workItem from="1743521927003" duration="10000" />
       <workItem from="1743522321779" duration="41000" />
       <workItem from="1743534961342" duration="5654000" />
-      <workItem from="1743579476210" duration="309000" />
+      <workItem from="1743579476210" duration="4326000" />
     </task>
     <task id="LOCAL-00001" summary="Delete all unused files">
       <option name="closed" value="true" />
@@ -223,7 +244,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743579774298</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added configs inventory">
+      <option name="closed" value="true" />
+      <created>1743579808066</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1743579808066</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,6 +290,7 @@
     <MESSAGE value="Fixed Item config" />
     <MESSAGE value="Added UI sprites , added configs" />
     <MESSAGE value="Added items configs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added items configs" />
+    <MESSAGE value="Added configs inventory" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added configs inventory" />
   </component>
 </project>

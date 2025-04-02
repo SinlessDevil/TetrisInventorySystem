@@ -1,9 +1,12 @@
 using Code.Infrastructure.Services.PersistenceProgress;
+using Code.Infrastructure.Services.PlayerExperience;
+using Code.Infrastructure.Services.SaveLoad;
 using Code.Infrastructure.Services.StaticData;
 using Code.Inventory.Services.InventoryExpand;
 using Code.InventoryModel.Items.Factory;
 using Code.InventoryModel.Items.Provider;
 using Code.InventoryModel.Services.InventoryDataProvider;
+using Code.InventoryModel.Services.InventoryPlayer;
 using Services.Factories.Inventory;
 using Services.PersistenceProgress;
 using UnityEngine.SceneManagement;
@@ -20,20 +23,32 @@ namespace Code.Infrastructure
             Container.BindInterfacesTo<BootstrapInstaller>().FromInstance(this).AsSingle();
 
             BindFactory();
-            BindStaticData();
+            BindSaveLoad();
             BindProgressData();
+            BindPlayerExperience();
+            BindInventoryServices();
+            BindStaticData();
         }
 
         private void BindFactory()
         {
             Container.Bind<IItemFactory>().To<ItemFactory>().AsSingle();
         }
+        
+        private void BindSaveLoad() =>
+            Container.Bind<ISaveLoadService>().To<SaveLoadService>().AsSingle();
 
-        private void BindProgressData()
-        {
+        private void BindProgressData() =>
             Container.Bind<IPersistenceProgressService>().To<PersistenceProgressService>().AsSingle();
+        
+        private void BindPlayerExperience() =>
+            Container.Bind<IPlayerExperienceService>().To<PlayerExperienceService>().AsSingle();
+        
+        private void BindInventoryServices()
+        {
             Container.Bind<IInventoryExpandService>().To<InventoryExpandService>().AsSingle();
             Container.Bind<IInventorySaveInitializer>().To<InventorySaveInitializer>().AsSingle();
+            Container.Bind<IInventoryPlayerSetUper>().To<InventoryPlayerSetUper>().AsSingle();
         }
         
         private void BindStaticData()

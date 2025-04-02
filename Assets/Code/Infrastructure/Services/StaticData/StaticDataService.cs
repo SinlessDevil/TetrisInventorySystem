@@ -9,11 +9,13 @@ namespace Code.Infrastructure.Services.StaticData
 
         private BalanceStaticData _balanceStaticData;
 
-        public BalanceStaticData BalanceStaticData => _balanceStaticData;
+        public BalanceStaticData Balance => _balanceStaticData;
 
         public void LoadData()
         {
+            Debug.Log("StaticDataService.LoadData");
             _balanceStaticData = Resources.Load<BalanceStaticData>(BalanceStaticDataPath);
+            Debug.Log("BalanceStaticData " + _balanceStaticData.Inventory);
         }
     }
 }
