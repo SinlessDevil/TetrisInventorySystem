@@ -1,3 +1,4 @@
+using Code.Infrastructure.Factory;
 using Code.Infrastructure.Services.PersistenceProgress;
 using Code.Infrastructure.Services.PlayerExperience;
 using Code.Infrastructure.Services.SaveLoad;
@@ -7,6 +8,8 @@ using Code.InventoryModel.Items.Factory;
 using Code.InventoryModel.Items.Provider;
 using Code.InventoryModel.Services.InventoryDataProvider;
 using Code.InventoryModel.Services.InventoryPlayer;
+using Code.UI.InventoryViewModel.Factory;
+using Code.UI.InventoryViewModel.Services.InventoryViewInitializer;
 using Services.Factories.Inventory;
 using Services.PersistenceProgress;
 using UnityEngine.SceneManagement;
@@ -33,6 +36,8 @@ namespace Code.Infrastructure
         private void BindFactory()
         {
             Container.Bind<IItemFactory>().To<ItemFactory>().AsSingle();
+            Container.Bind<IUIFactory>().To<UIFactory>().AsSingle();
+            Container.Bind<IInventoryUIFactory>().To<InventoryUIFactory>().AsSingle();
         }
         
         private void BindSaveLoad() =>
@@ -49,6 +54,8 @@ namespace Code.Infrastructure
             Container.Bind<IInventoryExpandService>().To<InventoryExpandService>().AsSingle();
             Container.Bind<IInventorySaveInitializer>().To<InventorySaveInitializer>().AsSingle();
             Container.Bind<IInventoryPlayerSetUper>().To<InventoryPlayerSetUper>().AsSingle();
+            
+            Container.Bind<IInventoryViewInitializer>().To<InventoryViewInitializer>().AsSingle();
         }
         
         private void BindStaticData()

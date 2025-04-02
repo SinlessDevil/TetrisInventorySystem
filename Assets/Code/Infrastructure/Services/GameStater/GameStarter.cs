@@ -1,4 +1,5 @@
 using System.Text;
+using Code.Infrastructure.Factory;
 using Code.Infrastructure.Services.PersistenceProgress;
 using Code.Infrastructure.Services.PersistenceProgress.Player;
 using Code.Infrastructure.Services.SaveLoad;
@@ -6,6 +7,7 @@ using Code.Infrastructure.Services.StaticData;
 using Code.Inventory.Services.InventoryExpand;
 using Code.InventoryModel;
 using Code.InventoryModel.Services.InventoryPlayer;
+using Code.UI.InventoryViewModel.Services.InventoryViewInitializer;
 using Services.Factories.Inventory;
 using UnityEngine;
 
@@ -16,24 +18,30 @@ namespace Code.Infrastructure.Services.GameStater
         private readonly IStaticDataService _staticDataService;
         private readonly IPersistenceProgressService _progressService;
         private readonly ISaveLoadService _saveLoadService;
+        private readonly IUIFactory _uiFactory;
         private readonly IInventorySaveInitializer _inventorySaveInitializer;
         private readonly IInventoryPlayerSetUper _playerInventory;
         private readonly IInventoryExpandService _inventoryExpandService;
+        private readonly IInventoryViewInitializer _inventoryViewInitializer;
 
         public GameStarter(
             IPersistenceProgressService progressService,
             IStaticDataService staticDataService,
             ISaveLoadService saveLoadService, 
+            IUIFactory uiFactory,
             IInventorySaveInitializer inventorySaveInitializer,
             IInventoryPlayerSetUper playerInventory, 
-            IInventoryExpandService inventoryExpandService)
+            IInventoryExpandService inventoryExpandService,
+            IInventoryViewInitializer inventoryViewInitializer)
         {
             _progressService = progressService;
             _staticDataService = staticDataService;
             _saveLoadService = saveLoadService;
+            _uiFactory = uiFactory;
             _inventorySaveInitializer = inventorySaveInitializer;
             _playerInventory = playerInventory;
             _inventoryExpandService = inventoryExpandService;
+            _inventoryViewInitializer = inventoryViewInitializer;
         }
 
         public void Initialize()
@@ -41,12 +49,12 @@ namespace Code.Infrastructure.Services.GameStater
             Debug.Log("GameStarter.Initialize");
             
             InitProgress();
-            InitInventory();
-
-            DebugInventory();
+            InitInventoryModel();
+            DebugInventoryModel();
+            InitUI();
         }
-
-        private void InitInventory()
+        
+        private void InitInventoryModel()
         {
             TetrisInventoryData inventoryData = _progressService.PlayerData.InventoryData.PlayerInventory;
             IInventory inventory = new ExpandableInventory(new TetrisInventory(inventoryData), _inventoryExpandService);
@@ -58,7 +66,7 @@ namespace Code.Infrastructure.Services.GameStater
             _progressService.PlayerData = LoadProgress() ?? SetUpBaseProgress();   
         }
 
-        private void DebugInventory()
+        private void DebugInventoryModel()
         {
             TetrisInventoryData inventory = _progressService.PlayerData.InventoryData.PlayerInventory;
             Debug.Log("===== Inventory State =====");
@@ -80,6 +88,13 @@ namespace Code.Infrastructure.Services.GameStater
             }
 
             Debug.Log(sb.ToString());
+        }
+        
+        private void InitUI()
+        {
+            _uiFactory.CreateUiRoot();
+            
+            _inventoryViewInitializer.OpenInventory();
         }
         
         private PlayerData LoadProgress()
