@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="Fixed Load Resources Balance">
+    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/GameStater/GameStarter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/GameStater/GameStarter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player/PlayerData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PersistenceProgress/Player/PlayerData.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +138,7 @@
       <workItem from="1743521927003" duration="10000" />
       <workItem from="1743522321779" duration="41000" />
       <workItem from="1743534961342" duration="5654000" />
-      <workItem from="1743579476210" duration="5611000" />
+      <workItem from="1743579476210" duration="9456000" />
     </task>
     <task id="LOCAL-00001" summary="Delete all unused files">
       <option name="closed" value="true" />
@@ -253,7 +252,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743587507516</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Fixed initialize inventory">
+      <option name="closed" value="true" />
+      <created>1743587847505</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1743587847505</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,6 +301,7 @@
     <MESSAGE value="Added configs inventory" />
     <MESSAGE value="Try init inventory and game starter" />
     <MESSAGE value="Fixed Load Resources Balance" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Load Resources Balance" />
+    <MESSAGE value="Fixed initialize inventory" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed initialize inventory" />
   </component>
 </project>
