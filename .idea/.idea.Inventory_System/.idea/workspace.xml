@@ -5,17 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Editor/ProjectNavigationHelper.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Editor/ProjectNavigationHelper.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Editor/ProjectNavigationHelperEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Editor/ProjectNavigationHelperEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Game.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/StaticData/BalanceStaticData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/StaticData/BalanceStaticData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Utilities/Editor/IdSelectorAttributeDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Utilities/Editor/IdSelectorAttributeDrawer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/InspectorConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/InspectorConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/InspectorConfig.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/InspectorConfig.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/StaticData/Items/Item.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/StaticData/Items/Item.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +38,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/60/fc9e4118/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/69/20de43c9/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/77/5f9fbf40/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cf872124b3f4465e87923725fbaf943219200/b0/3cc64a98/ValidateInputAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PlayerExperience/IPlayerExperienceService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Data/WeaponData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryExpand/InventoryExpandService.cs" root0="SKIP_HIGHLIGHTING" />
@@ -142,7 +133,7 @@
       <workItem from="1743521862437" duration="2000" />
       <workItem from="1743521927003" duration="10000" />
       <workItem from="1743522321779" duration="41000" />
-      <workItem from="1743534961342" duration="4666000" />
+      <workItem from="1743534961342" duration="5654000" />
     </task>
     <task id="LOCAL-00001" summary="Delete all unused files">
       <option name="closed" value="true" />
@@ -208,7 +199,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743519617451</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fixed Item config">
+      <option name="closed" value="true" />
+      <created>1743542324531</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1743542324531</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,6 +242,7 @@
     <MESSAGE value="Edits names" />
     <MESSAGE value="Added base scripts for Inventory" />
     <MESSAGE value="Added services for inventory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added services for inventory" />
+    <MESSAGE value="Fixed Item config" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Item config" />
   </component>
 </project>
