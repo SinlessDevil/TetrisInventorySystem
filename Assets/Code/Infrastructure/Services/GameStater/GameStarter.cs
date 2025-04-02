@@ -70,6 +70,8 @@ namespace Code.Infrastructure.Services.GameStater
                 columns: InventorySize.Columns,
                 rows: InventorySize.Rows);
             
+            _progressService.PlayerData = progress;
+            
             _inventorySaveInitializer.Initialize(
                 initialItems: _staticDataService.Balance.Inventory.DefaultItems,
                 defaultBorders: _staticDataService.Balance.Inventory.DefaultOpenedCells);
