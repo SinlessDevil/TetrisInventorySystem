@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d1c7f4559ec1724bafd26698a6842b9, type: 3}
-  m_Name: Borders Step 0 Default (3x2)
+  m_Name: Borders Step 0 Default (3x3)
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2

@@ -4,25 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="Added configs inventory">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/SaveLoad.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/SaveLoad/ISaveLoadService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/SaveLoad/ISaveLoadService.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/SaveLoad/SaveLoadService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/SaveLoad/SaveLoadService.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryPlayer/IInventoryPlayerSetUper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryPlayer/IInventoryPlayerSetUper.cs.meta" afterDir="false" />
+    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="Try init inventory and game starter">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/BootstrapInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/BootstrapInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/GameInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/GameInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/GameStater/GameStarter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/GameStater/GameStarter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/GameStater/IGameStarter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/GameStater/IGameStarter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/StaticData/IStaticDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/StaticData/IStaticDataService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/StaticData/StaticDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/StaticData/StaticDataService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/StaticData/BalanceStaticData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/StaticData/BalanceStaticData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/InventoryModel/Data/InventoryBalance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Data/InventoryBalance.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryInitializer/IInventorySaveInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryInitializer/IInventorySaveInitializer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryInitializer/InventorySaveInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryInitializer/InventorySaveInitializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/StaticData/Inventory/Borders Step 0 Default (3x2).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/StaticData/Inventory/Borders Step 0 Default (3x2).asset.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +144,7 @@
       <workItem from="1743521927003" duration="10000" />
       <workItem from="1743522321779" duration="41000" />
       <workItem from="1743534961342" duration="5654000" />
-      <workItem from="1743579476210" duration="4326000" />
+      <workItem from="1743579476210" duration="5212000" />
     </task>
     <task id="LOCAL-00001" summary="Delete all unused files">
       <option name="closed" value="true" />
@@ -252,7 +242,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743579808066</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Try init inventory and game starter">
+      <option name="closed" value="true" />
+      <created>1743586627198</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1743586627198</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,6 +289,7 @@
     <MESSAGE value="Added UI sprites , added configs" />
     <MESSAGE value="Added items configs" />
     <MESSAGE value="Added configs inventory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added configs inventory" />
+    <MESSAGE value="Try init inventory and game starter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Try init inventory and game starter" />
   </component>
 </project>
