@@ -80,7 +80,7 @@ namespace Code.Infrastructure.Services.GameStater
                 for (int x = 0; x < inventory.Columns; x++)
                 {
                     GridCell cell = inventory.Cells[y * inventory.Columns + x];
-                    string cellContent = cell.Item != null ? cell.Item.Id.ToString() : " . ";
+                    string cellContent = cell.Item != null ? cell.Item.Id : " Empty ";
                     row[x] = $"({x},{y}) {cellContent}";
                 }
 
@@ -92,7 +92,7 @@ namespace Code.Infrastructure.Services.GameStater
         
         private void InitUI()
         {
-            _uiFactory.CreateUiRoot();
+            _uiFactory.CreateUIRoot();
             
             _inventoryViewInitializer.OpenInventory();
         }

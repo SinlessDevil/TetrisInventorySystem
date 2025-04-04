@@ -4,33 +4,20 @@ using Zenject;
 
 namespace Code.Infrastructure.Factory
 {
-    public class UIFactory : IUIFactory
+    public class UIFactory : Factory, IUIFactory
     {
-        private readonly IInstantiator _instantiator;
         private const string UiRootPath = "UI/UiRoot";
         
-        private Canvas _uiRoot;
+        private Transform _uiRoot;
 
-        public UIFactory(IInstantiator instantiator)
-        {
-            _instantiator = instantiator;
-        }
+        public UIFactory(IInstantiator instantiator) : base(instantiator) { }
 
-        public Canvas UIRootCanvas => _uiRoot;
+        public Canvas UIRootCanvas { get; private set; }
         
-        public void CreateUiRoot()
+        public void CreateUIRoot()
         {
-            var gameObject = _instantiator.InstantiatePrefabResource(UiRootPath, null);
-            _uiRoot = gameObject.GetComponent<Canvas>();
-            TryMoveToCurrentScene(gameObject);
-        }
-        
-        private GameObject TryMoveToCurrentScene(GameObject gameObject)
-        {
-            if(gameObject.transform.parent == null)
-                SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
-            
-            return gameObject;
+            _uiRoot = Instantiate(UiRootPath).transform;
+            UIRootCanvas = _uiRoot.GetComponent<Canvas>();
         }
     }
 }

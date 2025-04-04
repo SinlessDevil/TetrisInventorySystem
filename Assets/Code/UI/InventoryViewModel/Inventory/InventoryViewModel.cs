@@ -1,4 +1,4 @@
-namespace Code.UI.InventoryViewModel
+namespace Code.UI.InventoryViewModel.Inventory
 {
     public class InventoryViewModel : IInventoryViewModel
     {

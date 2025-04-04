@@ -35,9 +35,9 @@ namespace Code.Infrastructure
 
         private void BindFactory()
         {
-            Container.Bind<IItemFactory>().To<ItemFactory>().AsSingle();
-            Container.Bind<IUIFactory>().To<UIFactory>().AsSingle();
-            Container.Bind<IInventoryUIFactory>().To<InventoryUIFactory>().AsSingle();
+            Container.BindInterfacesTo<ItemFactory>().AsSingle();
+            Container.BindInterfacesTo<UIFactory>().AsSingle();
+            Container.BindInterfacesTo<InventoryUIFactory>().AsSingle();
         }
         
         private void BindSaveLoad() =>
