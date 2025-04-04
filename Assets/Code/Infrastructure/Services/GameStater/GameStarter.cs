@@ -22,8 +22,6 @@ namespace Code.Infrastructure.Services.GameStater
         private readonly IInventorySaveInitializer _inventorySaveInitializer;
         private readonly IInventoryPlayerSetUper _playerInventory;
         private readonly IInventoryExpandService _inventoryExpandService;
-        private readonly IInventoryViewInitializer _inventoryViewInitializer;
-
         public GameStarter(
             IPersistenceProgressService progressService,
             IStaticDataService staticDataService,
@@ -31,8 +29,7 @@ namespace Code.Infrastructure.Services.GameStater
             IUIFactory uiFactory,
             IInventorySaveInitializer inventorySaveInitializer,
             IInventoryPlayerSetUper playerInventory, 
-            IInventoryExpandService inventoryExpandService,
-            IInventoryViewInitializer inventoryViewInitializer)
+            IInventoryExpandService inventoryExpandService)
         {
             _progressService = progressService;
             _staticDataService = staticDataService;
@@ -41,7 +38,6 @@ namespace Code.Infrastructure.Services.GameStater
             _inventorySaveInitializer = inventorySaveInitializer;
             _playerInventory = playerInventory;
             _inventoryExpandService = inventoryExpandService;
-            _inventoryViewInitializer = inventoryViewInitializer;
         }
 
         public void Initialize()
