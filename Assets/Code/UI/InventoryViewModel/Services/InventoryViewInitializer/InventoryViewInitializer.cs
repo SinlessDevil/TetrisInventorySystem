@@ -1,4 +1,6 @@
 using Code.UI.InventoryViewModel.Factory;
+using Code.UI.InventoryViewModel.Inventory;
+using UnityEngine.Rendering;
 
 namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
 {
@@ -13,6 +15,8 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
             _inventoryUIFactory = inventoryUIFactory;
         }
         
+        public bool HasOpenInventory => _inventoryContainer != null;
+        
         public void OpenInventory()
         {
             InitializeInventory();
@@ -26,7 +30,7 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
         private void InitializeInventory()
         {
             InventoryView inventoryView = _inventoryUIFactory.CreateInventoryView();
-            IInventoryViewModel inventoryViewModel = new InventoryViewModel();
+            IInventoryViewModel inventoryViewModel = new Inventory.InventoryViewModel();
 
             var inventoryContainer = new InventoryContainer()
             {

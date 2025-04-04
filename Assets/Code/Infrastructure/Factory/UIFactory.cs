@@ -7,17 +7,23 @@ namespace Code.Infrastructure.Factory
     public class UIFactory : Factory, IUIFactory
     {
         private const string UiRootPath = "UI/UiRoot";
+        private const string GameHudPath = "UI/GameHud";
         
-        private Transform _uiRoot;
-
         public UIFactory(IInstantiator instantiator) : base(instantiator) { }
 
         public Canvas UIRootCanvas { get; private set; }
+        public Canvas GameHudCanvas { get; private set; }
         
         public void CreateUIRoot()
         {
-            _uiRoot = Instantiate(UiRootPath).transform;
-            UIRootCanvas = _uiRoot.GetComponent<Canvas>();
+            var uiRoot = Instantiate(UiRootPath).transform;
+            UIRootCanvas = uiRoot.GetComponent<Canvas>();
+        }
+        
+        public void CreateGameHud()
+        {
+            var gamehud = Instantiate(GameHudPath).transform;
+            GameHudCanvas = gamehud.GetComponent<Canvas>();
         }
     }
 }

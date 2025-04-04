@@ -4,21 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="">
+    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="Fixed instance object in scene">
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/ButtonInventory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/ButtonInventory.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/BootstrapInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/BootstrapInstaller.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/Factory/IUIFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Factory/IUIFactory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/Factory/UIFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Factory/UIFactory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/GameStater/GameStarter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/GameStater/GameStarter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Factory/InventoryUIFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Factory/InventoryUIFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/IInventoryViewModel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/IInventoryViewModel.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/InventoryView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/InventoryView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/InventoryViewModel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/InventoryViewModel.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ProjectContext.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ProjectContext.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/UIRoot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/UIRoot.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Factory/IInventoryUIFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Factory/IInventoryUIFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Services/InventoryViewInitializer/IInventoryViewInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Services/InventoryViewInitializer/IInventoryViewInitializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Services/InventoryViewInitializer/InventoryContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Services/InventoryViewInitializer/InventoryContainer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Services/InventoryViewInitializer/InventoryViewInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Services/InventoryViewInitializer/InventoryViewInitializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/GameHud.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/GameHud.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,30 +44,23 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/05/958422bd/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/4b/99f01f17/RectTransform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/60/fc9e4118/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/69/20de43c9/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/77/5f9fbf40/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cf872124b3f4465e87923725fbaf943219200/b0/3cc64a98/ValidateInputAttribute.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Unity/Projects/Inventory_System/Assets/Code/Infrastructure/BootstrapInstaller.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Unity/Projects/Inventory_System/Assets/Code/Infrastructure/BootstrapInstaller.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Infrastructure/Factory/UIFactory.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://E:/Unity/Projects/Inventory_System/Assets/Code/Infrastructure/Services/GameStater/GameStarter.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Unity/Projects/Inventory_System/Assets/Code/Infrastructure/Services/GameStater/GameStarter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PlayerExperience/IPlayerExperienceService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://E:/Unity/Projects/Inventory_System/Assets/Code/InventoryModel/Data/InventoryBalance.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Data/WeaponData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryExpand/InventoryExpandService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryPlayer/InventoryPlayerSetUper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/Projects/Inventory_System/Assets/Code/UI/InventoryViewModel/Factory/IInventoryUIFactory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Factory/IInventoryUIFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/Projects/Inventory_System/Assets/Code/UI/InventoryViewModel/Factory/IInventoryUIFactory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Services/InventoryViewInitializer/InventoryViewInitializer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Utilities/Editor/WeaponIdSelectorAttributeDrawer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.33/UnityEngine.TestRunner/TestRunner/PlaymodeTestsControllerSettings.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Unity/Projects/Inventory_System/Packages/manifest.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://E:/Unity/Projects/Inventory_System/Packages/packages-lock.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -164,7 +155,7 @@
       <workItem from="1743534961342" duration="5654000" />
       <workItem from="1743579476210" duration="9456000" />
       <workItem from="1743702652578" duration="133000" />
-      <workItem from="1743756068004" duration="2780000" />
+      <workItem from="1743756068004" duration="3908000" />
     </task>
     <task id="LOCAL-00001" summary="Delete all unused files">
       <option name="closed" value="true" />
@@ -310,7 +301,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743622275449</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Fixed instance object in scene">
+      <option name="closed" value="true" />
+      <created>1743759065908</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1743759065908</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,6 +354,7 @@
     <MESSAGE value="Fixed UI Root" />
     <MESSAGE value="Added base ui scripts" />
     <MESSAGE value="Added base Factory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added base Factory" />
+    <MESSAGE value="Fixed instance object in scene" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed instance object in scene" />
   </component>
 </project>

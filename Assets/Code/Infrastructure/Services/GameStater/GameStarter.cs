@@ -93,8 +93,7 @@ namespace Code.Infrastructure.Services.GameStater
         private void InitUI()
         {
             _uiFactory.CreateUIRoot();
-            
-            _inventoryViewInitializer.OpenInventory();
+            _uiFactory.CreateGameHud();
         }
         
         private PlayerData LoadProgress()

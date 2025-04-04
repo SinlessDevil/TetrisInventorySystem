@@ -4,5 +4,6 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
     {
         void OpenInventory();
         void CloseInventory();
+        bool HasOpenInventory { get; }
     }
 }
