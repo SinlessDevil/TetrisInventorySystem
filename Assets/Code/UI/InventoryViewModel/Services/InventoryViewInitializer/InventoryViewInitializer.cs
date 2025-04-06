@@ -14,8 +14,8 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
     public class InventoryViewInitializer : IInventoryViewInitializer
     {
         private InventoryContainer _inventoryContainer;
-        private List<ItemContainer> _itemContainers = new List<ItemContainer>(25);
-        private List<SlotContainer> _slotContainers = new List<SlotContainer>(25);
+        private List<ItemContainer> _itemContainers = new(25);
+        private List<SlotContainer> _slotContainers = new(25);
         
         private IItemPositionFinding _itemPositionFinding;
         
@@ -58,7 +58,7 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
             InventoryView inventoryView = _inventoryUIFactory.CreateInventoryView();
             IInventoryViewModel inventoryViewModel = new Inventory.InventoryViewModel();
 
-            var inventoryContainer = new InventoryContainer()
+            InventoryContainer inventoryContainer = new InventoryContainer()
             {
                 View = inventoryView,
                 ViewModel = inventoryViewModel
@@ -74,7 +74,7 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
                 SlotView slotView = _inventoryUIFactory.CreateSlotView(_inventoryContainer.View.SlotsContainer);
                 ISlotViewModel slotViewModel = new SlotViewModel(gridCell);
                 
-                var slotContainer = new SlotContainer()
+                SlotContainer slotContainer = new SlotContainer()
                 {
                     View = slotView,
                     ViewModel = slotViewModel
@@ -90,10 +90,10 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
             {
                 ItemView itemView = _inventoryUIFactory.CreateItemView(_inventoryContainer.View.ItemsContainer);
                 IItemViewModel itemViewModel = new ItemViewModel(
-                    item, _itemPositionFinding, _inventoryContainer.View.ItemsContainer, _itemDataProvider, 
+                    item, _itemPositionFinding, _itemDataProvider, _inventoryContainer.View.ItemsContainer, 
                     InventorySize.CellSize,_inventoryContainer.View.ItemsContainer.position, Quaternion.identity);
                 
-                var itemContainer = new ItemContainer()
+                ItemContainer itemContainer = new ItemContainer()
                 {
                     View = itemView,
                     ViewModel = itemViewModel
@@ -105,8 +105,8 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
 
         private void InitPositionFinding()
         {
-            var offsetX = ((_inventoryContainer.View.ItemsContainer.rect.width / 2) * -1) + InventorySize.CellSize / 2;
-            var offsetY = (_inventoryContainer.View.ItemsContainer.rect.height / 2) - InventorySize.CellSize / 2;
+            float offsetX = ((_inventoryContainer.View.ItemsContainer.rect.width / 2) * -1) + InventorySize.CellSize / 2;
+            float offsetY = (_inventoryContainer.View.ItemsContainer.rect.height / 2) - InventorySize.CellSize / 2;
             _itemPositionFinding = new ItemPositionFinding(_slotContainers, InventorySize.CellSize, offsetX, offsetY, 
                 _inventoryContainer.View.ItemsContainer);
         }

@@ -1,3 +1,4 @@
+using System;
 using Code.InventoryModel.Items.Provider;
 using UI.Inventory;
 using UnityEngine;
@@ -6,31 +7,37 @@ namespace Code.UI.InventoryViewModel.Item
 {
     public class ItemViewModel : IItemViewModel
     {
+        private Vector2 _offset;
+        
         private readonly InventoryModel.Items.Data.Item _item;
         private readonly IItemPositionFinding _itemPositionFinding;
-        private readonly RectTransform _parentRectTransform;
         private readonly IItemDataProvider _itemDataProvider;
+        private readonly RectTransform _parentRectTransform;
         private readonly int _sizeSlot;
         private readonly Vector2 _spawnPosition;
         private readonly Quaternion _spawnRotation;
-
+        
         public ItemViewModel(
             InventoryModel.Items.Data.Item item, 
             IItemPositionFinding itemPositionFinding,
-            RectTransform parentRectTransform,
             IItemDataProvider itemDataProvider,
+            RectTransform parentRectTransform,
             int sizeSlot,
             Vector2 spawnPosition,
             Quaternion spawnRotation)
         {
             _item = item;
             _itemPositionFinding = itemPositionFinding;
-            _parentRectTransform = parentRectTransform;
             _itemDataProvider = itemDataProvider;
+            _parentRectTransform = parentRectTransform;
             _sizeSlot = sizeSlot;
             _spawnPosition = spawnPosition;
             _spawnRotation = spawnRotation;
         }
+        
+        public event Action<IItemViewModel> StartedDragViewEvent;
+        public event Action<Vector2, IItemViewModel> EndedDragViewEvent;
+        public event Action<Vector2> ChangedPositionViewEvent;
         
         public InventoryModel.Items.Data.Item Item => _item;
         
@@ -83,6 +90,23 @@ namespace Code.UI.InventoryViewModel.Item
         public Vector3 GetGraphicFlipScale()
         {
             return _item.Graphic.FlipScale;
+        }
+        
+        public void SetStartDrag(Vector3 position)
+        {
+            _offset = (Vector2)position;
+            StartedDragViewEvent?.Invoke(this);
+        }
+        
+        public void SetEndDrag(Vector3 position)
+        {
+            EndedDragViewEvent?.Invoke(position, this);
+        }
+        
+        public void ChangPosition(Vector2 position)
+        {
+            Vector3 newPosition = position + _offset;
+            ChangedPositionViewEvent?.Invoke(newPosition);
         }
     }
 }

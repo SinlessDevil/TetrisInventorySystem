@@ -10,5 +10,6 @@ namespace Code.UI.InventoryViewModel.Slot
         {
             _viewModel = viewModel;
         }
+        
     }
 }

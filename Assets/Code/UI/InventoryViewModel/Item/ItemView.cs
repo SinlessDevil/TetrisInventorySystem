@@ -10,12 +10,22 @@ namespace Code.UI.InventoryViewModel.Item
         [SerializeField] private RectTransform _iconContainer;
         [Space(10)]
         [SerializeField] private Image _icon;
+        [Space(10)] [Header("Additional Components")]
+        [SerializeField] private ItemInputMover _itemInputMover;
         
         private IItemViewModel _viewModel;
+
+        private void OnValidate()
+        {
+            if(_itemInputMover ==null)
+                _itemInputMover = GetComponent<ItemInputMover>();
+        }
         
         public void Initialize(IItemViewModel viewModel)
         {
             _viewModel = viewModel;
+            
+            _itemInputMover.Initialize(_rootRectTransform, _viewModel);
             
             SetParent(_viewModel.GetParent());
             SetSpriteIcon(_viewModel.GetItemSprite());
@@ -26,8 +36,26 @@ namespace Code.UI.InventoryViewModel.Item
             SetRootCenterPosition(_viewModel.GetRootPosition());
             SetImageRotation(_viewModel.GetGraphicRotation());
             SetImageFlipScale(_viewModel.GetGraphicFlipScale());
+            
+            Subscribe();
         }
 
+        public void Dispose()
+        {
+            Unsubscribe();
+            Destroy(gameObject);
+        }
+
+        private void Subscribe()
+        {
+            _viewModel.ChangedPositionViewEvent += OnChangedPosition;
+        }
+
+        private void Unsubscribe()
+        {
+            _viewModel.ChangedPositionViewEvent -= OnChangedPosition;
+        }
+        
         private void SetParent(RectTransform parent)
         {
             this.transform.SetParent(parent);
@@ -71,6 +99,11 @@ namespace Code.UI.InventoryViewModel.Item
         private void SetImageFlipScale(Vector3 flipScale)
         {
             _iconContainer.localScale = flipScale;
+        }
+
+        private void OnChangedPosition(Vector2 newPosition)
+        {
+            _mainRectTransform.position = newPosition;
         }
     }
 }

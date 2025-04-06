@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 1510614375717806798}
   - component: {fileID: 3819019837386057024}
   - component: {fileID: 1227628495276354267}
+  - component: {fileID: 2213380550440635675}
   m_Layer: 5
   m_Name: ItemView
   m_TagString: Untagged
@@ -108,6 +109,18 @@ MonoBehaviour:
   _rootRectTransform: {fileID: 7744511085474583751}
   _iconContainer: {fileID: 1390225285255952357}
   _icon: {fileID: 6101134793963742139}
+--- !u!114 &2213380550440635675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5763382753096148382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ba5e4059b87134cb5e8a50f6db4741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5816863793814197246
 GameObject:
   m_ObjectHideFlags: 0
