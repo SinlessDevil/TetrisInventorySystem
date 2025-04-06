@@ -9,26 +9,29 @@ namespace UI.Inventory
 {
     public class ItemPositionFinding : IItemPositionFinding
     {
-        private int _cellSize;
+        private List<SlotContainer> _slotsData;
+        private RectTransform _containerInInventory;
         private int _offsetX;
         private int _offsetY;
         
-        private readonly List<SlotContainer> _slotsData;
-        private readonly RectTransform _containerWithOutInventory;
-        private readonly RectTransform _containerInInventory;
+        private readonly int _cellSize;
         
-        public ItemPositionFinding(
-            List<SlotContainer> slotsData, 
-            float cellSize, float offsetX, float offsetY, 
-            RectTransform containerInInventory)
+        public ItemPositionFinding(float cellSize)
         {
-            _slotsData = slotsData;
             _cellSize = (int)cellSize;
-            _offsetX = (int)offsetX;
-            _offsetY = (int)offsetY;
-            _containerInInventory = containerInInventory;
         }
 
+        public void Initialize(            
+            List<SlotContainer> slotsData,
+            RectTransform containerInInventory,
+            float offsetX, float offsetY)
+        {
+            _slotsData = slotsData;
+            _containerInInventory = containerInInventory;
+            _offsetX = (int)offsetX;
+            _offsetY = (int)offsetY;
+        }
+        
         public bool TryGetPositionItemById(Guid itemId)
         {
             List<SlotContainer> slotsDataWithItem = GetSlotsDataWithItem(itemId);

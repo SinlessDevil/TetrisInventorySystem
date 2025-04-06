@@ -69,11 +69,8 @@ namespace Code.UI.InventoryViewModel.Item
 
         public Vector2 GetPosition()
         {
-            if (_itemPositionFinding.TryGetPositionItemById(_item.InstanceId) == false)
-            {
-                return _spawnPosition;
-            }
-            return _itemPositionFinding.GetPositionItemInSlotById(_item.InstanceId);
+            return _itemPositionFinding.TryGetPositionItemById(_item.InstanceId) == false ? 
+                _spawnPosition : _itemPositionFinding.GetPositionItemInSlotById(_item.InstanceId);
         }
 
         public Vector2 GetRootPosition()

@@ -8,16 +8,16 @@ namespace UI.Inventory
 {
     public interface IItemPositionFinding
     {
-        bool TryGetPositionItemById(Guid itemId);
-        bool TryToPlaceItemInInventory(Vector2 position);
-
-        ItemContainer GetNeighbourItemDataWithoutInventory(
-            List<ItemContainer> itemsData, ItemContainer targetItemsData);
-
-        Vector2 GetPositionItemInSlotById(Guid itemId);
-        Vector2 GetPositionItemInContainer(Vector2 itemSize, Vector2 offset);
-        GridCell GetNeighbourGritCellByPosition(Vector2 position);
-        Vector2 GetRootPositionByRootIndex(float rootPositionX, float rootPositionY);
-        bool TryToPlaceItemInContainer(RectTransform container, Vector2 position);
+        public void Initialize(List<SlotContainer> slotsData, RectTransform containerInInventory, float offsetX, float offsetY);
+        
+        public ItemContainer GetNeighbourItemDataWithoutInventory(List<ItemContainer> itemsData, ItemContainer targetItemsData);
+        public Vector2 GetPositionItemInSlotById(Guid itemId);
+        public Vector2 GetPositionItemInContainer(Vector2 itemSize, Vector2 offset);
+        public GridCell GetNeighbourGritCellByPosition(Vector2 position);
+        public Vector2 GetRootPositionByRootIndex(float rootPositionX, float rootPositionY);
+        
+        public bool TryToPlaceItemInContainer(RectTransform container, Vector2 position);
+        public bool TryGetPositionItemById(Guid itemId);
+        public bool TryToPlaceItemInInventory(Vector2 position);
     }
 }

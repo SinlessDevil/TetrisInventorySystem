@@ -19,15 +19,18 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
         
         private IItemPositionFinding _itemPositionFinding;
         
+        private readonly IInventoryPlayerSetUper _inventory;
         private readonly IInventoryUIFactory _inventoryUIFactory;
         private readonly IInventoryPlayerSetUper _inventoryPlayerSetUper;
         private readonly IItemDataProvider _itemDataProvider;
 
         public InventoryViewInitializer(
+            IInventoryPlayerSetUper inventory,
             IInventoryUIFactory inventoryUIFactory,
             IInventoryPlayerSetUper inventoryPlayerSetUper,
             IItemDataProvider itemDataProvider)
         {
+            _inventory = inventory;
             _inventoryUIFactory = inventoryUIFactory;
             _inventoryPlayerSetUper = inventoryPlayerSetUper;
             _itemDataProvider = itemDataProvider;
@@ -37,26 +40,34 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
         
         public void OpenInventory()
         {
+            BindPositionFinding();
+            
             CreateInventory();
             CreateSlots();
-            
-            InitPositionFinding();
             CreateItems();
+            
+            InitItemPositionFinding();
             
             InitInventory();
             InitSlots();
             InitItems();
         }
-
+        
         public void CloseInventory()
         {
             
         }
 
+        private void BindPositionFinding()
+        {
+            _itemPositionFinding = new ItemPositionFinding(InventorySize.CellSize);
+        }
+        
         private void CreateInventory()
         {
             InventoryView inventoryView = _inventoryUIFactory.CreateInventoryView();
-            IInventoryViewModel inventoryViewModel = new Inventory.InventoryViewModel();
+            IInventoryViewModel inventoryViewModel = new Inventory.InventoryViewModel(_inventory.Inventory,
+                _itemPositionFinding, _slotContainers, _itemContainers);
 
             InventoryContainer inventoryContainer = new InventoryContainer()
             {
@@ -102,18 +113,19 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
                 _itemContainers.Add(itemContainer);
             }
         }
-
-        private void InitPositionFinding()
+        
+        private void InitItemPositionFinding()
         {
             float offsetX = ((_inventoryContainer.View.ItemsContainer.rect.width / 2) * -1) + InventorySize.CellSize / 2;
             float offsetY = (_inventoryContainer.View.ItemsContainer.rect.height / 2) - InventorySize.CellSize / 2;
-            _itemPositionFinding = new ItemPositionFinding(_slotContainers, InventorySize.CellSize, offsetX, offsetY, 
-                _inventoryContainer.View.ItemsContainer);
+            _itemPositionFinding.Initialize(_slotContainers, _inventoryContainer.View.ItemsContainer, offsetX, offsetY);
         }
 
+        
         private void InitInventory()
         {
             _inventoryContainer.View.Initialize();
+            _inventoryContainer.ViewModel.Subscribe();
         }
         
         private void InitSlots()
