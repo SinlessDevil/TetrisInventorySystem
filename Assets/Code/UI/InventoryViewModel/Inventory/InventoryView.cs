@@ -14,5 +14,10 @@ namespace Code.UI.InventoryViewModel.Inventory
         {
             
         }
+
+        public void Dispose()
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

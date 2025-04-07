@@ -5,13 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemAnimation.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemAnimation.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/IInventoryViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/IInventoryViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/IItemPositionFinding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/IItemPositionFinding.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemPositionFinding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemPositionFinding.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/IItemViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/IItemViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemInputMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemInputMover.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Services/InventoryViewInitializer/InventoryViewInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Services/InventoryViewInitializer/InventoryViewInitializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/ItemView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/ItemView.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,6 +158,7 @@
       <workItem from="1743756068004" duration="16779000" />
       <workItem from="1743928012879" duration="6719000" />
       <workItem from="1743973084517" duration="1997000" />
+      <workItem from="1744019104277" duration="3884000" />
     </task>
     <task id="LOCAL-00001" summary="Delete all unused files">
       <option name="closed" value="true" />

@@ -12,6 +12,7 @@ namespace Code.UI.InventoryViewModel.Item
         [SerializeField] private Image _icon;
         [Space(10)] [Header("Additional Components")]
         [SerializeField] private ItemInputMover _itemInputMover;
+        [SerializeField] private ItemAnimation _itemAnimation;
         
         private IItemViewModel _viewModel;
 
@@ -19,6 +20,9 @@ namespace Code.UI.InventoryViewModel.Item
         {
             if(_itemInputMover ==null)
                 _itemInputMover = GetComponent<ItemInputMover>();
+            
+            if(_itemAnimation == null)
+                _itemAnimation = GetComponent<ItemAnimation>();
         }
         
         public void Initialize(IItemViewModel viewModel)
@@ -26,6 +30,7 @@ namespace Code.UI.InventoryViewModel.Item
             _viewModel = viewModel;
             
             _itemInputMover.Initialize(_rootRectTransform, _viewModel);
+            _itemAnimation.Initialize(_viewModel, _mainRectTransform, _iconContainer);
             
             SetParent(_viewModel.GetParent());
             SetSpriteIcon(_viewModel.GetItemSprite());
@@ -42,9 +47,29 @@ namespace Code.UI.InventoryViewModel.Item
 
         public void Dispose()
         {
+            _itemAnimation.Dispose();
+            
             Unsubscribe();
             Destroy(gameObject);
         }
+        
+        private void SetParent(RectTransform parent) => this.transform.SetParent(parent);
+
+        private void SetSpriteIcon(Sprite icon) => _icon.sprite = icon;
+
+        private void SetParentSize(Vector2 size) => _mainRectTransform.sizeDelta = size;
+
+        private void SetRootSize(Vector2 size) => _rootRectTransform.sizeDelta = size;
+
+        private void SetPivotPosition(Vector2 pivotPosition) => _iconContainer.localPosition = pivotPosition;
+
+        private void SetLocalPosition(Vector2 position) => _mainRectTransform.localPosition = position;
+
+        private void SetRootCenterPosition(Vector2 position) => _rootRectTransform.localPosition = position;
+
+        private void SetImageRotation(Quaternion rotation) => _iconContainer.rotation = rotation;
+
+        private void SetImageFlipScale(Vector3 flipScale) => _iconContainer.localScale = flipScale;
 
         private void Subscribe()
         {
@@ -56,51 +81,6 @@ namespace Code.UI.InventoryViewModel.Item
             _viewModel.ChangedPositionViewEvent -= OnChangedPosition;
         }
         
-        private void SetParent(RectTransform parent)
-        {
-            this.transform.SetParent(parent);
-        }
-
-        private void SetSpriteIcon(Sprite icon)
-        {
-            _icon.sprite = icon;
-        }
-
-        private void SetParentSize(Vector2 size)
-        {
-            _mainRectTransform.sizeDelta = size;
-        }
-
-        private void SetRootSize(Vector2 size)
-        {
-            _rootRectTransform.sizeDelta = size;
-        }
-        
-        private void SetPivotPosition(Vector2 pivotPosition)
-        {
-            _iconContainer.localPosition = pivotPosition;
-        }
-
-        private void SetLocalPosition(Vector2 position)
-        {
-            _mainRectTransform.localPosition = position;
-        }
-        
-        private void SetRootCenterPosition(Vector2 position)
-        {
-            _rootRectTransform.localPosition = position;
-        }
-
-        private void SetImageRotation(Quaternion rotation)
-        {
-            _iconContainer.rotation = rotation;
-        }
-
-        private void SetImageFlipScale(Vector3 flipScale)
-        {
-            _iconContainer.localScale = flipScale;
-        }
-
         private void OnChangedPosition(Vector2 newPosition)
         {
             _mainRectTransform.position = newPosition;

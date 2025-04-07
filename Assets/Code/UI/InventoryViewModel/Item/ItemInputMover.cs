@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -21,17 +22,17 @@ namespace Code.UI.InventoryViewModel.Item
         public void OnBeginDrag(PointerEventData eventData)
         {
             _offset = (Vector2)transform.position - eventData.position;
-            _itemVM.SetStartDrag(_offset);
+            _itemVM.SetStartPositionDrag(_offset);
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            _itemVM.SetEndDrag(_rootCenterRectTransform.transform.position);
+            _itemVM.SetEndPositionDrag(_rootCenterRectTransform.transform.position);
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            _itemVM.ChangPosition(eventData.position);
+            _itemVM.SetPositionWhenDrag(eventData.position);
         }
     }
 }

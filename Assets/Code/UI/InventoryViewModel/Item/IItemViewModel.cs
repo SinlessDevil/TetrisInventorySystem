@@ -8,6 +8,9 @@ namespace Code.UI.InventoryViewModel.Item
         event Action<IItemViewModel> StartedDragViewEvent;
         event Action<Vector2, IItemViewModel> EndedDragViewEvent;
         event Action<Vector2> ChangedPositionViewEvent;
+
+        event Action AnimationReturnToLastPositionEvent;
+        event Action<Quaternion> AnimationRotatedEvent;
         
         public InventoryModel.Items.Data.Item Item { get; }
         public RectTransform GetParent();
@@ -20,8 +23,10 @@ namespace Code.UI.InventoryViewModel.Item
         public Quaternion GetGraphicRotation();
         public Vector3 GetGraphicFlipScale();
         
-        void SetStartDrag(Vector3 position);
-        void SetEndDrag(Vector3 position);
-        void ChangPosition(Vector2 position);
+        void SetStartPositionDrag(Vector3 position);
+        void SetEndPositionDrag(Vector3 position);
+        void SetPositionWhenDrag(Vector2 position);
+        void PlayAnimationReturnToTargetPosition();
+        void PlayAnimationRotated(Quaternion rotation);
     }
 }

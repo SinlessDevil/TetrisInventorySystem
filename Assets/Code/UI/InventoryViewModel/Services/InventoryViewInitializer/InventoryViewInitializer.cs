@@ -55,7 +55,15 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
         
         public void CloseInventory()
         {
+            _inventoryContainer.ViewModel.Subscribe();
             
+            _itemContainers.ForEach(x=> x.View.Dispose());
+            _slotContainers.ForEach(x=> x.View.Dispose());
+            _inventoryContainer.View.Dispose();
+            
+            _itemContainers.Clear();
+            _slotContainers.Clear();
+            _inventoryContainer = null;
         }
 
         private void BindPositionFinding()
@@ -120,7 +128,6 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
             float offsetY = (_inventoryContainer.View.ItemsContainer.rect.height / 2) - InventorySize.CellSize / 2;
             _itemPositionFinding.Initialize(_slotContainers, _inventoryContainer.View.ItemsContainer, offsetX, offsetY);
         }
-
         
         private void InitInventory()
         {

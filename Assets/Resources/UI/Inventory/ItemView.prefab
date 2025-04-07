@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 3819019837386057024}
   - component: {fileID: 1227628495276354267}
   - component: {fileID: 2213380550440635675}
+  - component: {fileID: 1200350175771628503}
   m_Layer: 5
   m_Name: ItemView
   m_TagString: Untagged
@@ -109,6 +110,8 @@ MonoBehaviour:
   _rootRectTransform: {fileID: 7744511085474583751}
   _iconContainer: {fileID: 1390225285255952357}
   _icon: {fileID: 6101134793963742139}
+  _itemInputMover: {fileID: 2213380550440635675}
+  _itemAnimation: {fileID: 1200350175771628503}
 --- !u!114 &2213380550440635675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +124,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3ba5e4059b87134cb5e8a50f6db4741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1200350175771628503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5763382753096148382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 165277e4f3d340cc91f43beb4e571045, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _returnItemAnimationPreset:
+    TargetTime: 0.075
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0.8808343
+        outSlope: 0.8808343
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.06426155
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
 --- !u!1 &5816863793814197246
 GameObject:
   m_ObjectHideFlags: 0

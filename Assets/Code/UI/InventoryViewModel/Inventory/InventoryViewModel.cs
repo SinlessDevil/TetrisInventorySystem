@@ -50,7 +50,9 @@ namespace Code.UI.InventoryViewModel.Inventory
             
             //Try changed position item in slots
             if (TryChangedPositionItemInSlots(targetGridCell, itemVM))
-                return;
+            {
+                itemVM.PlayAnimationReturnToTargetPosition();
+            }
         }
         
         private bool TryChangedPositionItemInSlots(GridCell targetGridCell, IItemViewModel itemVM)
