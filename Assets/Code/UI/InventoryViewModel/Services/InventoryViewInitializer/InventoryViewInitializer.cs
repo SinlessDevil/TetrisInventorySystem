@@ -55,7 +55,7 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
         
         public void CloseInventory()
         {
-            _inventoryContainer.ViewModel.Subscribe();
+            _inventoryContainer.ViewModel.Unsubscribe();
             
             _itemContainers.ForEach(x=> x.View.Dispose());
             _slotContainers.ForEach(x=> x.View.Dispose());

@@ -47,12 +47,25 @@ namespace Code.UI.InventoryViewModel.Inventory
         private void OnHandlePlaceItem(Vector2 currentPosition, IItemViewModel itemVM)
         {
             GridCell targetGridCell = _itemPositionFinding.GetNeighbourGritCellByPosition(currentPosition);
+
+            Debug.Log(targetGridCell);
+            
+            //check if item in out of grid
+            if (targetGridCell == null)
+            {
+                itemVM.PlayAnimationReturnToTargetPosition();
+                return;
+            }
             
             //Try changed position item in slots
             if (TryChangedPositionItemInSlots(targetGridCell, itemVM))
             {
                 itemVM.PlayAnimationReturnToTargetPosition();
+                return;
             }
+            
+            //Just return item to target position
+            itemVM.PlayAnimationReturnToTargetPosition();
         }
         
         private bool TryChangedPositionItemInSlots(GridCell targetGridCell, IItemViewModel itemVM)
