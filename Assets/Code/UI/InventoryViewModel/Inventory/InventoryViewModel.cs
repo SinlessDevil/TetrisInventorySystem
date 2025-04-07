@@ -47,8 +47,6 @@ namespace Code.UI.InventoryViewModel.Inventory
         private void OnHandlePlaceItem(Vector2 currentPosition, IItemViewModel itemVM)
         {
             GridCell targetGridCell = _itemPositionFinding.GetNeighbourGritCellByPosition(currentPosition);
-
-            Debug.Log(targetGridCell);
             
             //check if item in out of grid
             if (targetGridCell == null)
