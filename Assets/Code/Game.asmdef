@@ -4,7 +4,8 @@
     "references": [
         "Zenject",
         "DOTweenPro.Scripts",
-        "DOTween.Modules"
+        "DOTween.Modules",
+        "Coffee.UIParticle"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
