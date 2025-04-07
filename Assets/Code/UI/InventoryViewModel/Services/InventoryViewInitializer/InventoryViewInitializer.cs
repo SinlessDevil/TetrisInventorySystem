@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Code.Infrastructure.Services.PersistenceProgress;
+using Code.Inventory.Services.InventoryExpand;
 using Code.InventoryModel;
 using Code.InventoryModel.Items.Provider;
 using Code.InventoryModel.Services.InventoryPlayer;
@@ -23,17 +25,23 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
         private readonly IInventoryUIFactory _inventoryUIFactory;
         private readonly IInventoryPlayerSetUper _inventoryPlayerSetUper;
         private readonly IItemDataProvider _itemDataProvider;
+        private readonly IInventoryExpandService _inventoryExpandService;
+        private readonly IPersistenceProgressService _persistenceProgressService;
 
         public InventoryViewInitializer(
             IInventoryPlayerSetUper inventory,
             IInventoryUIFactory inventoryUIFactory,
             IInventoryPlayerSetUper inventoryPlayerSetUper,
-            IItemDataProvider itemDataProvider)
+            IItemDataProvider itemDataProvider,
+            IInventoryExpandService inventoryExpandService,
+            IPersistenceProgressService persistenceProgressService)
         {
             _inventory = inventory;
             _inventoryUIFactory = inventoryUIFactory;
             _inventoryPlayerSetUper = inventoryPlayerSetUper;
             _itemDataProvider = itemDataProvider;
+            _inventoryExpandService = inventoryExpandService;
+            _persistenceProgressService = persistenceProgressService;
         }
         
         public bool HasOpenInventory => _inventoryContainer != null;
@@ -91,7 +99,8 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
             foreach (GridCell gridCell in _inventoryPlayerSetUper.Inventory.Cells)
             {
                 SlotView slotView = _inventoryUIFactory.CreateSlotView(_inventoryContainer.View.SlotsContainer);
-                ISlotViewModel slotViewModel = new SlotViewModel(gridCell);
+                ISlotViewModel slotViewModel = new SlotViewModel(gridCell, _inventoryPlayerSetUper.Inventory, 
+                    _inventoryExpandService, _persistenceProgressService);
                 
                 SlotContainer slotContainer = new SlotContainer()
                 {

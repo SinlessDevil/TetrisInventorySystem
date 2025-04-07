@@ -5,26 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="Added UI particle plugin">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemEffecter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemEffecter.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/IItemViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/IItemViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemAnimator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemAnimation.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemAnimator.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemInputMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemInputMover.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/StaticData/Balance/Balance.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/StaticData/Balance/Balance.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/StaticData/Items/Apple01.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/StaticData/Items/Apple01.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/StaticData/Items/Blueberry01.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/StaticData/Items/Blueberry01.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/StaticData/Items/Orange01.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/StaticData/Items/Orange01.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/ItemView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/ItemView.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Services/InventoryViewInitializer/InventoryViewInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Services/InventoryViewInitializer/InventoryViewInitializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/ISlotViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/ISlotViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/SlotView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/SlotView.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,6 +156,7 @@
       <workItem from="1743928012879" duration="6719000" />
       <workItem from="1743973084517" duration="1997000" />
       <workItem from="1744019104277" duration="14014000" />
+      <workItem from="1744046800936" duration="2134000" />
     </task>
     <task id="LOCAL-00001" summary="Delete all unused files">
       <option name="closed" value="true" />
