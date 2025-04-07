@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,27 +16,38 @@ namespace Code.UI.InventoryViewModel.Slot
         [SerializeField] private Sprite _spriteLockedToOpen;
         [SerializeField] private Sprite _spiteLockedDontOpen;
         [SerializeField] private Sprite _spiteLockedDontOpenWithLevel;
-        [Space(10)] [Header("Sprites Color Intecractable Slot")] 
-        [SerializeField] private Sprite _colorFree;
-        [SerializeField] private Sprite _colorNotFree;
-        [SerializeField] private Sprite _colorFreeToPlaceItem;
-        [SerializeField] private Sprite _colorBlockedPlaceItem;
+        [Space(10)] [Header("Aditional")]
+        [SerializeField] private SlotColorIntaractable _slotColorIntaractable;
         
         private ISlotViewModel _slotVM;
-        
+
+        private void OnValidate()
+        {
+            if(_slotColorIntaractable == null)
+                _slotColorIntaractable = GetComponent<SlotColorIntaractable>(); 
+        }
+
         public void Initialize(ISlotViewModel viewModel)
         {
             _slotVM = viewModel;
+            
+            _slotColorIntaractable.Initialize(viewModel, _unlocked);
             
             SetInteractableButton(_slotVM.IsInteractableButton());
             SetTextLevel(_slotVM.GetTextLevel());
             SetSpriteForLockedState(_slotVM.HasNecessaryLevel(),_slotVM.IsLockedSlotAndIsAvailableToBuy());
             SetSlotState(_slotVM.IsUnlockedSlot() ,_slotVM.IsLockedSlot());
+            
+            Subscribe();
         }
 
         public void Dispose()
         {
+            _slotColorIntaractable.Dispose();
             
+            Unsubscribe();
+            
+            Destroy(gameObject);
         }
         
         private void SetInteractableButton(bool isInteractable)
@@ -50,7 +62,7 @@ namespace Code.UI.InventoryViewModel.Slot
         
         private void SetSpriteForLockedState(bool hasNecessaryLevel, bool isValidate)
         {
-            if (!hasNecessaryLevel)
+            if (hasNecessaryLevel)
             {
                 _locked.sprite = _spiteLockedDontOpenWithLevel;
                 return;
@@ -63,6 +75,23 @@ namespace Code.UI.InventoryViewModel.Slot
         {
             _unlocked.gameObject.SetActive(isUnlocked);
             _locked.gameObject.SetActive(isLocked);
+        }
+
+        private void Subscribe()
+        {
+            _slotVM.ChangedStateSlotEvent += OnChangedStateSlot;
+        }
+
+        private void Unsubscribe()
+        {
+            _slotVM.ChangedStateSlotEvent -= OnChangedStateSlot;
+        }
+        
+        private void OnChangedStateSlot()
+        {
+            SetInteractableButton(_slotVM.IsInteractableButton());
+            SetSpriteForLockedState(_slotVM.HasNecessaryLevel(),_slotVM.IsLockedSlotAndIsAvailableToBuy());
+            SetSlotState(_slotVM.IsUnlockedSlot() ,_slotVM.IsLockedSlot());
         }
     }
 }

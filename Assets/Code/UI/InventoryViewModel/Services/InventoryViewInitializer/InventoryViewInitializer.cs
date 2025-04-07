@@ -64,6 +64,7 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
         public void CloseInventory()
         {
             _inventoryContainer.ViewModel.Unsubscribe();
+            _slotContainers.ForEach(x => x.ViewModel.Unsubscribe());
             
             _itemContainers.ForEach(x=> x.View.Dispose());
             _slotContainers.ForEach(x=> x.View.Dispose());
@@ -146,7 +147,11 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
         
         private void InitSlots()
         {
-            _slotContainers.ForEach(slotContainer => {slotContainer.View.Initialize(slotContainer.ViewModel);});
+            _slotContainers.ForEach(slotContainer =>
+            {
+                slotContainer.View.Initialize(slotContainer.ViewModel);
+                slotContainer.ViewModel.Subscribe();
+            });
         }
 
         private void InitItems()
