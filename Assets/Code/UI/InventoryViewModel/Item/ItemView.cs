@@ -8,11 +8,15 @@ namespace Code.UI.InventoryViewModel.Item
         [SerializeField] private RectTransform _mainRectTransform;
         [SerializeField] private RectTransform _rootRectTransform;
         [SerializeField] private RectTransform _iconContainer;
-        [Space(10)]
+        [Space(10)] [Header("Icons")]
         [SerializeField] private Image _icon;
+        [SerializeField] private Image _shadow;
+        [SerializeField] private Image _outline;
+        [SerializeField] private Image _goldOutline;
         [Space(10)] [Header("Additional Components")]
         [SerializeField] private ItemInputMover _itemInputMover;
-        [SerializeField] private ItemAnimation _itemAnimation;
+        [SerializeField] private ItemAnimator _itemAnimator;
+        [SerializeField] private ItemEffecter _itemEffecter;
         
         private IItemViewModel _viewModel;
 
@@ -21,19 +25,19 @@ namespace Code.UI.InventoryViewModel.Item
             if(_itemInputMover ==null)
                 _itemInputMover = GetComponent<ItemInputMover>();
             
-            if(_itemAnimation == null)
-                _itemAnimation = GetComponent<ItemAnimation>();
+            if(_itemAnimator == null)
+                _itemAnimator = GetComponent<ItemAnimator>();
+            
+            if(_itemEffecter == null)
+                _itemEffecter = GetComponent<ItemEffecter>();
         }
         
         public void Initialize(IItemViewModel viewModel)
         {
             _viewModel = viewModel;
             
-            _itemInputMover.Initialize(_rootRectTransform, _viewModel);
-            _itemAnimation.Initialize(_viewModel, _mainRectTransform, _iconContainer);
-            
+            SetSpriteIcon(_viewModel.GetItemSprite(), _viewModel.GetItemOutlineSprite());
             SetParent(_viewModel.GetParent());
-            SetSpriteIcon(_viewModel.GetItemSprite());
             SetParentSize(_viewModel.GetParentSize());
             SetRootSize(_viewModel.GetRootSize());
             SetPivotPosition(_viewModel.GetPivotPosition());
@@ -42,20 +46,32 @@ namespace Code.UI.InventoryViewModel.Item
             SetImageRotation(_viewModel.GetGraphicRotation());
             SetImageFlipScale(_viewModel.GetGraphicFlipScale());
             
+            _itemInputMover.Initialize(_viewModel, _rootRectTransform);
+            _itemAnimator.Initialize(_viewModel, _mainRectTransform, _iconContainer);
+            _itemEffecter.Initialize(_viewModel, _icon);
+            
             Subscribe();
         }
 
         public void Dispose()
         {
-            _itemAnimation.Dispose();
+            _itemAnimator.Dispose();
+            _itemEffecter.Dispose();
             
             Unsubscribe();
+            
             Destroy(gameObject);
         }
         
         private void SetParent(RectTransform parent) => this.transform.SetParent(parent);
 
-        private void SetSpriteIcon(Sprite icon) => _icon.sprite = icon;
+        private void SetSpriteIcon(Sprite icon, Sprite outline)
+        {
+            _icon.sprite = icon;
+            _shadow.sprite = icon;
+            _outline.sprite = outline;
+            _goldOutline.sprite = outline;
+        }
 
         private void SetParentSize(Vector2 size) => _mainRectTransform.sizeDelta = size;
 

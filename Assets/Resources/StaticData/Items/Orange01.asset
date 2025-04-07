@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85cf2a9fff3543b4a162520dd4e9138d, type: 3}
-  m_Name: Orange01
+  m_Name: orange01
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 21300000, guid: 5b0c287fddf11b24d910a6b285ee1807, type: 3}
+    - {fileID: 21300000, guid: c705b0a15e486ef4d882b151b16ce64c, type: 3}
+    - {fileID: 21300000, guid: 221a51bd9ea40c843bc0eb076b97d1d5, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -27,13 +28,13 @@ MonoBehaviour:
       Data: 0|Code.InventoryModel.Items.Data.Weapon, Game
     - Name: Id
       Entry: 1
-      Data: Orange01
+      Data: orange01
     - Name: Name
       Entry: 1
       Data: Orange
     - Name: Description
       Entry: 1
-      Data: Testable weapon Orange
+      Data: Testable item Orange
     - Name: ItemLevel
       Entry: 3
       Data: 1
@@ -72,16 +73,16 @@ MonoBehaviour:
       Data: true
     - Name: 
       Entry: 5
-      Data: false
+      Data: true
     - Name: 
       Entry: 5
       Data: false
     - Name: 
       Entry: 5
-      Data: false
+      Data: true
     - Name: 
       Entry: 5
-      Data: false
+      Data: true
     - Name: 
       Entry: 13
       Data: 
@@ -99,7 +100,7 @@ MonoBehaviour:
       Data: 0
     - Name: IconOutline
       Entry: 10
-      Data: 0
+      Data: 1
     - Name: OffsetPivot
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
@@ -108,7 +109,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 4
-      Data: 0
+      Data: -0.025
     - Name: 
       Entry: 8
       Data: 
@@ -117,10 +118,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0
+      Data: -1
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -129,10 +130,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0.5
+      Data: 1.4
     - Name: 
       Entry: 4
-      Data: 0.5
+      Data: 0.69
     - Name: 
       Entry: 8
       Data: 
@@ -141,10 +142,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -159,10 +160,10 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.008726535
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 0.9999619
     - Name: 
       Entry: 8
       Data: 
@@ -171,10 +172,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0.75
+      Data: 0.65
     - Name: 
       Entry: 4
-      Data: 0.75
+      Data: 0.65
     - Name: 
       Entry: 4
       Data: 1

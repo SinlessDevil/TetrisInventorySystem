@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -12,8 +11,8 @@ namespace Code.UI.InventoryViewModel.Item
         private RectTransform _rootCenterRectTransform;
 
         public void Initialize(
-            RectTransform rootCenterRectTransform, 
-            IItemViewModel itemViewModel)
+            IItemViewModel itemViewModel,
+            RectTransform rootCenterRectTransform)
         {
             _rootCenterRectTransform = rootCenterRectTransform;
             _itemVM = itemViewModel;

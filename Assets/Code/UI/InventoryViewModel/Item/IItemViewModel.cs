@@ -11,10 +11,13 @@ namespace Code.UI.InventoryViewModel.Item
 
         event Action AnimationReturnToLastPositionEvent;
         event Action<Quaternion> AnimationRotatedEvent;
+
+        event Action EffectDropItemEvent;
         
         public InventoryModel.Items.Data.Item Item { get; }
         public RectTransform GetParent();
         public Sprite GetItemSprite();
+        public Sprite GetItemOutlineSprite();
         public Vector2 GetParentSize();
         public Vector2 GetRootSize();
         public Vector2 GetPivotPosition();
@@ -28,5 +31,6 @@ namespace Code.UI.InventoryViewModel.Item
         void SetPositionWhenDrag(Vector2 position);
         void PlayAnimationReturnToTargetPosition();
         void PlayAnimationRotated(Quaternion rotation);
+        void PlayEffectDropItem();
     }
 }

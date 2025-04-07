@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace Code.UI.InventoryViewModel.Item
 {
-    public class ItemAnimation : MonoBehaviour
+    public class ItemAnimator : MonoBehaviour
     {
         [SerializeField] private ReturnItemAnimationPreset _returnItemAnimationPreset;
         
         private Coroutine _animationReturnToLastPositionCoroutine;
         private Coroutine _animationRotationCoroutine;
 
-        private IItemViewModel _itemViewModel;
+        private IItemViewModel _itemVM;
         private RectTransform _mainRectTransform;
         private RectTransform _iconContainer;
 
@@ -21,7 +21,7 @@ namespace Code.UI.InventoryViewModel.Item
             RectTransform iconContainer)
         {               
             _iconContainer = iconContainer;
-            _itemViewModel = itemViewModel;
+            _itemVM = itemViewModel;
             _mainRectTransform = mainRectTransform;
             
             Subscribe();
@@ -37,14 +37,14 @@ namespace Code.UI.InventoryViewModel.Item
         
         private void Subscribe()
         {
-            _itemViewModel.AnimationReturnToLastPositionEvent += OnAnimationReturnToLastPositionWrap;
-            _itemViewModel.AnimationRotatedEvent += OnAnimationRotationWrap;
+            _itemVM.AnimationReturnToLastPositionEvent += OnAnimationReturnToLastPositionWrap;
+            _itemVM.AnimationRotatedEvent += OnAnimationRotationWrap;
         }
 
         private void Unsubscribe()
         {
-            _itemViewModel.AnimationReturnToLastPositionEvent -= OnAnimationReturnToLastPositionWrap;
-            _itemViewModel.AnimationRotatedEvent -= OnAnimationRotationWrap;
+            _itemVM.AnimationReturnToLastPositionEvent -= OnAnimationReturnToLastPositionWrap;
+            _itemVM.AnimationRotatedEvent -= OnAnimationRotationWrap;
         }
 
         private void OnAnimationReturnToLastPositionWrap()
@@ -65,7 +65,7 @@ namespace Code.UI.InventoryViewModel.Item
         
         private IEnumerator AnimationReturnToLastPositionRoutine()
         {
-            var targetPosition = _itemViewModel.GetPosition();
+            var targetPosition = _itemVM.GetPosition();
             var startPosition = transform.localPosition;
             var time = 0f;
             var targetTime = _returnItemAnimationPreset.TargetTime;
@@ -80,6 +80,7 @@ namespace Code.UI.InventoryViewModel.Item
                 yield return typeof(WaitForEndOfFrame);
             }
             //TODO Send event to show animation for 
+            _itemVM.PlayEffectDropItem();
             _animationReturnToLastPositionCoroutine = null;
         }
         
@@ -99,7 +100,7 @@ namespace Code.UI.InventoryViewModel.Item
             _animationReturnToLastPositionCoroutine = null;
         }
     }
-    
+
     [Serializable]
     public class ReturnItemAnimationPreset
     {

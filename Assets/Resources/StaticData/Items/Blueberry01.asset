@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85cf2a9fff3543b4a162520dd4e9138d, type: 3}
-  m_Name: Blueberry01
+  m_Name: blueberry01
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 21300000, guid: 23c39604c54f9f944ac7791b186f3dce, type: 3}
+    - {fileID: 21300000, guid: ea9e5b49fbcd03543a31080c4b968a17, type: 3}
+    - {fileID: 21300000, guid: 4ea8a608202b9ca428df2cc62266982c, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -33,7 +34,7 @@ MonoBehaviour:
       Data: Blueberry
     - Name: Description
       Entry: 1
-      Data: Testable weapon Blueberry
+      Data: Testable item Blueberry
     - Name: ItemLevel
       Entry: 3
       Data: 1
@@ -99,7 +100,7 @@ MonoBehaviour:
       Data: 0
     - Name: IconOutline
       Entry: 10
-      Data: 0
+      Data: 1
     - Name: OffsetPivot
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
@@ -159,10 +160,10 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.008726535
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 0.9999619
     - Name: 
       Entry: 8
       Data: 
