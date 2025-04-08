@@ -48,6 +48,10 @@ namespace Code.UI.InventoryViewModel.Inventory
             _slotContainers.Clear();
         }
         
+        public List<ItemView> GetItemViews() => _itemContainers.Select(x => x.View).ToList();
+
+        public List<SlotView> GetSlotViews() => _slotContainers.Select(x => x.View).ToList();
+        
         public void Subscribe()
         {
             _itemContainers.ForEach(x =>

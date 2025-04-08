@@ -57,6 +57,8 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
             InitInventory(slotContainers, itemContainers);
             InitSlots(slotContainers);
             InitItems(itemContainers);
+            
+            _inventoryContainer.View.PlayAnimationShow();
         }
         
         public void CloseInventory()

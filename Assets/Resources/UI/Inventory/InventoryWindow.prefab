@@ -497,6 +497,8 @@ MonoBehaviour:
   _itemDragContainer: {fileID: 1202485645252517987}
   _destroyItemHolder: {fileID: 3625876760854777973}
   _freeAreaItemHolder: {fileID: 5880963286864091629}
+  _bg: {fileID: 5843609244935155991}
+  _mainPanel: {fileID: 5898853794358126633}
 --- !u!1 &6346116908423281098
 GameObject:
   m_ObjectHideFlags: 0
