@@ -224,14 +224,10 @@ namespace Code.UI.InventoryViewModel.Inventory
             ItemContainer itemContainer = GetItemContainerByVM(itemVM);
             if(itemContainer == null)
                 return false;
-            
-            if (_inventory.TryRemove(itemVM.Item, out _))
-            {
-                CleanUpItemAsync(itemContainer).Forget();
-                return true;
-            }
-            
-            return false;
+
+            _inventory.TryRemove(itemVM.Item, out _);
+            CleanUpItemAsync(itemContainer).Forget();
+            return true;
         }
 
         private bool TryDropItemOutInventory(Vector2 currentPosition, IItemViewModel itemVM)
