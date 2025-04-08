@@ -42,7 +42,7 @@ namespace Code.UI.InventoryViewModel.Item
         public event Action AnimationReturnToLastPositionEvent;
         public event Action<Quaternion> AnimationRotatedEvent;
 
-        public event Action EffectDropItemEvent;
+        public event Action<IItemViewModel> EffectDropItemEvent;
 
         public InventoryModel.Items.Data.Item Item => _item;
 
@@ -112,7 +112,7 @@ namespace Code.UI.InventoryViewModel.Item
 
         public void PlayEffectDropItem()
         {
-            EffectDropItemEvent?.Invoke();
+            EffectDropItemEvent?.Invoke(this);
         }
 
         #endregion

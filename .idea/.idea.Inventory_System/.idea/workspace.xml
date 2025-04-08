@@ -4,14 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="">
+    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="Added color reaction logic">
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotEffecter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotEffecter.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/IItemViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/IItemViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemEffecter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemEffecter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/ISlotViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/ISlotViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/SlotView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/SlotView.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/Prefabs/UI/Inventory/Glow_Effect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/Prefabs/UI/Inventory/Glow_Effect.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +164,7 @@
       <workItem from="1744019104277" duration="14014000" />
       <workItem from="1744046800936" duration="2311000" />
       <workItem from="1744059500940" duration="2052000" />
-      <workItem from="1744094540905" duration="2246000" />
+      <workItem from="1744094540905" duration="6781000" />
     </task>
     <task id="LOCAL-00001" summary="Delete all unused files">
       <option name="closed" value="true" />
@@ -385,7 +390,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744061405197</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Added color reaction logic">
+      <option name="closed" value="true" />
+      <created>1744096939674</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1744096939674</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -412,7 +425,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added base Installer" />
     <MESSAGE value="Added Newtonsoft" />
     <MESSAGE value="Edits names" />
     <MESSAGE value="Added base scripts for Inventory" />
@@ -437,6 +449,7 @@
     <MESSAGE value="Added UI particle plugin" />
     <MESSAGE value="Added base display state slot" />
     <MESSAGE value="Added Slot Color Intaractable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Slot Color Intaractable" />
+    <MESSAGE value="Added color reaction logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added color reaction logic" />
   </component>
 </project>

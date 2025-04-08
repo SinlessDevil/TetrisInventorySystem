@@ -35,6 +35,7 @@ namespace Code.UI.InventoryViewModel.Inventory
             {
                 x.ViewModel.EndedDragViewEvent += OnHandlePlaceItem;
                 x.ViewModel.ChangedPositionViewEvent += OnUpdateColorToPlaceItem;
+                x.ViewModel.EffectDropItemEvent += OnHandlePlayEffectFilledSlot;
             });
         }
 
@@ -44,15 +45,38 @@ namespace Code.UI.InventoryViewModel.Inventory
             {
                 x.ViewModel.EndedDragViewEvent -= OnHandlePlaceItem;
                 x.ViewModel.ChangedPositionViewEvent -= OnUpdateColorToPlaceItem;
+                x.ViewModel.EffectDropItemEvent -= OnHandlePlayEffectFilledSlot;
             });
         }
 
+        private void OnHandlePlaceItem(Vector2 currentPosition, IItemViewModel itemVM)
+        {
+            GridCell targetGridCell = _itemPositionFinding.GetNeighbourGritCellByPosition(currentPosition);
+            
+            //check if item in out of grid
+            if (targetGridCell == null)
+            {
+                UpdateViewInventory(itemVM);
+                return;
+            }
+            
+            //Try changed position item in slots
+            if (TryChangedPositionItemInSlots(targetGridCell, itemVM))
+            {
+                UpdateViewInventory(itemVM);
+                return;
+            }
+            
+            //Just return item to target position
+            UpdateViewInventory(itemVM);
+        }
+        
         private void OnUpdateColorToPlaceItem(Vector2 currentPosition, IItemViewModel itemVM)
         {
             var isCanPlace = _itemPositionFinding.TryToPlaceItemInInventory(currentPosition);
             if (isCanPlace == false)
             {
-                SetColorSlotsToDefault();
+                UpdateColorSlotsToDefault();
                 return;
             }
 
@@ -94,7 +118,7 @@ namespace Code.UI.InventoryViewModel.Inventory
                 //     break;
             }
 
-            SetColorSlotsToDefault();
+            UpdateColorSlotsToDefault();
 
             // if (isCanMarge)
             // {
@@ -122,26 +146,12 @@ namespace Code.UI.InventoryViewModel.Inventory
             }
         }
         
-        private void OnHandlePlaceItem(Vector2 currentPosition, IItemViewModel itemVM)
+        private void OnHandlePlayEffectFilledSlot(IItemViewModel itemVM)
         {
-            GridCell targetGridCell = _itemPositionFinding.GetNeighbourGritCellByPosition(currentPosition);
-            
-            //check if item in out of grid
-            if (targetGridCell == null)
-            {
-                UpdateViewInventory(itemVM);
-                return;
-            }
-            
-            //Try changed position item in slots
-            if (TryChangedPositionItemInSlots(targetGridCell, itemVM))
-            {
-                UpdateViewInventory(itemVM);
-                return;
-            }
-            
-            //Just return item to target position
-            UpdateViewInventory(itemVM);
+            Debug.Log($"{itemVM} PlayEffectFilledSlot");
+            var slotContainers = GetSlotDataByItem(itemVM.Item);
+            Debug.Log($"{slotContainers.Count}");
+            slotContainers.ForEach(x=> x.ViewModel.PlayEffectFilledSlot());
         }
         
         private bool TryChangedPositionItemInSlots(GridCell targetGridCell, IItemViewModel itemVM)
@@ -164,9 +174,16 @@ namespace Code.UI.InventoryViewModel.Inventory
         private void UpdateViewInventory(IItemViewModel itemVM)
         {
             itemVM.PlayAnimationReturnToTargetPosition();
-            SetColorSlotsToDefault();
+            UpdateColorSlotsToDefault();
         }
         
+        private void UpdateColorSlotsToDefault()
+        {
+            _slotContainers.ForEach(x=> x.ViewModel.SetToDefaultColorReaction());
+        }
+
+        #region Getters
+
         private GridCell GetGridCellByRootPosition(int rootPositionX, int rootPositionY)
         {
             return _slotContainers.Select(slotData => slotData.ViewModel.GridCell)
@@ -178,9 +195,23 @@ namespace Code.UI.InventoryViewModel.Inventory
             return index >= 0 && index < _slotContainers.Count ? _slotContainers[index].ViewModel : null;
         }
         
-        private void SetColorSlotsToDefault()
+        private List<SlotContainer> GetSlotDataByItem(InventoryModel.Items.Data.Item item)
         {
-            _slotContainers.ForEach(x=> x.ViewModel.SetToDefaultColorReaction());
+            List<SlotContainer> slotDatas = new List<SlotContainer>();
+            foreach (var slotData in _slotContainers)
+            {
+                if (slotData.ViewModel.Item == null)
+                    continue;
+
+                Debug.Log($"{slotData.ViewModel.Item.Name} := {slotData.ViewModel.Item.InstanceId} == {item.InstanceId}");
+                
+                if (slotData.ViewModel.Item.InstanceId == item.InstanceId)
+                    slotDatas.Add(slotData);
+            }
+
+            return slotDatas;
         }
+
+        #endregion
     }
 }

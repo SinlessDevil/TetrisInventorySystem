@@ -16,15 +16,19 @@ namespace Code.UI.InventoryViewModel.Slot
         [SerializeField] private Sprite _spriteLockedToOpen;
         [SerializeField] private Sprite _spiteLockedDontOpen;
         [SerializeField] private Sprite _spiteLockedDontOpenWithLevel;
-        [Space(10)] [Header("Aditional")]
+        [Space(10)] [Header("Additional")]
         [SerializeField] private SlotColorIntaractable _slotColorIntaractable;
+        [SerializeField] private SlotEffecter _slotEffecter;
         
         private ISlotViewModel _slotVM;
 
         private void OnValidate()
         {
             if(_slotColorIntaractable == null)
-                _slotColorIntaractable = GetComponent<SlotColorIntaractable>(); 
+                _slotColorIntaractable = GetComponent<SlotColorIntaractable>();
+            
+            if(_slotEffecter == null)
+                _slotEffecter = GetComponent<SlotEffecter>();
         }
 
         public void Initialize(ISlotViewModel viewModel)
@@ -32,6 +36,7 @@ namespace Code.UI.InventoryViewModel.Slot
             _slotVM = viewModel;
             
             _slotColorIntaractable.Initialize(viewModel, _unlocked);
+            _slotEffecter.Initialize(viewModel);
             
             SetInteractableButton(_slotVM.IsInteractableButton());
             SetTextLevel(_slotVM.GetTextLevel());
@@ -44,6 +49,7 @@ namespace Code.UI.InventoryViewModel.Slot
         public void Dispose()
         {
             _slotColorIntaractable.Dispose();
+            _slotEffecter.Dispose();
             
             Unsubscribe();
             

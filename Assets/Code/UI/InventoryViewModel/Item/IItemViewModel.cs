@@ -12,7 +12,7 @@ namespace Code.UI.InventoryViewModel.Item
         event Action AnimationReturnToLastPositionEvent;
         event Action<Quaternion> AnimationRotatedEvent;
 
-        event Action EffectDropItemEvent;
+        event Action<IItemViewModel> EffectDropItemEvent;
         
         public InventoryModel.Items.Data.Item Item { get; }
         public RectTransform GetParent();

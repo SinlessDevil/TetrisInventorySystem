@@ -5,10 +5,15 @@ namespace Code.UI.InventoryViewModel.Slot
 {
     public interface ISlotViewModel
     {
+        public event Action ChangedStateSlotEvent;
+        
         public event Action<bool> ColoredFillSlotEvent;
         public event Action<bool> ColoredReactionSlotEvent;
         
+        public event Action EffectFilledSlotEvent;
+        
         public GridCell GridCell { get; }
+        public InventoryModel.Items.Data.Item Item { get; }
         public bool IsInteractableButton();
         public bool HasNecessaryLevel();
         public bool IsLockedSlotAndIsAvailableToBuy();
@@ -18,11 +23,12 @@ namespace Code.UI.InventoryViewModel.Slot
         public string GetTextLevel();
         public bool GetColorLockedSlot();
 
-        void SetColorReaction(bool isCanPlace);
-        void SetToDefaultColorReaction();
+        public void SetColorReaction(bool isCanPlace);
+        public void SetToDefaultColorReaction();
         
-        void Subscribe();
-        void Unsubscribe();
-        event Action ChangedStateSlotEvent;
+        public void PlayEffectFilledSlot();
+        
+        public void Subscribe();
+        public void Unsubscribe();
     }
 }

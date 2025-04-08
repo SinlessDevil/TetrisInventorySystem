@@ -30,7 +30,10 @@ namespace Code.UI.InventoryViewModel.Slot
         public event Action<bool> ColoredFillSlotEvent;
         public event Action<bool> ColoredReactionSlotEvent;
         
+        public event Action EffectFilledSlotEvent;
+
         public GridCell GridCell => _gridCell;
+        public InventoryModel.Items.Data.Item Item => _gridCell.Item;
 
         public bool IsUnlockedSlot() => _inventoryExpandService.IsOpened(TargetIndexGridCell);
 
@@ -81,6 +84,9 @@ namespace Code.UI.InventoryViewModel.Slot
         public void SetToDefaultColorReaction() =>  
             ColoredFillSlotEvent?.Invoke(_gridCell.Item == null);
 
+        public void PlayEffectFilledSlot() =>
+            EffectFilledSlotEvent?.Invoke();
+        
         public void Subscribe()
         {
             _inventory.OnItemRemoved += OnRemovedItem;

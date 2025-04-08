@@ -73,8 +73,8 @@ namespace Code.UI.InventoryViewModel.Item
         {
             _itemVM.EffectDropItemEvent -= OnDropItemEffectWrap;
         }
-        
-        private void OnDropItemEffectWrap()
+
+        private void OnDropItemEffectWrap(IItemViewModel itemViewModel)
         {
             StartCoroutine(PlayEffectGlowRoutine(_itemDropGlowPreset));
         }

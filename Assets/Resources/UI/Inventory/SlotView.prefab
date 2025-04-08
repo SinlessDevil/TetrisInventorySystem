@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5405471295583896448}
   - component: {fileID: 6731608716546616588}
   - component: {fileID: 5778360310836462223}
+  - component: {fileID: 2500583241987322638}
   - component: {fileID: 4167067703775441168}
   - component: {fileID: 8759574847380938961}
   m_Layer: 5
@@ -102,6 +103,7 @@ MonoBehaviour:
   _spiteLockedDontOpen: {fileID: 21300000, guid: d3f275c6d72a61945a5205115259392f, type: 3}
   _spiteLockedDontOpenWithLevel: {fileID: 21300000, guid: 9a7f2e3c8eeff424dbf07dec3ed23b19, type: 3}
   _slotColorIntaractable: {fileID: 5778360310836462223}
+  _slotEffecter: {fileID: 2500583241987322638}
 --- !u!114 &5778360310836462223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +120,20 @@ MonoBehaviour:
   _colorNotFree: {fileID: -265750994, guid: 50338bd1214f00241b09d659128e8c1e, type: 3}
   _colorFreeToPlaceItem: {fileID: 21300000, guid: 2f393c6702ee1b344a00c6a501e42f7d, type: 3}
   _colorBlockedPlaceItem: {fileID: 21300000, guid: 8699231b4cd48ff4297bdc46d39f1e89, type: 3}
+--- !u!114 &2500583241987322638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316098032805742700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42c04bfeb8d1476994339946adaa1b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _yellowGlow: {fileID: 0}
+  _slotDropGlowPrefab: {fileID: 5702656105749379400, guid: 48c0cfd3dd8ca084d924760aa1dbc062, type: 3}
 --- !u!114 &4167067703775441168
 MonoBehaviour:
   m_ObjectHideFlags: 0
