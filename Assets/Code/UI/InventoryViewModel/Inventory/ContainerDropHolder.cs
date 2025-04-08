@@ -1,17 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.Serialization;
 
 namespace Code.UI.InventoryViewModel.Inventory
 {
-    public class DestroyItemHolder : MonoBehaviour
+    public abstract class ContainerDropHolder : MonoBehaviour
     {
-        [SerializeField] private RectTransform _destoryItemContainer;
+        [FormerlySerializedAs("_destoryItemContainer")] [SerializeField] private RectTransform destoryItemContainerHolder;
         [SerializeField] private Image _glow;
         
         private Tween _glowTween;
         
-        private IInventoryViewModel _inventoryVm;
+        protected IInventoryViewModel _inventoryVm;
 
         public void Initialize(IInventoryViewModel inventoryVM)
         {
@@ -25,19 +26,13 @@ namespace Code.UI.InventoryViewModel.Inventory
             Unsubscribe();
         }
         
-        public RectTransform DestroyItemContainer => _destoryItemContainer;
+        public RectTransform ContainerHolder => destoryItemContainerHolder;
 
-        private void Subscribe()
-        {
-            _inventoryVm.EffectTogglePlayingDestroyGlowEvent += OnTogglePlayingGlowEffect;
-        }
+        protected abstract void Subscribe();
 
-        private void Unsubscribe()
-        {
-            _inventoryVm.EffectTogglePlayingDestroyGlowEvent -= OnTogglePlayingGlowEffect;
-        }
+        protected abstract void Unsubscribe();
 
-        private void OnTogglePlayingGlowEffect(bool isOn)
+        protected void OnTogglePlayingGlowEffect(bool isOn)
         {
             if(isOn)
                 PlayGlowEffect();

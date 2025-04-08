@@ -8,12 +8,15 @@ namespace UI.Inventory
 {
     public interface IItemPositionFinding
     {
-        public void Initialize(List<SlotContainer> slotsData, RectTransform containerInInventory, 
-            RectTransform destroyItemContainer,float offsetX, float offsetY);
-        
+        public void Initialize(List<SlotContainer> slotsData, 
+            RectTransform containerInInventory, 
+            RectTransform destroyItemContainer,
+            RectTransform freeAreaItemContainer,
+            float offsetX, float offsetY);
         
         public bool TryToPlaceItemInInventory(Vector2 position);
         public bool TryToPlaceItemInDestroyContainer(Vector2 position);
+        public bool TryToPlaceItemFreeAreaContainer(Vector2 currentPosition);
         public bool TryToPlaceItemInContainer(RectTransform container, Vector2 position);
         public bool TryGetPositionItemById(Guid itemId);
 

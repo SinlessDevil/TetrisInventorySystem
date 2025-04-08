@@ -29,6 +29,7 @@ namespace Code.UI.InventoryViewModel.Inventory
         }
 
         public event Action<bool> EffectTogglePlayingDestroyGlowEvent;
+        public event Action<bool> EffectTogglePlayingFreeAreaGlowEvent;
 
         public void InitializeViewModel(List<SlotContainer> slotContainers, List<ItemContainer> itemContainers)
         {
@@ -54,10 +55,11 @@ namespace Code.UI.InventoryViewModel.Inventory
                 x.ViewModel.EndedDragViewEvent += OnHandlePlaceItem;
                 x.ViewModel.ChangedPositionViewEvent += OnUpdateColorToPlaceItem;
                 x.ViewModel.ChangedPositionViewEvent += OnUpdateDestroyGlowEffect;
+                x.ViewModel.ChangedPositionViewEvent += OnUpdateFreeAreaGlowEffect;
                 x.ViewModel.EffectDropItemEvent += OnHandlePlayEffectFilledSlot;
             });
         }
-
+        
         public void Unsubscribe()
         {
             _itemContainers.ForEach(x =>
@@ -65,6 +67,7 @@ namespace Code.UI.InventoryViewModel.Inventory
                 x.ViewModel.EndedDragViewEvent -= OnHandlePlaceItem;
                 x.ViewModel.ChangedPositionViewEvent -= OnUpdateColorToPlaceItem;
                 x.ViewModel.ChangedPositionViewEvent -= OnUpdateDestroyGlowEffect;
+                x.ViewModel.ChangedPositionViewEvent -= OnUpdateFreeAreaGlowEffect;
                 x.ViewModel.EffectDropItemEvent -= OnHandlePlayEffectFilledSlot;
             });
         }
@@ -184,6 +187,19 @@ namespace Code.UI.InventoryViewModel.Inventory
             }
             
             EffectTogglePlayingDestroyGlowEvent?.Invoke(false);
+        }
+        
+        private void OnUpdateFreeAreaGlowEffect(Vector2 currentPosition, IItemViewModel itemVM)
+        {
+            bool isCanPlace = _itemPositionFinding.TryToPlaceItemFreeAreaContainer(currentPosition);
+            
+            if (isCanPlace)
+            {
+                EffectTogglePlayingFreeAreaGlowEvent?.Invoke(true);
+                return;
+            }
+            
+            EffectTogglePlayingFreeAreaGlowEvent?.Invoke(false);
         }
         
         private void OnHandlePlayEffectFilledSlot(IItemViewModel itemVM)

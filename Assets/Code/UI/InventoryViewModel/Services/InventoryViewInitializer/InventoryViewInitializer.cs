@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using UnityEngine;
+using UI.Inventory;
 using Code.Infrastructure.Services.PersistenceProgress;
 using Code.Inventory.Services.InventoryExpand;
 using Code.InventoryModel;
@@ -8,8 +10,6 @@ using Code.UI.InventoryViewModel.Factory;
 using Code.UI.InventoryViewModel.Inventory;
 using Code.UI.InventoryViewModel.Item;
 using Code.UI.InventoryViewModel.Slot;
-using UI.Inventory;
-using UnityEngine;
 
 namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
 {
@@ -138,8 +138,11 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
         {
             float offsetX = ((_inventoryContainer.View.ItemsContainer.rect.width / 2) * -1) + InventorySize.CellSize / 2;
             float offsetY = (_inventoryContainer.View.ItemsContainer.rect.height / 2) - InventorySize.CellSize / 2;
-            _itemPositionFinding.Initialize(slotContainers, _inventoryContainer.View.ItemsContainer, 
-                _inventoryContainer.View.DestroyItemContainer, offsetX, offsetY);
+            _itemPositionFinding.Initialize(slotContainers, 
+                _inventoryContainer.View.ItemsContainer, 
+                _inventoryContainer.View.DestroyItemContainer,
+                _inventoryContainer.View.FreeAreaItemContainer,
+                offsetX, offsetY);
         }
         
         private void InitInventory(List<SlotContainer> slotContainers, List<ItemContainer> itemContainers)

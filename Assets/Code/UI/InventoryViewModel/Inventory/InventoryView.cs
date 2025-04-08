@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Code.UI.InventoryViewModel.Inventory
 {
@@ -7,14 +8,18 @@ namespace Code.UI.InventoryViewModel.Inventory
         [SerializeField] private RectTransform _slotsContainer;
         [SerializeField] private RectTransform _itemsContainer;
         [Space(10)] [Header("Additional")]
-        [SerializeField] private DestroyItemHolder _destroyItemHolder;
+        [SerializeField] private DestroyerItemHolder _destroyItemHolder;
+        [SerializeField] private FreeAreaItemHolder _freeAreaItemHolder;
 
         private IInventoryViewModel _inventoryVM;
 
         private void OnValidate()
         {
             if (_destroyItemHolder == null)
-                _destroyItemHolder.GetComponentInChildren<DestroyItemHolder>();
+                _destroyItemHolder.GetComponentInChildren<DestroyerItemHolder>();
+            
+            if (_freeAreaItemHolder == null)
+                _freeAreaItemHolder.GetComponentInChildren<FreeAreaItemHolder>();
         }
 
         public void Initialize(IInventoryViewModel inventoryM)
@@ -22,17 +27,20 @@ namespace Code.UI.InventoryViewModel.Inventory
             _inventoryVM = inventoryM;
             
             _destroyItemHolder.Initialize(_inventoryVM);
+            _freeAreaItemHolder.Initialize(_inventoryVM);
         }
 
         public void Dispose()
         {
             _destroyItemHolder.Dispose();
+            _freeAreaItemHolder.Dispose();
             
             Destroy(this.gameObject);
         }
         
         public RectTransform SlotsContainer => _slotsContainer;
         public RectTransform ItemsContainer => _itemsContainer;
-        public RectTransform DestroyItemContainer => _destroyItemHolder.DestroyItemContainer;
+        public RectTransform DestroyItemContainer => _destroyItemHolder.ContainerHolder;
+        public RectTransform FreeAreaItemContainer => _freeAreaItemHolder.ContainerHolder;
     }
 }

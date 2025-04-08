@@ -10,8 +10,11 @@ namespace UI.Inventory
     public class ItemPositionFinding : IItemPositionFinding
     {
         private List<SlotContainer> _slotsData;
+        
         private RectTransform _containerInInventory;
         private RectTransform _destroyItemContainer;
+        private RectTransform _freeAreaItemContainer;
+        
         private int _offsetX;
         private int _offsetY;
         
@@ -26,11 +29,13 @@ namespace UI.Inventory
             List<SlotContainer> slotsData,
             RectTransform containerInInventory,
             RectTransform destroyItemContainer,
+            RectTransform freeAreaItemContainer,
             float offsetX, float offsetY)
         {
             _slotsData = slotsData;
             _destroyItemContainer = destroyItemContainer;
             _containerInInventory = containerInInventory;
+            _freeAreaItemContainer = freeAreaItemContainer;
             _offsetX = (int)offsetX;
             _offsetY = (int)offsetY;
         }
@@ -50,7 +55,12 @@ namespace UI.Inventory
         {
             return TryToPlaceItemInContainer(_destroyItemContainer, position);
         }
-        
+
+        public bool TryToPlaceItemFreeAreaContainer(Vector2 currentPosition)
+        {
+            return TryToPlaceItemInContainer(_freeAreaItemContainer, currentPosition);
+        }
+
         public ItemContainer GetNeighbourItemDataWithoutInventory(
             List<ItemContainer> itemsData, ItemContainer targetItemsData)
         {

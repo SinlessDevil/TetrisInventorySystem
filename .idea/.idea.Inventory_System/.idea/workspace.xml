@@ -4,20 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="Added slot effecter">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/DestroyItemHolder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/DestroyItemHolder.cs.meta" afterDir="false" />
+    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="plugins: Added UnitTask , feat: Added Destroy item">
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/DestroyerItemHolder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/DestroyerItemHolder.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/FreeAreaItemHolder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/FreeAreaItemHolder.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Game.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Game.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/DestroyItemHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/ContainerDropHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/DestroyItemHolder.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/ContainerDropHolder.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/IInventoryViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/IInventoryViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/IItemPositionFinding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/IItemPositionFinding.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/IItemViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/IItemViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemPositionFinding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemPositionFinding.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Services/InventoryViewInitializer/InventoryViewInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Services/InventoryViewInitializer/InventoryViewInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/InventoryWindow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/InventoryWindow.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +165,7 @@
       <workItem from="1744019104277" duration="14014000" />
       <workItem from="1744046800936" duration="2311000" />
       <workItem from="1744059500940" duration="2052000" />
-      <workItem from="1744094540905" duration="15585000" />
+      <workItem from="1744094540905" duration="17415000" />
     </task>
     <task id="LOCAL-00001" summary="Delete all unused files">
       <option name="closed" value="true" />
@@ -407,7 +407,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744101541121</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="plugins: Added UnitTask , feat: Added Destroy">
+      <option name="closed" value="true" />
+      <created>1744115994425</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1744115994425</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -434,8 +442,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Edits names" />
-    <MESSAGE value="Added base scripts for Inventory" />
     <MESSAGE value="Added services for inventory" />
     <MESSAGE value="Fixed Item config" />
     <MESSAGE value="Added UI sprites , added configs" />
@@ -459,6 +465,8 @@
     <MESSAGE value="Added Slot Color Intaractable" />
     <MESSAGE value="Added color reaction logic" />
     <MESSAGE value="Added slot effecter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added slot effecter" />
+    <MESSAGE value="plugins: Added UnitTask , feat: Added Destroy item" />
+    <MESSAGE value="plugins: Added UnitTask , feat: Added Destroy item" />
+    <option name="LAST_COMMIT_MESSAGE" value="plugins: Added UnitTask , feat: Added Destroy item" />
   </component>
 </project>
