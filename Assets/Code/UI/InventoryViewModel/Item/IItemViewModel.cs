@@ -7,7 +7,7 @@ namespace Code.UI.InventoryViewModel.Item
     {
         event Action<IItemViewModel> StartedDragViewEvent;
         event Action<Vector2, IItemViewModel> EndedDragViewEvent;
-        event Action<Vector2> ChangedPositionViewEvent;
+        event Action<Vector2, IItemViewModel> ChangedPositionViewEvent;
 
         event Action AnimationReturnToLastPositionEvent;
         event Action<Quaternion> AnimationRotatedEvent;

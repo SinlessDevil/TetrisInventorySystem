@@ -97,7 +97,7 @@ namespace Code.UI.InventoryViewModel.Item
             _viewModel.ChangedPositionViewEvent -= OnChangedPosition;
         }
         
-        private void OnChangedPosition(Vector2 newPosition)
+        private void OnChangedPosition(Vector2 newPosition, IItemViewModel viewModel)
         {
             _mainRectTransform.position = newPosition;
         }

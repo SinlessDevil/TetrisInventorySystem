@@ -19,6 +19,7 @@ namespace Code.UI.InventoryViewModel.Slot
         public bool GetColorLockedSlot();
 
         void SetColorReaction(bool isCanPlace);
+        void SetToDefaultColorReaction();
         
         void Subscribe();
         void Unsubscribe();

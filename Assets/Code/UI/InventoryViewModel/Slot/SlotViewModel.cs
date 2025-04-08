@@ -77,7 +77,10 @@ namespace Code.UI.InventoryViewModel.Slot
 
         public void SetColorReaction(bool isCanPlace) =>
             ColoredReactionSlotEvent?.Invoke(isCanPlace);
-        
+
+        public void SetToDefaultColorReaction() =>  
+            ColoredFillSlotEvent?.Invoke(_gridCell.Item == null);
+
         public void Subscribe()
         {
             _inventory.OnItemRemoved += OnRemovedItem;
@@ -94,23 +97,17 @@ namespace Code.UI.InventoryViewModel.Slot
         private void OnRemovedItem(InventoryActionData inventoryActionData)
         {
             if (_gridCell.Item == null)
-            {
                 ColoredFillSlotEvent?.Invoke(true);
-            }
         } 
         private void OnAddedItem(InventoryActionData inventoryActionData)
         {
             if (_gridCell.Item != null)
-            {
                 ColoredFillSlotEvent?.Invoke(false);
-            }
         }
         private void OnUpdateStateSlots()
         {
             if (_inventoryExpandService.IsEnoughPoints(TargetIndexGridCell) == false)
-            {
                 ChangedStateSlotEvent?.Invoke();
-            }
         }
         
         private int TargetIndexGridCell => _inventory.GridIndex(_gridCell);

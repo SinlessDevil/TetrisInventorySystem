@@ -1,10 +1,11 @@
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
+using UnityEngine;
+using UI.Inventory;
 using Code.InventoryModel;
 using Code.UI.InventoryViewModel.Item;
 using Code.UI.InventoryViewModel.Services.InventoryViewInitializer;
-using UI.Inventory;
-using UnityEngine;
+using Code.UI.InventoryViewModel.Slot;
 
 namespace Code.UI.InventoryViewModel.Inventory
 {
@@ -33,6 +34,7 @@ namespace Code.UI.InventoryViewModel.Inventory
             _itemContainers.ForEach(x =>
             {
                 x.ViewModel.EndedDragViewEvent += OnHandlePlaceItem;
+                x.ViewModel.ChangedPositionViewEvent += OnUpdateColorToPlaceItem;
             });
         }
 
@@ -41,9 +43,85 @@ namespace Code.UI.InventoryViewModel.Inventory
             _itemContainers.ForEach(x =>
             {
                 x.ViewModel.EndedDragViewEvent -= OnHandlePlaceItem;
+                x.ViewModel.ChangedPositionViewEvent -= OnUpdateColorToPlaceItem;
             });
         }
 
+        private void OnUpdateColorToPlaceItem(Vector2 currentPosition, IItemViewModel itemVM)
+        {
+            var isCanPlace = _itemPositionFinding.TryToPlaceItemInInventory(currentPosition);
+            if (isCanPlace == false)
+            {
+                SetColorSlotsToDefault();
+                return;
+            }
+
+            GridCell targetGridCell = _itemPositionFinding.GetNeighbourGritCellByPosition(currentPosition);
+            InventoryModel.Items.Data.Item item = itemVM.Item;
+
+            if (targetGridCell == null)
+                return;
+
+            GridCell targetGridCellIsCanMarge = null;
+            PlaceTestResult placeTestResult = _inventory.CanPlace(targetGridCell, item, true);
+
+            bool isCanMarge = false;
+            int gridIndex = _inventory.GridIndex(targetGridCell);
+            List<int> indexShifts = itemVM.Item.InventoryPlacement.GetIndexShifts(InventorySize.Rows);
+            
+            for (int i = 0; i < indexShifts.Count; i++)
+            {
+                int targetIndex = gridIndex + indexShifts[i];
+                if (targetIndex < 0 || targetIndex >= _inventory.Cells.Count)
+                    continue;
+
+                var isPassed = !placeTestResult.Passed.Contains(targetIndex);
+                var isBlocked = !placeTestResult.Blocked.Contains(targetIndex);
+                if (isPassed && isBlocked)
+                    continue;
+
+                GridCell gridCell = _inventory.Cells[targetIndex];
+
+                //TODO: Added merge service and unlocked this code
+                
+                // isCanMarge = gridCell.Item != null
+                //              && _mergeService.CanMerge(item.Id, gridCell.Item.Id, out _)
+                //              && item.InstanceId != gridCell.Item.InstanceId;
+
+                targetGridCellIsCanMarge = gridCell;
+
+                // if (isCanMarge)
+                //     break;
+            }
+
+            SetColorSlotsToDefault();
+
+            // if (isCanMarge)
+            // {
+            //     foreach (var slotData in _slotContainers)
+            //     {
+            //         if (slotData.ViewModel.GridCell.Item == null)
+            //             continue;
+            //
+            //         if (targetGridCellIsCanMarge.Item.InstanceId == slotData.ViewModel.GridCell.Item.InstanceId)
+            //             slotData.ViewModel.SetColorReaction(true);
+            //     }
+            //     return;
+            // }
+
+            foreach (var blocked in placeTestResult.Blocked)
+            {
+                var slotPm = GetSlotVMByIndex(blocked);
+                slotPm?.SetColorReaction(false);
+            }
+
+            foreach (var passed in placeTestResult.Passed)
+            {
+                var slotPm = GetSlotVMByIndex(passed);
+                slotPm?.SetColorReaction(placeTestResult.Blocked.Count == 0);
+            }
+        }
+        
         private void OnHandlePlaceItem(Vector2 currentPosition, IItemViewModel itemVM)
         {
             GridCell targetGridCell = _itemPositionFinding.GetNeighbourGritCellByPosition(currentPosition);
@@ -51,19 +129,19 @@ namespace Code.UI.InventoryViewModel.Inventory
             //check if item in out of grid
             if (targetGridCell == null)
             {
-                itemVM.PlayAnimationReturnToTargetPosition();
+                UpdateViewInventory(itemVM);
                 return;
             }
             
             //Try changed position item in slots
             if (TryChangedPositionItemInSlots(targetGridCell, itemVM))
             {
-                itemVM.PlayAnimationReturnToTargetPosition();
+                UpdateViewInventory(itemVM);
                 return;
             }
             
             //Just return item to target position
-            itemVM.PlayAnimationReturnToTargetPosition();
+            UpdateViewInventory(itemVM);
         }
         
         private bool TryChangedPositionItemInSlots(GridCell targetGridCell, IItemViewModel itemVM)
@@ -82,11 +160,27 @@ namespace Code.UI.InventoryViewModel.Inventory
             _inventory.TryAdd(targetGridCell, item);
             return true;
         }
+
+        private void UpdateViewInventory(IItemViewModel itemVM)
+        {
+            itemVM.PlayAnimationReturnToTargetPosition();
+            SetColorSlotsToDefault();
+        }
         
         private GridCell GetGridCellByRootPosition(int rootPositionX, int rootPositionY)
         {
             return _slotContainers.Select(slotData => slotData.ViewModel.GridCell)
                 .FirstOrDefault(gridCell => gridCell.GridX == rootPositionX && gridCell.GridY == rootPositionY);
+        }
+        
+        private ISlotViewModel GetSlotVMByIndex(int index)
+        {
+            return index >= 0 && index < _slotContainers.Count ? _slotContainers[index].ViewModel : null;
+        }
+        
+        private void SetColorSlotsToDefault()
+        {
+            _slotContainers.ForEach(x=> x.ViewModel.SetToDefaultColorReaction());
         }
     }
 }

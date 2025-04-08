@@ -37,7 +37,7 @@ namespace Code.UI.InventoryViewModel.Item
 
         public event Action<IItemViewModel> StartedDragViewEvent;
         public event Action<Vector2, IItemViewModel> EndedDragViewEvent;
-        public event Action<Vector2> ChangedPositionViewEvent;
+        public event Action<Vector2, IItemViewModel> ChangedPositionViewEvent;
 
         public event Action AnimationReturnToLastPositionEvent;
         public event Action<Quaternion> AnimationRotatedEvent;
@@ -89,7 +89,7 @@ namespace Code.UI.InventoryViewModel.Item
         public void SetPositionWhenDrag(Vector2 position)
         {
             Vector3 newPosition = position + _offset;
-            ChangedPositionViewEvent?.Invoke(newPosition);
+            ChangedPositionViewEvent?.Invoke(newPosition, this);
         }
 
         #endregion
