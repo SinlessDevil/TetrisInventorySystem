@@ -5,17 +5,18 @@ namespace Code.UI.InventoryViewModel.Item
 {
     public interface IItemViewModel
     {
-        event Action<IItemViewModel> StartedDragViewEvent;
-        event Action<Vector2, IItemViewModel> EndedDragViewEvent;
-        event Action<Vector2, IItemViewModel> ChangedPositionViewEvent;
+        public event Action<IItemViewModel> StartedDragViewEvent;
+        public event Action<Vector2, IItemViewModel> EndedDragViewEvent;
+        public event Action<Vector2, IItemViewModel> ChangedPositionViewEvent;
 
-        event Action AnimationReturnToLastPositionEvent;
-        event Action<Quaternion> AnimationRotatedEvent;
+        public event Action AnimationReturnToLastPositionEvent;
+        public event Action<Quaternion> AnimationRotatedEvent;
 
-        event Action<IItemViewModel> EffectDropItemEvent;
+        public event Action<IItemViewModel> EffectDropItemEvent;
         
         public InventoryModel.Items.Data.Item Item { get; }
-        public RectTransform GetParent();
+        public RectTransform GetMainParent();
+        public RectTransform GetDragParent();
         public Sprite GetItemSprite();
         public Sprite GetItemOutlineSprite();
         public Vector2 GetParentSize();
@@ -35,6 +36,6 @@ namespace Code.UI.InventoryViewModel.Item
         public void PlayAnimationReturnToTargetPosition();
         public void PlayAnimationRotated(Quaternion rotation);
         
-        void PlayEffectDropItem();
+        public void PlayEffectDropItem();
     }
 }

@@ -14,14 +14,16 @@ namespace Code.UI.InventoryViewModel.Item
         private readonly InventoryModel.Items.Data.Item _item;
         private readonly IItemPositionFinding _itemPositionFinding;
         private readonly IItemDataProvider _itemDataProvider;
-        private readonly RectTransform _parentRectTransform;
+        private readonly RectTransform _mainRectTransform;
+        private readonly RectTransform _dragRectTransform;
         private readonly int _sizeSlot;
-        
+
         public ItemViewModel(
             InventoryModel.Items.Data.Item item,
             IItemPositionFinding itemPositionFinding,
             IItemDataProvider itemDataProvider,
-            RectTransform parentRectTransform,
+            RectTransform mainRectTransform,
+            RectTransform dragRectTransform,
             int sizeSlot,
             Vector2 spawnPosition,
             Quaternion spawnRotation)
@@ -29,7 +31,8 @@ namespace Code.UI.InventoryViewModel.Item
             _item = item;
             _itemPositionFinding = itemPositionFinding;
             _itemDataProvider = itemDataProvider;
-            _parentRectTransform = parentRectTransform;
+            _mainRectTransform = mainRectTransform;
+            _dragRectTransform = dragRectTransform;
             _sizeSlot = sizeSlot;
             _spawnPosition = spawnPosition;
             _spawnRotation = spawnRotation;
@@ -46,7 +49,8 @@ namespace Code.UI.InventoryViewModel.Item
 
         public InventoryModel.Items.Data.Item Item => _item;
 
-        public RectTransform GetParent() => _parentRectTransform;
+        public RectTransform GetMainParent() => _mainRectTransform;
+        public RectTransform GetDragParent() => _dragRectTransform;
 
         public Sprite GetItemSprite() => _itemDataProvider.ForItemId(_item.Id).Item.Graphic.Icon;
         

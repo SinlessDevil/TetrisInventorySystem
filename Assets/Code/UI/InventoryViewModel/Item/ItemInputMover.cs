@@ -21,6 +21,8 @@ namespace Code.UI.InventoryViewModel.Item
         public void OnBeginDrag(PointerEventData eventData)
         {
             SetLastSibling();
+
+            SetParent(_itemVM.GetDragParent());
             
             _offset = (Vector2)transform.position - eventData.position;
             _itemVM.SetStartPositionDrag(_offset);
@@ -28,6 +30,8 @@ namespace Code.UI.InventoryViewModel.Item
 
         public void OnEndDrag(PointerEventData eventData)
         {
+            SetParent(_itemVM.GetMainParent());
+            
             _itemVM.SetEndPositionDrag(_rootCenterRectTransform.transform.position);
         }
 
@@ -39,6 +43,11 @@ namespace Code.UI.InventoryViewModel.Item
         private void SetLastSibling()
         {
             this.transform.SetAsLastSibling();
+        }
+        
+        private void SetParent(Transform transform)
+        {
+            this.transform.SetParent(transform);
         }
     }
 }

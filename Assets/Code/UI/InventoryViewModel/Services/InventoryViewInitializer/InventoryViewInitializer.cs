@@ -118,8 +118,8 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
             foreach (InventoryModel.Items.Data.Item item in _inventoryPlayerSetUper.Inventory.Items)
             {
                 ItemView itemView = _inventoryUIFactory.CreateItemView(_inventoryContainer.View.ItemsContainer);
-                IItemViewModel itemViewModel = new ItemViewModel(
-                    item, _itemPositionFinding, _itemDataProvider, _inventoryContainer.View.ItemsContainer, 
+                IItemViewModel itemViewModel = new ItemViewModel(item, _itemPositionFinding, _itemDataProvider,
+                    _inventoryContainer.View.ItemsContainer, _inventoryContainer.View.ItemDragContainer,
                     InventorySize.CellSize,_inventoryContainer.View.ItemsContainer.position, Quaternion.identity);
                 
                 ItemContainer itemContainer = new ItemContainer()

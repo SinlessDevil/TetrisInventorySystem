@@ -37,7 +37,7 @@ namespace Code.UI.InventoryViewModel.Item
             _viewModel = viewModel;
             
             SetSpriteIcon(_viewModel.GetItemSprite(), _viewModel.GetItemOutlineSprite());
-            SetParent(_viewModel.GetParent());
+            SetParent(_viewModel.GetMainParent());
             SetParentSize(_viewModel.GetParentSize());
             SetRootSize(_viewModel.GetRootSize());
             SetPivotPosition(_viewModel.GetPivotPosition());
