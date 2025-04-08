@@ -5,7 +5,8 @@
         "Zenject",
         "DOTweenPro.Scripts",
         "DOTween.Modules",
-        "Coffee.UIParticle"
+        "Coffee.UIParticle",
+        "UniTask"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

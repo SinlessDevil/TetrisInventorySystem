@@ -16,8 +16,6 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
     public class InventoryViewInitializer : IInventoryViewInitializer
     {
         private InventoryContainer _inventoryContainer;
-        private List<ItemContainer> _itemContainers = new(25);
-        private List<SlotContainer> _slotContainers = new(25);
         
         private IItemPositionFinding _itemPositionFinding;
         
@@ -51,27 +49,23 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
             BindPositionFinding();
             
             CreateInventory();
-            CreateSlots();
-            CreateItems();
+            var slotContainers = CreateSlots();
+            var itemContainers = CreateItems();
             
-            InitItemPositionFinding();
+            InitItemPositionFinding(slotContainers);
             
-            InitInventory();
-            InitSlots();
-            InitItems();
+            InitInventory(slotContainers, itemContainers);
+            InitSlots(slotContainers);
+            InitItems(itemContainers);
         }
         
         public void CloseInventory()
         {
             _inventoryContainer.ViewModel.Unsubscribe();
-            _slotContainers.ForEach(x => x.ViewModel.Unsubscribe());
             
-            _itemContainers.ForEach(x=> x.View.Dispose());
-            _slotContainers.ForEach(x=> x.View.Dispose());
+            _inventoryContainer.ViewModel.DisposeViewModel();
             _inventoryContainer.View.Dispose();
             
-            _itemContainers.Clear();
-            _slotContainers.Clear();
             _inventoryContainer = null;
         }
 
@@ -84,7 +78,7 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
         {
             InventoryView inventoryView = _inventoryUIFactory.CreateInventoryView();
             IInventoryViewModel inventoryViewModel = new Inventory.InventoryViewModel(_inventory.Inventory,
-                _itemPositionFinding, _slotContainers, _itemContainers);
+                _itemPositionFinding);
 
             InventoryContainer inventoryContainer = new InventoryContainer()
             {
@@ -95,8 +89,10 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
             _inventoryContainer = inventoryContainer;
         }
         
-        private void CreateSlots()
+        private List<SlotContainer> CreateSlots()
         {
+            List<SlotContainer> slotContainers = new List<SlotContainer>(25);
+            
             foreach (GridCell gridCell in _inventoryPlayerSetUper.Inventory.Cells)
             {
                 SlotView slotView = _inventoryUIFactory.CreateSlotView(_inventoryContainer.View.SlotsContainer);
@@ -109,12 +105,16 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
                     ViewModel = slotViewModel
                 };
                 
-                _slotContainers.Add(slotContainer);
+                slotContainers.Add(slotContainer);
             }
+
+            return slotContainers;
         }
         
-        private void CreateItems()
+        private List<ItemContainer> CreateItems()
         {
+            List<ItemContainer> itemContainers = new List<ItemContainer>(25);
+            
             foreach (InventoryModel.Items.Data.Item item in _inventoryPlayerSetUper.Inventory.Items)
             {
                 ItemView itemView = _inventoryUIFactory.CreateItemView(_inventoryContainer.View.ItemsContainer);
@@ -128,35 +128,39 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
                     ViewModel = itemViewModel
                 };
                 
-                _itemContainers.Add(itemContainer);
+                itemContainers.Add(itemContainer);
             }
+
+            return itemContainers;
         }
         
-        private void InitItemPositionFinding()
+        private void InitItemPositionFinding(List<SlotContainer> slotContainers)
         {
             float offsetX = ((_inventoryContainer.View.ItemsContainer.rect.width / 2) * -1) + InventorySize.CellSize / 2;
             float offsetY = (_inventoryContainer.View.ItemsContainer.rect.height / 2) - InventorySize.CellSize / 2;
-            _itemPositionFinding.Initialize(_slotContainers, _inventoryContainer.View.ItemsContainer, offsetX, offsetY);
+            _itemPositionFinding.Initialize(slotContainers, _inventoryContainer.View.ItemsContainer, 
+                _inventoryContainer.View.DestroyItemContainer, offsetX, offsetY);
         }
         
-        private void InitInventory()
+        private void InitInventory(List<SlotContainer> slotContainers, List<ItemContainer> itemContainers)
         {
-            _inventoryContainer.View.Initialize();
+            _inventoryContainer.View.Initialize(_inventoryContainer.ViewModel);
+            _inventoryContainer.ViewModel.InitializeViewModel(slotContainers, itemContainers);
             _inventoryContainer.ViewModel.Subscribe();
         }
         
-        private void InitSlots()
+        private void InitSlots(List<SlotContainer> slotContainers)
         {
-            _slotContainers.ForEach(slotContainer =>
+            slotContainers.ForEach(slotContainer =>
             {
                 slotContainer.View.Initialize(slotContainer.ViewModel);
                 slotContainer.ViewModel.Subscribe();
             });
         }
 
-        private void InitItems()
+        private void InitItems(List<ItemContainer> itemContainers)
         {
-            _itemContainers.ForEach(itemContainer => {itemContainer.View.Initialize(itemContainer.ViewModel);});
+            itemContainers.ForEach(itemContainer => {itemContainer.View.Initialize(itemContainer.ViewModel);});
         }
     }
 }

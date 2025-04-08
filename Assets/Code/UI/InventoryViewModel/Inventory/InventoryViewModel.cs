@@ -1,11 +1,14 @@
+using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UI.Inventory;
 using Code.InventoryModel;
 using Code.UI.InventoryViewModel.Item;
 using Code.UI.InventoryViewModel.Services.InventoryViewInitializer;
 using Code.UI.InventoryViewModel.Slot;
+using Cysharp.Threading.Tasks;
 
 namespace Code.UI.InventoryViewModel.Inventory
 {
@@ -13,28 +16,44 @@ namespace Code.UI.InventoryViewModel.Inventory
     {
         private readonly IInventory _inventory;
         private readonly IItemPositionFinding _itemPositionFinding;
-        private readonly List<SlotContainer> _slotContainers;
         
+        private List<SlotContainer> _slotContainers;
         private List<ItemContainer> _itemContainers;
 
         public InventoryViewModel(
             IInventory inventory,
-            IItemPositionFinding itemPositionFinding,
-            List<SlotContainer> slotContainers,
-            List<ItemContainer> itemContainer) 
+            IItemPositionFinding itemPositionFinding) 
         {
             _inventory = inventory;
             _itemPositionFinding = itemPositionFinding;
-            _slotContainers = slotContainers;
-            _itemContainers = itemContainer;
         }
 
+        public event Action<bool> EffectTogglePlayingDestroyGlowEvent;
+
+        public void InitializeViewModel(List<SlotContainer> slotContainers, List<ItemContainer> itemContainers)
+        {
+            _slotContainers = slotContainers;
+            _itemContainers = itemContainers;
+        }
+
+        public void DisposeViewModel()
+        {
+            _slotContainers.ForEach(x => x.ViewModel.Unsubscribe());
+            
+            _itemContainers.ForEach(x=> x.View.Dispose());
+            _slotContainers.ForEach(x=> x.View.Dispose());
+            
+            _itemContainers.Clear();
+            _slotContainers.Clear();
+        }
+        
         public void Subscribe()
         {
             _itemContainers.ForEach(x =>
             {
                 x.ViewModel.EndedDragViewEvent += OnHandlePlaceItem;
                 x.ViewModel.ChangedPositionViewEvent += OnUpdateColorToPlaceItem;
+                x.ViewModel.ChangedPositionViewEvent += OnUpdateDestroyGlowEffect;
                 x.ViewModel.EffectDropItemEvent += OnHandlePlayEffectFilledSlot;
             });
         }
@@ -45,6 +64,7 @@ namespace Code.UI.InventoryViewModel.Inventory
             {
                 x.ViewModel.EndedDragViewEvent -= OnHandlePlaceItem;
                 x.ViewModel.ChangedPositionViewEvent -= OnUpdateColorToPlaceItem;
+                x.ViewModel.ChangedPositionViewEvent -= OnUpdateDestroyGlowEffect;
                 x.ViewModel.EffectDropItemEvent -= OnHandlePlayEffectFilledSlot;
             });
         }
@@ -52,6 +72,13 @@ namespace Code.UI.InventoryViewModel.Inventory
         private void OnHandlePlaceItem(Vector2 currentPosition, IItemViewModel itemVM)
         {
             GridCell targetGridCell = _itemPositionFinding.GetNeighbourGritCellByPosition(currentPosition);
+
+            //Tty destroy item in placemant container destroy holder 
+            if (TryDestroyItem(currentPosition, itemVM))
+            {
+                UpdateViewInventory(itemVM);
+                return;
+            }
             
             //check if item in out of grid
             if (targetGridCell == null)
@@ -146,12 +173,42 @@ namespace Code.UI.InventoryViewModel.Inventory
             }
         }
         
+        private void OnUpdateDestroyGlowEffect(Vector2 currentPosition, IItemViewModel itemVM)
+        {
+            bool isCanPlace = _itemPositionFinding.TryToPlaceItemInDestroyContainer(currentPosition);
+            
+            if (isCanPlace)
+            {
+                EffectTogglePlayingDestroyGlowEvent?.Invoke(true);
+                return;
+            }
+            
+            EffectTogglePlayingDestroyGlowEvent?.Invoke(false);
+        }
+        
         private void OnHandlePlayEffectFilledSlot(IItemViewModel itemVM)
         {
-            Debug.Log($"{itemVM} PlayEffectFilledSlot");
             var slotContainers = GetSlotDataByItem(itemVM.Item);
-            Debug.Log($"{slotContainers.Count}");
             slotContainers.ForEach(x=> x.ViewModel.PlayEffectFilledSlot());
+        }
+
+        private bool TryDestroyItem(Vector2 currentPosition, IItemViewModel itemVM)
+        {
+            bool isCanPlace = _itemPositionFinding.TryToPlaceItemInDestroyContainer(currentPosition);
+            if (!isCanPlace)
+                return false;
+
+            ItemContainer itemContainer = GetItemContainerByVM(itemVM);
+            if(itemContainer == null)
+                return false;
+            
+            if (_inventory.TryRemove(itemVM.Item, out _))
+            {
+                CleanUpItem(itemContainer);
+                return true;
+            }
+            
+            return false;
         }
         
         private bool TryChangedPositionItemInSlots(GridCell targetGridCell, IItemViewModel itemVM)
@@ -182,6 +239,18 @@ namespace Code.UI.InventoryViewModel.Inventory
             _slotContainers.ForEach(x=> x.ViewModel.SetToDefaultColorReaction());
         }
 
+        private async UniTask CleanUpItem(ItemContainer itemContainer)
+        {
+            itemContainer.ViewModel.SetPosition(itemContainer.View.transform.localPosition);
+            
+            await Task.Delay(400);
+            
+            itemContainer.View.Dispose();
+            _itemContainers.Remove(itemContainer);
+            
+            EffectTogglePlayingDestroyGlowEvent?.Invoke(false);
+        }
+        
         #region Getters
 
         private GridCell GetGridCellByRootPosition(int rootPositionX, int rootPositionY)
@@ -195,6 +264,11 @@ namespace Code.UI.InventoryViewModel.Inventory
             return index >= 0 && index < _slotContainers.Count ? _slotContainers[index].ViewModel : null;
         }
         
+        private ItemContainer GetItemContainerByVM(IItemViewModel itemVM)
+        {
+            return _itemContainers.FirstOrDefault(itemContainer => itemContainer.ViewModel == itemVM);
+        }
+        
         private List<SlotContainer> GetSlotDataByItem(InventoryModel.Items.Data.Item item)
         {
             List<SlotContainer> slotDatas = new List<SlotContainer>();
@@ -202,8 +276,6 @@ namespace Code.UI.InventoryViewModel.Inventory
             {
                 if (slotData.ViewModel.Item == null)
                     continue;
-
-                Debug.Log($"{slotData.ViewModel.Item.Name} := {slotData.ViewModel.Item.InstanceId} == {item.InstanceId}");
                 
                 if (slotData.ViewModel.Item.InstanceId == item.InstanceId)
                     slotDatas.Add(slotData);

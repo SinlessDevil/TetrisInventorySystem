@@ -26,11 +26,15 @@ namespace Code.UI.InventoryViewModel.Item
         public Quaternion GetGraphicRotation();
         public Vector3 GetGraphicFlipScale();
         
-        void SetStartPositionDrag(Vector3 position);
-        void SetEndPositionDrag(Vector3 position);
-        void SetPositionWhenDrag(Vector2 position);
-        void PlayAnimationReturnToTargetPosition();
-        void PlayAnimationRotated(Quaternion rotation);
+        public void SetStartPositionDrag(Vector3 position);
+        public void SetEndPositionDrag(Vector3 position);
+        public void SetPositionWhenDrag(Vector2 position);
+        
+        public void SetPosition(Vector2 position);
+        
+        public void PlayAnimationReturnToTargetPosition();
+        public void PlayAnimationRotated(Quaternion rotation);
+        
         void PlayEffectDropItem();
     }
 }

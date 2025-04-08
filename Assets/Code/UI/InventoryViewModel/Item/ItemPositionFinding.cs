@@ -11,11 +11,12 @@ namespace UI.Inventory
     {
         private List<SlotContainer> _slotsData;
         private RectTransform _containerInInventory;
+        private RectTransform _destroyItemContainer;
         private int _offsetX;
         private int _offsetY;
         
         private readonly int _cellSize;
-        
+
         public ItemPositionFinding(float cellSize)
         {
             _cellSize = (int)cellSize;
@@ -24,9 +25,11 @@ namespace UI.Inventory
         public void Initialize(            
             List<SlotContainer> slotsData,
             RectTransform containerInInventory,
+            RectTransform destroyItemContainer,
             float offsetX, float offsetY)
         {
             _slotsData = slotsData;
+            _destroyItemContainer = destroyItemContainer;
             _containerInInventory = containerInInventory;
             _offsetX = (int)offsetX;
             _offsetY = (int)offsetY;
@@ -35,11 +38,7 @@ namespace UI.Inventory
         public bool TryGetPositionItemById(Guid itemId)
         {
             List<SlotContainer> slotsDataWithItem = GetSlotsDataWithItem(itemId);
-
-            if (slotsDataWithItem == null || slotsDataWithItem.Count == 0)
-                return false;
-
-            return true;
+            return slotsDataWithItem != null && slotsDataWithItem.Count != 0;
         }
         
         public bool TryToPlaceItemInInventory(Vector2 position)
@@ -47,6 +46,11 @@ namespace UI.Inventory
             return TryToPlaceItemInContainer(_containerInInventory, position);
         }
 
+        public bool TryToPlaceItemInDestroyContainer(Vector2 position)
+        {
+            return TryToPlaceItemInContainer(_destroyItemContainer, position);
+        }
+        
         public ItemContainer GetNeighbourItemDataWithoutInventory(
             List<ItemContainer> itemsData, ItemContainer targetItemsData)
         {
@@ -132,9 +136,7 @@ namespace UI.Inventory
         public bool TryToPlaceItemInContainer(RectTransform container, Vector2 position)
         {
             if (container == null || !container.gameObject.activeSelf || container.rect.size == Vector2.zero)
-            {
                 return false;
-            }
             
             Vector2 objectCenter = position;
     

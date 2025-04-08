@@ -8,15 +8,15 @@ namespace Code.UI.InventoryViewModel.Item
     public class ItemViewModel : IItemViewModel
     {
         private Vector2 _offset;
-
+        private Vector2 _spawnPosition;
+        private Quaternion _spawnRotation;
+        
         private readonly InventoryModel.Items.Data.Item _item;
         private readonly IItemPositionFinding _itemPositionFinding;
         private readonly IItemDataProvider _itemDataProvider;
         private readonly RectTransform _parentRectTransform;
         private readonly int _sizeSlot;
-        private readonly Vector2 _spawnPosition;
-        private readonly Quaternion _spawnRotation;
-
+        
         public ItemViewModel(
             InventoryModel.Items.Data.Item item,
             IItemPositionFinding itemPositionFinding,
@@ -73,6 +73,11 @@ namespace Code.UI.InventoryViewModel.Item
 
         public Vector3 GetGraphicFlipScale() => _item.Graphic.FlipScale;
 
+        public void SetPosition(Vector2 position)
+        {
+            _spawnPosition = position;
+        }
+        
         #region Set Drags
 
         public void SetStartPositionDrag(Vector3 position)
