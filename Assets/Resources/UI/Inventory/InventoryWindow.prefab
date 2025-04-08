@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 447832c8be6e4fbf9e8686993687e476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destoryItemContainerHolder: {fileID: 37468869410676685}
+  rectTransformHolder: {fileID: 37468869410676685}
   _glow: {fileID: 702412499196286649}
 --- !u!1 &3119641981820674684
 GameObject:
@@ -581,7 +581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e8a728b6894c5f9c6eb662b31f6d90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destoryItemContainerHolder: {fileID: 3003182056545485410}
+  rectTransformHolder: {fileID: 3003182056545485410}
   _glow: {fileID: 5531986415151961949}
 --- !u!1 &6518713156500915567
 GameObject:

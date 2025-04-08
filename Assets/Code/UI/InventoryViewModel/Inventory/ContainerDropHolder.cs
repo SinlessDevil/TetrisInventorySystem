@@ -1,16 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using UnityEngine.Serialization;
 
 namespace Code.UI.InventoryViewModel.Inventory
 {
     public abstract class ContainerDropHolder : MonoBehaviour
     {
-        [FormerlySerializedAs("_destoryItemContainer")] [SerializeField] private RectTransform destoryItemContainerHolder;
+        [SerializeField] private RectTransform rectTransformHolder;
         [SerializeField] private Image _glow;
         
-        private Tween _glowTween;
+        private bool _isPlayingGlow;
         
         protected IInventoryViewModel _inventoryVm;
 
@@ -26,7 +25,7 @@ namespace Code.UI.InventoryViewModel.Inventory
             Unsubscribe();
         }
         
-        public RectTransform ContainerHolder => destoryItemContainerHolder;
+        public RectTransform ContainerHolder => rectTransformHolder;
 
         protected abstract void Subscribe();
 
@@ -42,32 +41,28 @@ namespace Code.UI.InventoryViewModel.Inventory
 
         private void PlayGlowEffect()
         {
-            if(_glowTween != null)
+            if (_isPlayingGlow)
                 return;
             
-            _glowTween?.Kill();
+            _isPlayingGlow = true;
             
             var color = _glow.color;
             color.a = 0f;
             _glow.color = color;
             
-            _glowTween = _glow
-                .DOFade(1f, 0.8f)
-                .SetLoops(-1, LoopType.Yoyo)
+            _glow.DOFade(1f, 0.8f)
                 .SetEase(Ease.InOutSine);
         }
 
         private void StopGlowEffect()
         {
-            if(_glowTween == null)
+            if(!_isPlayingGlow)
                 return;
             
-            _glowTween?.Kill();
-            _glowTween = null;
+            _isPlayingGlow = false;
             
-            var color = _glow.color;
-            color.a = 0f;
-            _glow.color = color;
+            _glow.DOFade(0f, 0.8f)
+                .SetEase(Ease.InOutSine);
         }
     }
 }

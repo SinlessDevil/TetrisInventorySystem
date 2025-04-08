@@ -1,9 +1,9 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using UnityEngine;
 using Code.InventoryModel;
 using Code.UI.InventoryViewModel.Services.InventoryViewInitializer;
-using UnityEngine;
 
 namespace UI.Inventory
 {

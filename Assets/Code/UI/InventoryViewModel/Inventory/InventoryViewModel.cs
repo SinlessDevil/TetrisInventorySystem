@@ -76,8 +76,15 @@ namespace Code.UI.InventoryViewModel.Inventory
         {
             GridCell targetGridCell = _itemPositionFinding.GetNeighbourGritCellByPosition(currentPosition);
 
-            //Tty destroy item in placemant container destroy holder 
+            //Try destroy item in placemant container destroy holder 
             if (TryDestroyItem(currentPosition, itemVM))
+            {
+                UpdateViewInventory(itemVM);
+                return;
+            }
+            
+            //Try drop item out of inventory
+            if (TryDropItemOutInventory(currentPosition, itemVM))
             {
                 UpdateViewInventory(itemVM);
                 return;
@@ -220,7 +227,27 @@ namespace Code.UI.InventoryViewModel.Inventory
             
             if (_inventory.TryRemove(itemVM.Item, out _))
             {
-                CleanUpItem(itemContainer);
+                CleanUpItemAsync(itemContainer).Forget();
+                return true;
+            }
+            
+            return false;
+        }
+
+        private bool TryDropItemOutInventory(Vector2 currentPosition, IItemViewModel itemVM)
+        {
+            bool isCanPlace = _itemPositionFinding.TryToPlaceItemFreeAreaContainer(currentPosition);
+            if (!isCanPlace)
+                return false;
+
+            ItemContainer itemContainer = GetItemContainerByVM(itemVM);
+            if(itemContainer == null)
+                return false;
+            
+            if (_inventory.TryRemove(itemVM.Item, out _))
+            {
+                itemContainer.ViewModel.SetPosition(itemContainer.View.transform.localPosition);
+                EffectTogglePlayingFreeAreaGlowEvent?.Invoke(false);
                 return true;
             }
             
@@ -255,7 +282,7 @@ namespace Code.UI.InventoryViewModel.Inventory
             _slotContainers.ForEach(x=> x.ViewModel.SetToDefaultColorReaction());
         }
 
-        private async UniTask CleanUpItem(ItemContainer itemContainer)
+        private async UniTask CleanUpItemAsync(ItemContainer itemContainer)
         {
             itemContainer.ViewModel.SetPosition(itemContainer.View.transform.localPosition);
             
