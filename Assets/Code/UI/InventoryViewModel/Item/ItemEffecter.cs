@@ -69,11 +69,15 @@ namespace Code.UI.InventoryViewModel.Item
         {
             _itemVM.EffectDropItemEvent += OnDropItemEffectWrap;
             _itemVM.EffectStackItemEvent += OnStackItemsWrap;
+            _itemVM.EffectStartOutlineGlowEvent += OnPlayEffectStartHighlightItemWrap;
+            _itemVM.EffectEndOutlineGlowEvent += OnStopEffectHighlightItemWrap;
         }
         private void Unsubscribe()
         {
             _itemVM.EffectDropItemEvent -= OnDropItemEffectWrap;
             _itemVM.EffectStackItemEvent -= OnStackItemsWrap;
+            _itemVM.EffectStartOutlineGlowEvent -= OnPlayEffectStartHighlightItemWrap;
+            _itemVM.EffectEndOutlineGlowEvent -= OnStopEffectHighlightItemWrap;
         }
 
         private void OnDropItemEffectWrap(IItemViewModel itemViewModel)
@@ -81,12 +85,12 @@ namespace Code.UI.InventoryViewModel.Item
             StartCoroutine(PlayEffectGlowRoutine(_itemDropGlowPreset));
         }
         
-        private void OnItemDragEnded()
+        private void OnStopEffectHighlightItemWrap()
         {
             _sameItemsEffectEnabled = false;
         }
         
-        private void OnPlayEffectHighlightItemWrap()
+        private void OnPlayEffectStartHighlightItemWrap()
         {
             _sameItemsEffectEnabled = true;
             if (_playGlowCoroutine != null)

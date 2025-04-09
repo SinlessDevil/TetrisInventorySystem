@@ -14,6 +14,8 @@ namespace Code.UI.InventoryViewModel.Item
 
         public event Action EffectStackItemEvent;
         public event Action<IItemViewModel> EffectDropItemEvent;
+        public event Action EffectStartOutlineGlowEvent;
+        public event Action EffectEndOutlineGlowEvent;
         
         public InventoryModel.Items.Data.Item Item { get; }
         public RectTransform GetMainParent();
@@ -41,5 +43,7 @@ namespace Code.UI.InventoryViewModel.Item
         
         public void PlayEffectDropItem();
         public void PlayEffectStackItem();
+        public void PlayEffectOutlineGlow();
+        void StopEffectOutlineGlow();
     }
 }

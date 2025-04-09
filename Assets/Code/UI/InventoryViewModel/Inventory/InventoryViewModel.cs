@@ -56,6 +56,7 @@ namespace Code.UI.InventoryViewModel.Inventory
         {
             _itemContainers.ForEach(x =>
             {
+                x.ViewModel.StartedDragViewEvent += OnHandleOutlineGlowingItems;
                 x.ViewModel.EndedDragViewEvent += OnHandlePlaceItem;
                 x.ViewModel.ChangedPositionViewEvent += OnUpdateColorToPlaceItem;
                 x.ViewModel.ChangedPositionViewEvent += OnUpdateDestroyGlowEffect;
@@ -63,11 +64,11 @@ namespace Code.UI.InventoryViewModel.Inventory
                 x.ViewModel.EffectDropItemEvent += OnHandlePlayEffectFilledSlot;
             });
         }
-        
         public void Unsubscribe()
         {
             _itemContainers.ForEach(x =>
             {
+                x.ViewModel.StartedDragViewEvent -= OnHandleOutlineGlowingItems;
                 x.ViewModel.EndedDragViewEvent -= OnHandlePlaceItem;
                 x.ViewModel.ChangedPositionViewEvent -= OnUpdateColorToPlaceItem;
                 x.ViewModel.ChangedPositionViewEvent -= OnUpdateDestroyGlowEffect;
@@ -75,7 +76,7 @@ namespace Code.UI.InventoryViewModel.Inventory
                 x.ViewModel.EffectDropItemEvent -= OnHandlePlayEffectFilledSlot;
             });
         }
-
+        
         private void OnHandlePlaceItem(Vector2 currentPosition, IItemViewModel itemVM)
         {
             GridCell targetGridCell = _itemPositionFinding.GetNeighbourGritCellByPosition(currentPosition);
@@ -117,6 +118,12 @@ namespace Code.UI.InventoryViewModel.Inventory
             
             //Just return item to target position
             UpdateViewInventory(itemVM);
+        }
+        
+        private void OnHandleOutlineGlowingItems(IItemViewModel itemVM)
+        {
+            List<ItemContainer> itemContainer = GetItemContainesByVM(itemVM);
+            itemContainer.ForEach(x => x.ViewModel.PlayEffectOutlineGlow());
         }
         
         private void OnUpdateColorToPlaceItem(Vector2 currentPosition, IItemViewModel itemVM)
@@ -325,7 +332,11 @@ namespace Code.UI.InventoryViewModel.Inventory
         private void UpdateViewInventory(IItemViewModel itemVM)
         {
             itemVM.PlayAnimationReturnToTargetPosition();
+            
             UpdateColorSlotsToDefault();
+            
+            List<ItemContainer> itemContainer = GetItemContainesByVM(itemVM);
+            itemContainer.ForEach(x => x.ViewModel.StopEffectOutlineGlow());
         }
         
         private void UpdateColorSlotsToDefault()
@@ -350,6 +361,10 @@ namespace Code.UI.InventoryViewModel.Inventory
         
         #region Getters
 
+        private List<ItemContainer> GetItemContainesByVM(IItemViewModel itemVM) => _itemContainers
+            .Where(x => x.ViewModel.Item.Id == itemVM.Item.Id)
+            .ToList();
+
         private GridCell GetGridCellByRootPosition(int rootPositionX, int rootPositionY) => _slotContainers
             .Select(slotData => slotData.ViewModel.GridCell)
             .FirstOrDefault(gridCell => gridCell.GridX == rootPositionX && gridCell.GridY == rootPositionY);
@@ -363,20 +378,10 @@ namespace Code.UI.InventoryViewModel.Inventory
         private ItemContainer GetItemContainerByItem(InventoryModel.Items.Data.Item item) => _itemContainers
             .FirstOrDefault(itemContainer => itemContainer.ViewModel.Item.InstanceId == item.InstanceId);
 
-        private List<SlotContainer> GetSlotDataByItem(InventoryModel.Items.Data.Item item)
-        {
-            List<SlotContainer> slotDatas = new List<SlotContainer>();
-            foreach (var slotData in _slotContainers)
-            {
-                if (slotData.ViewModel.Item == null)
-                    continue;
-                
-                if (slotData.ViewModel.Item.InstanceId == item.InstanceId)
-                    slotDatas.Add(slotData);
-            }
-
-            return slotDatas;
-        }
+        private List<SlotContainer> GetSlotDataByItem(InventoryModel.Items.Data.Item item) => _slotContainers
+                .Where(slotData => slotData.ViewModel.Item != null)
+                .Where(slotData => slotData.ViewModel.Item.InstanceId == item.InstanceId)
+                .ToList();
 
         #endregion
     }

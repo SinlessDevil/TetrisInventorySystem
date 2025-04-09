@@ -44,9 +44,11 @@ namespace Code.UI.InventoryViewModel.Item
 
         public event Action AnimationReturnToLastPositionEvent;
         public event Action<Quaternion> AnimationRotatedEvent;
+        
         public event Action EffectStackItemEvent;
-
         public event Action<IItemViewModel> EffectDropItemEvent;
+        public event Action EffectStartOutlineGlowEvent;
+        public event Action EffectEndOutlineGlowEvent;
 
         public InventoryModel.Items.Data.Item Item => _item;
 
@@ -110,29 +112,27 @@ namespace Code.UI.InventoryViewModel.Item
 
         #region Play Animation
 
-        public void PlayAnimationReturnToTargetPosition()
-        {
+        public void PlayAnimationReturnToTargetPosition() => 
             AnimationReturnToLastPositionEvent?.Invoke();
-        }
 
-        public void PlayAnimationRotated(Quaternion rotation)
-        {
+        public void PlayAnimationRotated(Quaternion rotation) => 
             AnimationRotatedEvent?.Invoke(rotation);
-        }
 
         #endregion
 
         #region Play Effect
 
-        public void PlayEffectDropItem()
-        {
+        public void PlayEffectDropItem() => 
             EffectDropItemEvent?.Invoke(this);
-        }
 
-        public void PlayEffectStackItem()
-        {
+        public void PlayEffectStackItem() => 
             EffectStackItemEvent?.Invoke();
-        }
+
+        public void PlayEffectOutlineGlow() => 
+            EffectStartOutlineGlowEvent?.Invoke();
+        
+        public void StopEffectOutlineGlow() => 
+            EffectEndOutlineGlowEvent?.Invoke();
 
         #endregion
     }
