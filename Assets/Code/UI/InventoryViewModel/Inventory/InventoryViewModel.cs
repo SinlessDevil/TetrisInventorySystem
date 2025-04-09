@@ -153,33 +153,31 @@ namespace Code.UI.InventoryViewModel.Inventory
                     continue;
 
                 GridCell gridCell = _inventory.Cells[targetIndex];
-
-                //TODO: Added merge service and unlocked this code
                 
-                // isCanMarge = gridCell.Item != null
-                //              && _mergeService.CanMerge(item.Id, gridCell.Item.Id, out _)
-                //              && item.InstanceId != gridCell.Item.InstanceId;
+                 isCanMarge = gridCell.Item != null && 
+                              item.Id == gridCell.Item.Id && 
+                              item.InstanceId != gridCell.Item.InstanceId;
 
                 targetGridCellIsCanMarge = gridCell;
 
-                // if (isCanMarge)
-                //     break;
+                if (isCanMarge)
+                    break;
             }
 
             UpdateColorSlotsToDefault();
 
-            // if (isCanMarge)
-            // {
-            //     foreach (var slotData in _slotContainers)
-            //     {
-            //         if (slotData.ViewModel.GridCell.Item == null)
-            //             continue;
-            //
-            //         if (targetGridCellIsCanMarge.Item.InstanceId == slotData.ViewModel.GridCell.Item.InstanceId)
-            //             slotData.ViewModel.SetColorReaction(true);
-            //     }
-            //     return;
-            // }
+            if (isCanMarge)
+            {
+                foreach (var slotData in _slotContainers)
+                {
+                    if (slotData.ViewModel.GridCell.Item == null)
+                        continue;
+            
+                    if (targetGridCellIsCanMarge.Item.InstanceId == slotData.ViewModel.GridCell.Item.InstanceId)
+                        slotData.ViewModel.SetColorReaction(true);
+                }
+                return;
+            }
 
             foreach (var blocked in placeTestResult.Blocked)
             {
@@ -286,6 +284,9 @@ namespace Code.UI.InventoryViewModel.Inventory
                 if (item.Id != targetGridCell.Item.Id)
                     return false;
 
+                if(item == targetGridCell.Item)
+                    return false;
+                
                 ItemContainer itemContainer = GetItemContainerByVM(itemVM);
                 if(itemContainer == null)
                     return false;
@@ -294,7 +295,7 @@ namespace Code.UI.InventoryViewModel.Inventory
                 _inventory.TryRemove(itemVM.Item, out _);
                 CleanUpItemAsync(false, itemContainer).Forget();
                 
-                gridCell.Item.ItemCount += count;
+                targetGridCell.Item.ItemCount += count;
                 ItemContainer itemContainerByItem = GetItemContainerByItem(gridCell.Item);
                 itemContainerByItem.ViewModel.PlayEffectStackItem();
                 

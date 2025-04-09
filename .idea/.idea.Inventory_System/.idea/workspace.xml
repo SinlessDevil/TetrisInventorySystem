@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="feat : added display item count">
+    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="feat: added stacked items  in inventory">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/IItemViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/IItemViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemAnimator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemAnimator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemEffecter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemEffecter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemViewModel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,11 +46,15 @@
     <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Data/WeaponData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryExpand/InventoryExpandService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryPlayer/InventoryPlayerSetUper.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Code/UI/AlphaHitTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/UI/AlphaHit.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Factory/IInventoryUIFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/Projects/Inventory_System/Assets/Code/UI/InventoryViewModel/Inventory/InventoryViewModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/Projects/Inventory_System/Assets/Code/UI/InventoryViewModel/Inventory/InventoryViewModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemPositionFinding.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Services/InventoryViewInitializer/InventoryViewInitializer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Utilities/Editor/WeaponIdSelectorAttributeDrawer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/Projects/Inventory_System/Assets/Resources/StaticData/Balance/Balance.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/Projects/Inventory_System/Assets/ResourcesStatic/UI/Fruits/Apple_2X1.psd.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@14.0.10/Editor/Data/Graphs/SerializableTexture.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.33/UnityEngine.TestRunner/TestRunner/PlaymodeTestsControllerSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.7.6/Editor/Manipulators/Move/MovingItems.cs" root0="SKIP_HIGHLIGHTING" />
@@ -482,7 +481,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744189891151</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="feat: added stacked items  in inventory">
+      <option name="closed" value="true" />
+      <created>1744192667368</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1744192667368</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -509,8 +516,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added base ui scripts" />
-    <MESSAGE value="Added base Factory" />
     <MESSAGE value="Fixed instance object in scene" />
     <MESSAGE value="Added button Inventory" />
     <MESSAGE value="Added display slots and items" />
@@ -534,6 +539,8 @@
     <MESSAGE value="upd: edits animation window" />
     <MESSAGE value="feat : added display count items" />
     <MESSAGE value="feat : added display item count" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : added display item count" />
+    <MESSAGE value="feat: added stacked items" />
+    <MESSAGE value="feat: added stacked items  in inventory" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: added stacked items  in inventory" />
   </component>
 </project>
