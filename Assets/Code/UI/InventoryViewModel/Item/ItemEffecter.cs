@@ -68,12 +68,12 @@ namespace Code.UI.InventoryViewModel.Item
         private void Subscribe()
         {
             _itemVM.EffectDropItemEvent += OnDropItemEffectWrap;
-            _itemVM.EffectStackItemEvent += OnMergeItemsWrap;
+            _itemVM.EffectStackItemEvent += OnStackItemsWrap;
         }
         private void Unsubscribe()
         {
             _itemVM.EffectDropItemEvent -= OnDropItemEffectWrap;
-            _itemVM.EffectStackItemEvent -= OnMergeItemsWrap;
+            _itemVM.EffectStackItemEvent -= OnStackItemsWrap;
         }
 
         private void OnDropItemEffectWrap(IItemViewModel itemViewModel)
@@ -95,13 +95,13 @@ namespace Code.UI.InventoryViewModel.Item
             _playGlowCoroutine = StartCoroutine(PlayEffectHighlightRoutine(_sameItemGlowPreset));
         }
         
-        private void OnMergeItemsWrap()
+        private void OnStackItemsWrap()
         {
             var particleEffect = Instantiate(_particleSystem, transform);
             particleEffect.transform.position = transform.position;
             var itemSize = this.GetComponent<RectTransform>().sizeDelta;
             var grids = (itemSize.x + itemSize.y) / InventorySize.CellSize;
-            particleEffect.scale = Mathf.Min(10 * grids, 30);
+            particleEffect.scale = Mathf.Min(5 * grids, 20);
             
             StartCoroutine(PlayEffectGlowRoutine(_itemMergeGlowPreset));
         }

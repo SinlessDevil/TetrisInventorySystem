@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="feat: added stacked items  in inventory">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryViewModel.cs" afterDir="false" />
+    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="feat: Added isCanStack in OnUpdateColorToPlaceItem ,&#10;fix: Place item in his cell">
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemEffecter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemEffecter.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -489,7 +488,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744192667368</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="feat: Added isCanStack in OnUpdateColorToPlaceItem ,&#10;fix: Place item in his cell">
+      <option name="closed" value="true" />
+      <created>1744195603213</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1744195603213</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -516,7 +523,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Fixed instance object in scene" />
     <MESSAGE value="Added button Inventory" />
     <MESSAGE value="Added display slots and items" />
     <MESSAGE value="Added drag items" />
@@ -541,6 +547,7 @@
     <MESSAGE value="feat : added display item count" />
     <MESSAGE value="feat: added stacked items" />
     <MESSAGE value="feat: added stacked items  in inventory" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: added stacked items  in inventory" />
+    <MESSAGE value="feat: Added isCanStack in OnUpdateColorToPlaceItem ,&#10;fix: Place item in his cell" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Added isCanStack in OnUpdateColorToPlaceItem ,&#10;fix: Place item in his cell" />
   </component>
 </project>
