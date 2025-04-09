@@ -31,7 +31,9 @@ namespace Code.UI.InventoryViewModel.Inventory
         public event Action<bool> EffectTogglePlayingDestroyGlowEvent;
         public event Action<bool> EffectTogglePlayingFreeAreaGlowEvent;
 
-        public void InitializeViewModel(List<SlotContainer> slotContainers, List<ItemContainer> itemContainers)
+        public void InitializeViewModel(
+            List<SlotContainer> slotContainers, 
+            List<ItemContainer> itemContainers)
         {
             _slotContainers = slotContainers;
             _itemContainers = itemContainers;
@@ -64,6 +66,7 @@ namespace Code.UI.InventoryViewModel.Inventory
                 x.ViewModel.EffectDropItemEvent += OnHandlePlayEffectFilledSlot;
             });
         }
+        
         public void Unsubscribe()
         {
             _itemContainers.ForEach(x =>
@@ -83,6 +86,13 @@ namespace Code.UI.InventoryViewModel.Inventory
 
             //Try destroy item in placemant container destroy holder 
             if (TryDestroyItem(currentPosition, itemVM))
+            {
+                UpdateViewInventory(itemVM);
+                return;
+            }
+
+            //Try stack items out inventory 
+            if (TryStackItemOutInventory(currentPosition, itemVM))
             {
                 UpdateViewInventory(itemVM);
                 return;
@@ -264,6 +274,51 @@ namespace Code.UI.InventoryViewModel.Inventory
             }
             
             return false;
+        }
+
+        private bool TryStackItemOutInventory(Vector2 currentPosition, IItemViewModel itemVM)
+        {
+            bool isCanPlace = _itemPositionFinding.TryToPlaceItemFreeAreaContainer(currentPosition);
+            if (!isCanPlace)
+                return false;
+            
+            ItemContainer closesData = null;
+            float minDistance = float.MaxValue;
+            float maxDistance = 10000f;
+            
+            ItemContainer targetItemContainer = GetItemContainerByItem(itemVM.Item);
+            List<ItemContainer> itemContainers = GetItemContainesByVM(itemVM);
+            Vector2 targetPosition = targetItemContainer.View.transform.position;
+            
+            if (itemContainers.Contains(targetItemContainer))
+                itemContainers.Remove(targetItemContainer);
+            
+            foreach (var slotData in itemContainers)
+            {
+                float distance = (targetPosition - (Vector2)slotData.View.transform.position).sqrMagnitude;
+                if (distance > minDistance)
+                    continue;
+
+                minDistance = distance;
+                closesData = slotData;
+            }
+
+            if (closesData == null)
+                return false;
+            
+            float currentDistanceSlot = (targetPosition - (Vector2)closesData.View.transform.position).sqrMagnitude;
+            Debug.Log(currentDistanceSlot);
+            if (currentDistanceSlot > maxDistance)
+                return false;
+            
+            int count = itemVM.Item.ItemCount;
+            _inventory.TryRemove(itemVM.Item, out _);
+            CleanUpItemAsync(false, targetItemContainer).Forget();
+            
+            closesData.ViewModel.Item.ItemCount += count;
+            closesData.ViewModel.PlayEffectStackItem();
+            
+            return true;
         }
         
         private bool TryStackItemInInventory(GridCell targetGridCell, IItemViewModel itemVM)
