@@ -4,10 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="feat : added new animation window">
+    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="upd: edits animation window">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/ContainerDropHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/ContainerDropHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/StaticData/Balance/Balance.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/StaticData/Balance/Balance.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/ItemView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/ItemView.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Apple_2X1.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Apple_2X1.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Apple_2X1_Outline.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Apple_2X1_Outline.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Banana_2X2_1EmptyLeft.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Banana_2X2_1EmptyLeft.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Banana_2X2_Outline_1EmptyLeft.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Banana_2X2_Outline_1EmptyLeft.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Blueberry_1X1.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Blueberry_1X1.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Blueberry_1X1_Outline.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Blueberry_1X1_Outline.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Grape_2X2.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Grape_2X2.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Grape_2X2_Outline.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Grape_2X2_Outline.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Orange_2X2.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Orange_2X2.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Orange_2X2_Outline.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Orange_2X2_Outline.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Pear_1X2.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Pear_1X2.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Pear_1X2_Outline.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Pear_1X2_Outline.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Strawberry_1X1.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Strawberry_1X1.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Strawberry_1X1_Outline.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Strawberry_1X1_Outline.psd.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,11 +61,11 @@
     <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Data/WeaponData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryExpand/InventoryExpandService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryPlayer/InventoryPlayerSetUper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/UI/AlphaHitTest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Factory/IInventoryUIFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemPositionFinding.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Services/InventoryViewInitializer/InventoryViewInitializer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Utilities/Editor/WeaponIdSelectorAttributeDrawer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://E:/Unity/Projects/Inventory_System/Assets/ResourcesStatic/Prefabs/UI/Inventory/Glow_Effect.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@14.0.10/Editor/Data/Graphs/SerializableTexture.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.33/UnityEngine.TestRunner/TestRunner/PlaymodeTestsControllerSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.7.6/Editor/Manipulators/Move/MovingItems.cs" root0="SKIP_HIGHLIGHTING" />
@@ -156,7 +170,7 @@
       <workItem from="1744046800936" duration="2311000" />
       <workItem from="1744059500940" duration="2052000" />
       <workItem from="1744094540905" duration="28624000" />
-      <workItem from="1744178256474" duration="2250000" />
+      <workItem from="1744178256474" duration="3307000" />
     </task>
     <task id="LOCAL-00001" summary="Delete all unused files">
       <option name="closed" value="true" />
@@ -454,7 +468,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744179790398</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="upd: edits animation window">
+      <option name="closed" value="true" />
+      <created>1744180650707</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1744180650707</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -481,7 +503,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Fixed Load Resources Balance" />
     <MESSAGE value="Fixed initialize inventory" />
     <MESSAGE value="Fixed UI Root" />
     <MESSAGE value="Added base ui scripts" />
@@ -506,6 +527,7 @@
     <MESSAGE value="fix: fixed destroy item if his in out inventory" />
     <MESSAGE value="feat : animation show inventory" />
     <MESSAGE value="feat : added new animation window" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : added new animation window" />
+    <MESSAGE value="upd: edits animation window" />
+    <option name="LAST_COMMIT_MESSAGE" value="upd: edits animation window" />
   </component>
 </project>
