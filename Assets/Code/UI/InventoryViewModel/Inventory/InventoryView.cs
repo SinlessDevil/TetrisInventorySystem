@@ -64,14 +64,11 @@ namespace Code.UI.InventoryViewModel.Inventory
             Sequence sequence = DOTween.Sequence();
             sequence.Append(_bg.DOFade(1f, 0.25f).SetEase(Ease.Linear));
             sequence.Append(_mainPanel.transform.DOScaleY(1f, 0.5f).SetEase(Ease.OutElastic));
-            sequence.AppendInterval(0.4f);
-
+            sequence.AppendInterval(0.1f);
             AnimateSlotWave(sequence, slotViews);
-            sequence.AppendInterval(0.15f);
-
+            sequence.AppendInterval(0.1f);
             AnimateItemWave(sequence, itemViews);
-            sequence.AppendInterval(0.15f);
-
+            sequence.AppendInterval(0.1f);
             AnimateAdditionalHolders(sequence);
         }
 
@@ -93,14 +90,14 @@ namespace Code.UI.InventoryViewModel.Inventory
                 .OrderBy(group => group.Key)
                 .ToList();
 
-            float slotWaveStep = 0.025f;
+            float slotWaveStep = 0.02f;
 
             for (int groupIndex = 0; groupIndex < diagonalGroups.Count; groupIndex++)
             {
                 IGrouping<int, SlotContainer> group = diagonalGroups[groupIndex];
                 foreach (var slot in group)
                 {
-                    sequence.Join(slot.View.transform.DOScale(1f, 0.3f)
+                    sequence.Join(slot.View.transform.DOScale(1f, 0.25f)
                         .SetEase(Ease.OutBack)
                         .SetDelay(slotWaveStep));
                 }
@@ -109,7 +106,7 @@ namespace Code.UI.InventoryViewModel.Inventory
 
         private void AnimateItemWave(Sequence sequence, List<ItemView> itemViews)
         {
-            float itemDelayStep = 0.025f;
+            float itemDelayStep = 0.02f;
             for (int i = 0; i < itemViews.Count; i++)
             {
                 ItemView item = itemViews[i];

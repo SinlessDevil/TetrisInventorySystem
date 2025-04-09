@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="">
+    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="feat : added new animation window">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/IInventoryViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/IInventoryViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/ContainerDropHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/ContainerDropHolder.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryViewModel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +156,7 @@
       <workItem from="1744046800936" duration="2311000" />
       <workItem from="1744059500940" duration="2052000" />
       <workItem from="1744094540905" duration="28624000" />
-      <workItem from="1744178256474" duration="1385000" />
+      <workItem from="1744178256474" duration="2250000" />
     </task>
     <task id="LOCAL-00001" summary="Delete all unused files">
       <option name="closed" value="true" />
@@ -447,7 +446,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744140831365</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="feat : added new animation window">
+      <option name="closed" value="true" />
+      <created>1744179790398</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1744179790398</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,7 +481,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Try init inventory and game starter" />
     <MESSAGE value="Fixed Load Resources Balance" />
     <MESSAGE value="Fixed initialize inventory" />
     <MESSAGE value="Fixed UI Root" />
@@ -499,6 +505,7 @@
     <MESSAGE value="feat : added item drag container and use" />
     <MESSAGE value="fix: fixed destroy item if his in out inventory" />
     <MESSAGE value="feat : animation show inventory" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : animation show inventory" />
+    <MESSAGE value="feat : added new animation window" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat : added new animation window" />
   </component>
 </project>

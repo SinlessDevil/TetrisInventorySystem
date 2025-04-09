@@ -50,7 +50,7 @@ namespace Code.UI.InventoryViewModel.Inventory
             color.a = 0f;
             _glow.color = color;
             
-            _glow.DOFade(1f, 0.8f)
+            _glow.DOFade(1f, 0.35f)
                 .SetEase(Ease.InOutSine);
         }
 
@@ -61,7 +61,7 @@ namespace Code.UI.InventoryViewModel.Inventory
             
             _isPlayingGlow = false;
             
-            _glow.DOFade(0f, 0.8f)
+            _glow.DOFade(0f, 0.35f)
                 .SetEase(Ease.InOutSine);
         }
     }
