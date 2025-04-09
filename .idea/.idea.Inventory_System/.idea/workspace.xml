@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="feat: effect glow outline items">
+    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="feat: added  try to stack item out inventory">
+      <change afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Data/ItemDropData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Data/ItemDropData.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Provider/IItemDataProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Provider/IItemDataProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Provider/ItemDataProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Provider/ItemDataProvider.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +47,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Code/Infrastructure/Factory/UIFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Infrastructure/Services/PlayerExperience/IPlayerExperienceService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Data/WeaponData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Provider/ItemDropService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryExpand/InventoryExpandService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryPlayer/InventoryPlayerSetUper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/UI/AlphaHit.cs" root0="FORCE_HIGHLIGHTING" />
@@ -513,7 +517,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744197296306</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="feat: added  try to stack item out inventory">
+      <option name="closed" value="true" />
+      <created>1744201993739</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1744201993739</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -540,7 +552,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added drag items" />
     <MESSAGE value="Added item Animation component and setupped for slot , added dispose inventory" />
     <MESSAGE value="Added check item out inventory" />
     <MESSAGE value="Added SetAsLastSibling" />
@@ -565,6 +576,7 @@
     <MESSAGE value="feat: Added isCanStack in OnUpdateColorToPlaceItem ,&#10;fix: Place item in his cell" />
     <MESSAGE value="vfx: edits partical effect for stack items" />
     <MESSAGE value="feat: effect glow outline items" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: effect glow outline items" />
+    <MESSAGE value="feat: added  try to stack item out inventory" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: added  try to stack item out inventory" />
   </component>
 </project>

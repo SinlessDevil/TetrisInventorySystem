@@ -7,6 +7,8 @@ namespace Code.InventoryModel.Items.Provider
     {
         public IEnumerable<ItemData> AllItems { get; }
         public ItemData ForItemId(string itemId);
-        void LoadData();
+        public ItemDropData ItemDropData { get; }
+        
+        public void LoadData();
     }
 }

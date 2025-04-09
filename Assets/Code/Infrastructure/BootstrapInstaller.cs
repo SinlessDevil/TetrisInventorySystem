@@ -55,6 +55,8 @@ namespace Code.Infrastructure
             Container.Bind<IInventorySaveInitializer>().To<InventorySaveInitializer>().AsSingle();
             Container.Bind<IInventoryPlayerSetUper>().To<InventoryPlayerSetUper>().AsSingle();
             
+            Container.Bind<IItemDropService>().To<ItemDropService>().AsSingle();
+            
             Container.Bind<IInventoryViewInitializer>().To<InventoryViewInitializer>().AsSingle();
         }
         
