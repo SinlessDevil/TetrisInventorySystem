@@ -1,5 +1,6 @@
 ﻿using Code.InventoryModel.Items.Data;
 using Code.InventoryModel.Items.Provider;
+using UnityEngine;
 
 namespace Code.InventoryModel.Items.Factory
 {

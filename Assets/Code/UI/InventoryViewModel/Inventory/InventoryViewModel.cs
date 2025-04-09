@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UI.Inventory;
 using Code.InventoryModel;
+using Code.InventoryModel.Items.Provider;
 using Code.UI.InventoryViewModel.Item;
 using Code.UI.InventoryViewModel.Services.InventoryViewInitializer;
 using Code.UI.InventoryViewModel.Slot;
@@ -16,16 +17,22 @@ namespace Code.UI.InventoryViewModel.Inventory
     {
         private readonly IInventory _inventory;
         private readonly IItemPositionFinding _itemPositionFinding;
+        private readonly IItemDropService _itemDropService;
+        private readonly IItemDataProvider _itemDataProvider;
         
         private List<SlotContainer> _slotContainers;
         private List<ItemContainer> _itemContainers;
 
         public InventoryViewModel(
             IInventory inventory,
-            IItemPositionFinding itemPositionFinding) 
+            IItemPositionFinding itemPositionFinding, 
+            IItemDropService itemDropService, 
+            IItemDataProvider itemDataProvider) 
         {
             _inventory = inventory;
             _itemPositionFinding = itemPositionFinding;
+            _itemDropService = itemDropService;
+            _itemDataProvider = itemDataProvider;
         }
 
         public event Action<bool> EffectTogglePlayingDestroyGlowEvent;
@@ -58,12 +65,7 @@ namespace Code.UI.InventoryViewModel.Inventory
         {
             _itemContainers.ForEach(x =>
             {
-                x.ViewModel.StartedDragViewEvent += OnHandleOutlineGlowingItems;
-                x.ViewModel.EndedDragViewEvent += OnHandlePlaceItem;
-                x.ViewModel.ChangedPositionViewEvent += OnUpdateColorToPlaceItem;
-                x.ViewModel.ChangedPositionViewEvent += OnUpdateDestroyGlowEffect;
-                x.ViewModel.ChangedPositionViewEvent += OnUpdateFreeAreaGlowEffect;
-                x.ViewModel.EffectDropItemEvent += OnHandlePlayEffectFilledSlot;
+                SubscribeItemViewModel(x.ViewModel);
             });
         }
         
@@ -71,15 +73,34 @@ namespace Code.UI.InventoryViewModel.Inventory
         {
             _itemContainers.ForEach(x =>
             {
-                x.ViewModel.StartedDragViewEvent -= OnHandleOutlineGlowingItems;
-                x.ViewModel.EndedDragViewEvent -= OnHandlePlaceItem;
-                x.ViewModel.ChangedPositionViewEvent -= OnUpdateColorToPlaceItem;
-                x.ViewModel.ChangedPositionViewEvent -= OnUpdateDestroyGlowEffect;
-                x.ViewModel.ChangedPositionViewEvent -= OnUpdateFreeAreaGlowEffect;
-                x.ViewModel.EffectDropItemEvent -= OnHandlePlayEffectFilledSlot;
+                UnsubscribeItemViewModel(x.ViewModel);
             });
         }
-        
+
+        public void DropItems()
+        {
+            foreach (var itemContainer in _itemContainers)
+            {
+                var canPlace = _itemPositionFinding.TryToPlaceItemFreeAreaContainer(itemContainer.View.transform.position);
+                if(!canPlace)
+                    continue;
+                
+                CleanUpItemAsync(false, itemContainer).Forget();
+            }
+            
+            List<Vector2> positions = _itemPositionFinding.GetRandomPositionsInFreeAreaContainer(_itemDataProvider.ItemDropData.CountItems);
+            List<ItemContainer> itemContainers = _itemDropService.DropItemContainers();
+
+            for (int i = 0; i < itemContainers.Count; i++)
+            {
+                itemContainers[i].ViewModel.SetPosition(positions[i]);
+                itemContainers[i].View.Initialize(itemContainers[i].ViewModel);
+                SubscribeItemViewModel(itemContainers[i].ViewModel);
+                itemContainers[i].ViewModel.PlayEffectDropItem();
+                _itemContainers.Add(itemContainers[i]);
+            }
+        }
+
         private void OnHandlePlaceItem(Vector2 currentPosition, IItemViewModel itemVM)
         {
             GridCell targetGridCell = _itemPositionFinding.GetNeighbourGritCellByPosition(currentPosition);
@@ -409,9 +430,31 @@ namespace Code.UI.InventoryViewModel.Inventory
                 await Task.Yield(); 
             
             itemContainer.View.Dispose();
+            itemContainer.View = null;
+            itemContainer.ViewModel = null;
             _itemContainers.Remove(itemContainer);
             
             EffectTogglePlayingDestroyGlowEvent?.Invoke(false);
+        }
+        
+        private void SubscribeItemViewModel(IItemViewModel itemVM)
+        {
+            itemVM.StartedDragViewEvent += OnHandleOutlineGlowingItems;
+            itemVM.EndedDragViewEvent += OnHandlePlaceItem;
+            itemVM.ChangedPositionViewEvent += OnUpdateColorToPlaceItem;
+            itemVM.ChangedPositionViewEvent += OnUpdateDestroyGlowEffect;
+            itemVM.ChangedPositionViewEvent += OnUpdateFreeAreaGlowEffect;
+            itemVM.EffectDropItemEvent += OnHandlePlayEffectFilledSlot;
+        }
+        
+        private void UnsubscribeItemViewModel(IItemViewModel itemVM)
+        {
+            itemVM.StartedDragViewEvent -= OnHandleOutlineGlowingItems;
+            itemVM.EndedDragViewEvent -= OnHandlePlaceItem;
+            itemVM.ChangedPositionViewEvent -= OnUpdateColorToPlaceItem;
+            itemVM.ChangedPositionViewEvent -= OnUpdateDestroyGlowEffect;
+            itemVM.ChangedPositionViewEvent -= OnUpdateFreeAreaGlowEffect;
+            itemVM.EffectDropItemEvent -= OnHandlePlayEffectFilledSlot;
         }
         
         #region Getters

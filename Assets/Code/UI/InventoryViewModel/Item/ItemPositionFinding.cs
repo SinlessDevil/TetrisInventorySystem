@@ -45,7 +45,35 @@ namespace UI.Inventory
             List<SlotContainer> slotsDataWithItem = GetSlotsDataWithItem(itemId);
             return slotsDataWithItem != null && slotsDataWithItem.Count != 0;
         }
-        
+
+        public List<Vector2> GetRandomPositionsInFreeAreaContainer(int count)
+        {
+            List<Vector2> positions = new List<Vector2>();
+
+            if (_freeAreaItemContainer == null)
+                return positions;
+
+            Vector2 containerCenter = _freeAreaItemContainer.position;
+            float spreadRadius = 50f;
+
+            for (int i = 0; i < count; i++)
+            {
+                float angle = UnityEngine.Random.Range(0f, Mathf.PI * 2);
+                float radius = UnityEngine.Random.Range(0f, spreadRadius);
+
+                float offsetX = Mathf.Cos(angle) * radius;
+                float offsetY = Mathf.Sin(angle) * radius;
+
+                Vector2 randomPosition = new Vector2(containerCenter.x + offsetX, containerCenter.y + offsetY);
+                
+                if (TryToPlaceItemFreeAreaContainer(randomPosition))
+                    positions.Add(randomPosition);
+                else
+                    i--;
+            }
+            return positions;
+        }
+
         public bool TryToPlaceItemInInventory(Vector2 position)
         {
             return TryToPlaceItemInContainer(_containerInInventory, position);

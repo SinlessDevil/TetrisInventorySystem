@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="feat: added  try to stack item out inventory">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Data/ItemDropData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Data/ItemDropData.cs.meta" afterDir="false" />
+    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="feat : added item drop items service">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Provider/IItemDataProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Provider/IItemDataProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Provider/ItemDataProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Provider/ItemDataProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Data/ItemDropData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Data/ItemDropData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Factory/ItemFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Factory/ItemFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Provider/ItemDropService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Provider/ItemDropService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/IInventoryViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/IInventoryViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/IItemPositionFinding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/IItemPositionFinding.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemPositionFinding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemPositionFinding.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Services/InventoryViewInitializer/InventoryViewInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Services/InventoryViewInitializer/InventoryViewInitializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/GameHud.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/GameHud.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/InventoryWindow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/InventoryWindow.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -525,7 +532,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744201993739</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="feat : added item drop items service">
+      <option name="closed" value="true" />
+      <created>1744206131488</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1744206131488</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -552,7 +567,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added item Animation component and setupped for slot , added dispose inventory" />
     <MESSAGE value="Added check item out inventory" />
     <MESSAGE value="Added SetAsLastSibling" />
     <MESSAGE value="Added UI particle plugin" />
@@ -577,6 +591,7 @@
     <MESSAGE value="vfx: edits partical effect for stack items" />
     <MESSAGE value="feat: effect glow outline items" />
     <MESSAGE value="feat: added  try to stack item out inventory" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: added  try to stack item out inventory" />
+    <MESSAGE value="feat : added item drop items service" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat : added item drop items service" />
   </component>
 </project>

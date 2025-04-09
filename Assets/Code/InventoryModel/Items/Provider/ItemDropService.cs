@@ -20,10 +20,12 @@ namespace Code.InventoryModel.Items.Provider
 
         public ItemDropService(
             IItemDataProvider itemDataProvider, 
-            IItemFactory itemFactory)
+            IItemFactory itemFactory, 
+            IInventoryUIFactory inventoryUIFactory)
         {
             _itemDataProvider = itemDataProvider;
             _itemFactory = itemFactory;
+            _inventoryUIFactory = inventoryUIFactory;
         }
 
         public void Initialize(
@@ -56,7 +58,7 @@ namespace Code.InventoryModel.Items.Provider
             return itemsContainers;
         }
 
-        public ItemContainer CreateItems(Item item)
+        private ItemContainer CreateItems(Item item)
         {
             ItemView itemView = _inventoryUIFactory.CreateItemView(_inventoryContainer.View.ItemsContainer);
             IItemViewModel itemViewModel = new ItemViewModel(item, _itemPositionFinding, _itemDataProvider,
@@ -94,7 +96,7 @@ namespace Code.InventoryModel.Items.Provider
                     currentWeight += drop.Weight;
                     if (randomWeight < currentWeight)
                     {
-                        result.Add(drop.ItemId.ToString());
+                        result.Add(drop.ItemId.Id);
                         break;
                     }
                 }

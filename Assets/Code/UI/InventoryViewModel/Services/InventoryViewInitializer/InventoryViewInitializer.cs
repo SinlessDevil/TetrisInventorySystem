@@ -25,6 +25,7 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
         private readonly IItemDataProvider _itemDataProvider;
         private readonly IInventoryExpandService _inventoryExpandService;
         private readonly IPersistenceProgressService _persistenceProgressService;
+        private readonly IItemDropService _itemDropService;
 
         public InventoryViewInitializer(
             IInventoryPlayerSetUper inventory,
@@ -32,7 +33,8 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
             IInventoryPlayerSetUper inventoryPlayerSetUper,
             IItemDataProvider itemDataProvider,
             IInventoryExpandService inventoryExpandService,
-            IPersistenceProgressService persistenceProgressService)
+            IPersistenceProgressService persistenceProgressService,
+            IItemDropService itemDropService)
         {
             _inventory = inventory;
             _inventoryUIFactory = inventoryUIFactory;
@@ -40,6 +42,7 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
             _itemDataProvider = itemDataProvider;
             _inventoryExpandService = inventoryExpandService;
             _persistenceProgressService = persistenceProgressService;
+            _itemDropService = itemDropService;
         }
         
         public bool HasOpenInventory => _inventoryContainer != null;
@@ -53,6 +56,8 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
             var itemContainers = CreateItems();
             
             InitItemPositionFinding(slotContainers);
+
+            InitializeDropService();
             
             InitInventory(slotContainers, itemContainers);
             InitSlots(slotContainers);
@@ -69,6 +74,8 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
             _inventoryContainer.View.Dispose();
             
             _inventoryContainer = null;
+            
+            _itemDropService.Dispose();
         }
 
         private void BindPositionFinding()
@@ -76,11 +83,16 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
             _itemPositionFinding = new ItemPositionFinding(InventorySize.CellSize);
         }
         
+        private void InitializeDropService()
+        {
+            _itemDropService.Initialize(_inventoryContainer, _itemPositionFinding);
+        }
+        
         private void CreateInventory()
         {
             InventoryView inventoryView = _inventoryUIFactory.CreateInventoryView();
             IInventoryViewModel inventoryViewModel = new Inventory.InventoryViewModel(_inventory.Inventory,
-                _itemPositionFinding);
+                _itemPositionFinding, _itemDropService, _itemDataProvider);
 
             InventoryContainer inventoryContainer = new InventoryContainer()
             {

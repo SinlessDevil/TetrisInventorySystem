@@ -1,26 +1,33 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
+using UnityEngine.UI;
 using Code.UI.InventoryViewModel.Item;
 using Code.UI.InventoryViewModel.Services.InventoryViewInitializer;
 using DG.Tweening;
-using UnityEngine;
-using UnityEngine.UI;
 
 namespace Code.UI.InventoryViewModel.Inventory
 {
     public class InventoryView : MonoBehaviour
     {
-        [Space(10)] [Header("Main")] 
+        [Space(10)] [Header("Containers")] 
         [SerializeField] private RectTransform _slotsContainer;
         [SerializeField] private RectTransform _itemsContainer;
         [SerializeField] private RectTransform _itemDragContainer;
-        [Space(10)] [Header("Additional")] 
+        [Space(10)] [Header("Containers Holders")] 
         [SerializeField] private DestroyerItemHolder _destroyItemHolder;
         [SerializeField] private FreeAreaItemHolder _freeAreaItemHolder;
+        [Space(10)] [Header("Button")]
+        [SerializeField] private Button _dropItemsButton;
         [Space(10)] [Header("Animation")] 
         [SerializeField] private Image _bg;
         [SerializeField] private Transform _mainPanel;
+        [SerializeField] private Transform _leftButton;
+        [SerializeField] private Transform _rightButton;
 
+        private Vector3 _leftButtonStartPos;
+        private Vector3 _rightButtonStartPos;
+        
         private IInventoryViewModel _inventoryVM;
 
         private void OnValidate()
@@ -38,6 +45,8 @@ namespace Code.UI.InventoryViewModel.Inventory
 
             _destroyItemHolder.Initialize(_inventoryVM);
             _freeAreaItemHolder.Initialize(_inventoryVM);
+            
+            Subscribe();
         }
 
         public void Dispose()
@@ -45,6 +54,8 @@ namespace Code.UI.InventoryViewModel.Inventory
             _destroyItemHolder.Dispose();
             _freeAreaItemHolder.Dispose();
 
+            Unsubscribe();
+            
             Destroy(this.gameObject);
         }
 
@@ -53,7 +64,7 @@ namespace Code.UI.InventoryViewModel.Inventory
         public RectTransform DestroyItemContainer => _destroyItemHolder.ContainerHolder;
         public RectTransform FreeAreaItemContainer => _freeAreaItemHolder.ContainerHolder;
         public RectTransform ItemDragContainer => _itemDragContainer;
-
+        
         public void PlayAnimationShow()
         {
             List<SlotContainer> slotViews = _inventoryVM.GetSlotContainers();
@@ -70,8 +81,26 @@ namespace Code.UI.InventoryViewModel.Inventory
             AnimateItemWave(sequence, itemViews);
             sequence.AppendInterval(0.1f);
             AnimateAdditionalHolders(sequence);
+            sequence.AppendInterval(0.25f);
+            sequence.Append(_leftButton.DOMove(_leftButtonStartPos, 0.4f).SetEase(Ease.OutBack));
+            sequence.Join(_rightButton.DOMove(_rightButtonStartPos, 0.4f).SetEase(Ease.OutBack));
         }
 
+        private void Subscribe()
+        {
+            _dropItemsButton.onClick.AddListener(OnDropItemsButtonClicked);
+        }
+
+        private void Unsubscribe()
+        {
+            _dropItemsButton.onClick.RemoveListener(OnDropItemsButtonClicked);
+        }
+
+        private void OnDropItemsButtonClicked()
+        {
+            _inventoryVM.DropItems();
+        }
+        
         private void SetUpStartAnimationComponents(List<SlotContainer> slotViews, List<ItemView> itemViews)
         {
             _bg.color = new Color(1f, 1f, 1f, 0f);
@@ -81,8 +110,14 @@ namespace Code.UI.InventoryViewModel.Inventory
 
             slotViews.ForEach(x => x.View.transform.localScale = Vector3.zero);
             itemViews.ForEach(x => x.transform.localScale = Vector3.zero);
-        }
+            
+            _leftButtonStartPos = _leftButton.position;
+            _rightButtonStartPos = _rightButton.position;
 
+            _leftButton.position = new Vector2(-(Screen.width / 2), _leftButton.transform.position.y);
+            _rightButton.position = new Vector2(-(Screen.width / 2), _rightButton.transform.position.y);
+        }
+        
         private void AnimateSlotWave(Sequence sequence, List<SlotContainer> slotViews)
         {
             List<IGrouping<int, SlotContainer>> diagonalGroups = slotViews

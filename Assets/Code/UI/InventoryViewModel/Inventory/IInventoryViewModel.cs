@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using Code.UI.InventoryViewModel.Item;
 using Code.UI.InventoryViewModel.Services.InventoryViewInitializer;
-using Code.UI.InventoryViewModel.Slot;
 
 namespace Code.UI.InventoryViewModel.Inventory
 {
@@ -19,5 +18,7 @@ namespace Code.UI.InventoryViewModel.Inventory
         
         public void Subscribe();
         public void Unsubscribe();
+        
+        public void DropItems();
     }
 }

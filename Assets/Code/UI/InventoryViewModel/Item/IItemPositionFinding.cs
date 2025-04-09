@@ -20,6 +20,8 @@ namespace UI.Inventory
         public bool TryToPlaceItemInContainer(RectTransform container, Vector2 position);
         public bool TryGetPositionItemById(Guid itemId);
 
+        public List<Vector2> GetRandomPositionsInFreeAreaContainer(int count);
+        
         public ItemContainer GetNeighbourItemDataWithoutInventory(List<ItemContainer> itemsData, ItemContainer targetItemsData);
         public Vector2 GetPositionItemInSlotById(Guid itemId);
         public Vector2 GetPositionItemInContainer(Vector2 itemSize, Vector2 offset);
