@@ -15,7 +15,7 @@ namespace Code.UI.InventoryViewModel.Inventory
         public void DisposeViewModel();
         
         List<ItemView> GetItemViews();
-        List<SlotView> GetSlotViews();
+        List<SlotContainer> GetSlotContainers();
         
         public void Subscribe();
         public void Unsubscribe();

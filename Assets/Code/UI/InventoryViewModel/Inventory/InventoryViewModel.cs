@@ -50,7 +50,7 @@ namespace Code.UI.InventoryViewModel.Inventory
         
         public List<ItemView> GetItemViews() => _itemContainers.Select(x => x.View).ToList();
 
-        public List<SlotView> GetSlotViews() => _slotContainers.Select(x => x.View).ToList();
+        public List<SlotContainer> GetSlotContainers() => _slotContainers;
         
         public void Subscribe()
         {
