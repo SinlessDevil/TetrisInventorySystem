@@ -12,6 +12,7 @@ namespace Code.UI.InventoryViewModel.Item
         public event Action AnimationReturnToLastPositionEvent;
         public event Action<Quaternion> AnimationRotatedEvent;
 
+        public event Action EffectStackItemEvent;
         public event Action<IItemViewModel> EffectDropItemEvent;
         
         public InventoryModel.Items.Data.Item Item { get; }
@@ -39,5 +40,6 @@ namespace Code.UI.InventoryViewModel.Item
         public void PlayAnimationRotated(Quaternion rotation);
         
         public void PlayEffectDropItem();
+        public void PlayEffectStackItem();
     }
 }

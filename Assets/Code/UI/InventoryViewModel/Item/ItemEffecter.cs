@@ -68,10 +68,12 @@ namespace Code.UI.InventoryViewModel.Item
         private void Subscribe()
         {
             _itemVM.EffectDropItemEvent += OnDropItemEffectWrap;
+            _itemVM.EffectStackItemEvent += OnMergeItemsWrap;
         }
         private void Unsubscribe()
         {
             _itemVM.EffectDropItemEvent -= OnDropItemEffectWrap;
+            _itemVM.EffectStackItemEvent -= OnMergeItemsWrap;
         }
 
         private void OnDropItemEffectWrap(IItemViewModel itemViewModel)

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Code.UI.InventoryViewModel.Item
@@ -22,7 +21,7 @@ namespace Code.UI.InventoryViewModel.Item
         [SerializeField] private ItemAnimator _itemAnimator;
         [SerializeField] private ItemEffecter _itemEffecter;
         
-        private IItemViewModel _viewModel;
+        private IItemViewModel _itemVM;
 
         private void OnValidate()
         {
@@ -38,23 +37,23 @@ namespace Code.UI.InventoryViewModel.Item
         
         public void Initialize(IItemViewModel viewModel)
         {
-            _viewModel = viewModel;
+            _itemVM = viewModel;
             
-            SetSpriteIcon(_viewModel.GetItemSprite(), _viewModel.GetItemOutlineSprite());
-            SetParent(_viewModel.GetMainParent());
-            SetParentSize(_viewModel.GetParentSize());
-            SetRootSize(_viewModel.GetRootSize());
-            SetPivotPosition(_viewModel.GetPivotPosition());
-            SetLocalPosition(_viewModel.GetPosition());
-            SetRootCenterPosition(_viewModel.GetRootPosition());
-            SetImageRotation(_viewModel.GetGraphicRotation());
-            SetImageFlipScale(_viewModel.GetGraphicFlipScale());
-            SetTextCount(_viewModel.GetTextCount());
-            SetIconCountPosition(_viewModel.GetCountLevelPosition());
+            SetSpriteIcon(_itemVM.GetItemSprite(), _itemVM.GetItemOutlineSprite());
+            SetParent(_itemVM.GetMainParent());
+            SetParentSize(_itemVM.GetParentSize());
+            SetRootSize(_itemVM.GetRootSize());
+            SetPivotPosition(_itemVM.GetPivotPosition());
+            SetLocalPosition(_itemVM.GetPosition());
+            SetRootCenterPosition(_itemVM.GetRootPosition());
+            SetImageRotation(_itemVM.GetGraphicRotation());
+            SetImageFlipScale(_itemVM.GetGraphicFlipScale());
+            SetTextCount(_itemVM.GetTextCount());
+            SetIconCountPosition(_itemVM.GetCountLevelPosition());
             
-            _itemInputMover.Initialize(_viewModel, _rootRectTransform);
-            _itemAnimator.Initialize(_viewModel, _mainRectTransform, _iconContainer);
-            _itemEffecter.Initialize(_viewModel, _icon);
+            _itemInputMover.Initialize(_itemVM, _rootRectTransform);
+            _itemAnimator.Initialize(_itemVM, _mainRectTransform, _iconContainer);
+            _itemEffecter.Initialize(_itemVM, _icon);
             
             Subscribe();
         }
@@ -98,17 +97,24 @@ namespace Code.UI.InventoryViewModel.Item
         
         private void Subscribe()
         {
-            _viewModel.ChangedPositionViewEvent += OnChangedPosition;
+            _itemVM.ChangedPositionViewEvent += OnChangedPosition;
+            _itemVM.EffectStackItemEvent += OnUpdateCount;
         }
-
+        
         private void Unsubscribe()
         {
-            _viewModel.ChangedPositionViewEvent -= OnChangedPosition;
+            _itemVM.ChangedPositionViewEvent -= OnChangedPosition;
+            _itemVM.EffectStackItemEvent -= OnUpdateCount;
         }
         
         private void OnChangedPosition(Vector2 newPosition, IItemViewModel viewModel)
         {
             _mainRectTransform.position = newPosition;
+        }
+        
+        private void OnUpdateCount()
+        {
+            SetTextCount(_itemVM.GetTextCount());
         }
     }
 }

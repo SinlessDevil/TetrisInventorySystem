@@ -100,6 +100,13 @@ namespace Code.UI.InventoryViewModel.Inventory
                 UpdateViewInventory(itemVM);
                 return;
             }
+
+            //Try stack item in inventory
+            if (TryStackItemInInventory(targetGridCell, itemVM))
+            {
+                UpdateViewInventory(itemVM);
+                return;
+            }
             
             //Try changed position item in slots
             if (TryChangedPositionItemInSlots(targetGridCell, itemVM))
@@ -218,7 +225,7 @@ namespace Code.UI.InventoryViewModel.Inventory
             var slotContainers = GetSlotDataByItem(itemVM.Item);
             slotContainers.ForEach(x=> x.ViewModel.PlayEffectFilledSlot());
         }
-
+        
         private bool TryDestroyItem(Vector2 currentPosition, IItemViewModel itemVM)
         {
             bool isCanPlace = _itemPositionFinding.TryToPlaceItemInDestroyContainer(currentPosition);
@@ -230,7 +237,7 @@ namespace Code.UI.InventoryViewModel.Inventory
                 return false;
 
             _inventory.TryRemove(itemVM.Item, out _);
-            CleanUpItemAsync(itemContainer).Forget();
+            CleanUpItemAsync(true, itemContainer).Forget();
             return true;
         }
 
@@ -251,6 +258,49 @@ namespace Code.UI.InventoryViewModel.Inventory
                 return true;
             }
             
+            return false;
+        }
+        
+        private bool TryStackItemInInventory(GridCell targetGridCell, IItemViewModel itemVM)
+        {
+            PlaceTestResult placeTestResult = _inventory.CanPlace(targetGridCell, itemVM.Item, true);
+            int gridIndex = _inventory.GridIndex(targetGridCell);
+            List<int> indexShifts = itemVM.Item.InventoryPlacement.GetIndexShifts(InventorySize.Rows);
+            for (int i = 0; i < indexShifts.Count; i++)
+            {
+                int targetIndex = gridIndex + indexShifts[i];
+                if (targetIndex < 0 || targetIndex >= _inventory.Cells.Count)
+                    continue;
+
+                bool isPassed = !placeTestResult.Passed.Contains(targetIndex);
+                bool isBlocked = !placeTestResult.Blocked.Contains(targetIndex);
+                if (isPassed && isBlocked)
+                    continue;
+
+                GridCell gridCell = _inventory.Cells[targetIndex];
+                InventoryModel.Items.Data.Item item = itemVM.Item;
+                
+                if (targetGridCell.Item == null)
+                    return false;
+
+                if (item.Id != targetGridCell.Item.Id)
+                    return false;
+
+                ItemContainer itemContainer = GetItemContainerByVM(itemVM);
+                if(itemContainer == null)
+                    return false;
+                
+                int count = item.ItemCount;
+                _inventory.TryRemove(itemVM.Item, out _);
+                CleanUpItemAsync(false, itemContainer).Forget();
+                
+                gridCell.Item.ItemCount += count;
+                ItemContainer itemContainerByItem = GetItemContainerByItem(gridCell.Item);
+                itemContainerByItem.ViewModel.PlayEffectStackItem();
+                
+                return true;
+            }
+
             return false;
         }
         
@@ -282,11 +332,14 @@ namespace Code.UI.InventoryViewModel.Inventory
             _slotContainers.ForEach(x=> x.ViewModel.SetToDefaultColorReaction());
         }
 
-        private async UniTask CleanUpItemAsync(ItemContainer itemContainer)
+        private async UniTask CleanUpItemAsync(bool isWaited, ItemContainer itemContainer)
         {
             itemContainer.ViewModel.SetPosition(itemContainer.View.transform.localPosition);
-            
-            await Task.Delay(400);
+
+            if (isWaited)
+                await Task.Delay(400);
+            else
+                await Task.Yield(); 
             
             itemContainer.View.Dispose();
             _itemContainers.Remove(itemContainer);
@@ -296,22 +349,19 @@ namespace Code.UI.InventoryViewModel.Inventory
         
         #region Getters
 
-        private GridCell GetGridCellByRootPosition(int rootPositionX, int rootPositionY)
-        {
-            return _slotContainers.Select(slotData => slotData.ViewModel.GridCell)
-                .FirstOrDefault(gridCell => gridCell.GridX == rootPositionX && gridCell.GridY == rootPositionY);
-        }
-        
-        private ISlotViewModel GetSlotVMByIndex(int index)
-        {
-            return index >= 0 && index < _slotContainers.Count ? _slotContainers[index].ViewModel : null;
-        }
-        
-        private ItemContainer GetItemContainerByVM(IItemViewModel itemVM)
-        {
-            return _itemContainers.FirstOrDefault(itemContainer => itemContainer.ViewModel == itemVM);
-        }
-        
+        private GridCell GetGridCellByRootPosition(int rootPositionX, int rootPositionY) => _slotContainers
+            .Select(slotData => slotData.ViewModel.GridCell)
+            .FirstOrDefault(gridCell => gridCell.GridX == rootPositionX && gridCell.GridY == rootPositionY);
+
+        private ISlotViewModel GetSlotVMByIndex(int index) => index >= 0 && index < _slotContainers.Count ? 
+            _slotContainers[index].ViewModel : null;
+
+        private ItemContainer GetItemContainerByVM(IItemViewModel itemVM) => _itemContainers
+            .FirstOrDefault(itemContainer => itemContainer.ViewModel == itemVM);
+
+        private ItemContainer GetItemContainerByItem(InventoryModel.Items.Data.Item item) => _itemContainers
+            .FirstOrDefault(itemContainer => itemContainer.ViewModel.Item.InstanceId == item.InstanceId);
+
         private List<SlotContainer> GetSlotDataByItem(InventoryModel.Items.Data.Item item)
         {
             List<SlotContainer> slotDatas = new List<SlotContainer>();

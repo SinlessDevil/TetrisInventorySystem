@@ -17,5 +17,6 @@ MonoBehaviour:
     DefaultItems:
     - Id: apple01
     - Id: blueberry01
-    - Id: pear01
-    - Id: banana01
+    - Id: blueberry01
+    - Id: blueberry01
+    - Id: apple01

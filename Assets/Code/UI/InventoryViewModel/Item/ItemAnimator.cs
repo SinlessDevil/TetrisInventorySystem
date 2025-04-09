@@ -79,7 +79,6 @@ namespace Code.UI.InventoryViewModel.Item
                 SetLocalPosition(pos);
                 yield return typeof(WaitForEndOfFrame);
             }
-            //TODO Send event to show animation for 
             _itemVM.PlayEffectDropItem();
             _animationReturnToLastPositionCoroutine = null;
         }
