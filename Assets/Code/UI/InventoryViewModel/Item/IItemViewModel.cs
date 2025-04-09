@@ -26,6 +26,8 @@ namespace Code.UI.InventoryViewModel.Item
         public Vector2 GetRootPosition();
         public Quaternion GetGraphicRotation();
         public Vector3 GetGraphicFlipScale();
+        public string GetTextCount();
+        public Vector2 GetCountLevelPosition();
         
         public void SetStartPositionDrag(Vector3 position);
         public void SetEndPositionDrag(Vector3 position);

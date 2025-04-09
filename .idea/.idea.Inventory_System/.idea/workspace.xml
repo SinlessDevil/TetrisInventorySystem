@@ -6,22 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="upd: edits animation window">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/StaticData/Balance/Balance.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/StaticData/Balance/Balance.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Data/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Data/Item.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/IItemViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/IItemViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/ItemView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/ItemView.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Apple_2X1.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Apple_2X1.psd.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Apple_2X1_Outline.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Apple_2X1_Outline.psd.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Banana_2X2_1EmptyLeft.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Banana_2X2_1EmptyLeft.psd.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Banana_2X2_Outline_1EmptyLeft.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Banana_2X2_Outline_1EmptyLeft.psd.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Blueberry_1X1.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Blueberry_1X1.psd.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Blueberry_1X1_Outline.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Blueberry_1X1_Outline.psd.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Grape_2X2.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Grape_2X2.psd.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Grape_2X2_Outline.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Grape_2X2_Outline.psd.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Orange_2X2.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Orange_2X2.psd.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Orange_2X2_Outline.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Orange_2X2_Outline.psd.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Pear_1X2.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Pear_1X2.psd.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Pear_1X2_Outline.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Pear_1X2_Outline.psd.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Strawberry_1X1.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Strawberry_1X1.psd.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Strawberry_1X1_Outline.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Fruits/Strawberry_1X1_Outline.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Frame.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Frame.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/GrarbageBin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/GrarbageBin.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Table.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourcesStatic/UI/Table.png.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

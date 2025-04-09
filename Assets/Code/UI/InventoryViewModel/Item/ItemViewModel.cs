@@ -76,6 +76,10 @@ namespace Code.UI.InventoryViewModel.Item
         public Quaternion GetGraphicRotation() => _item.Graphic.Rotation * _spawnRotation;
 
         public Vector3 GetGraphicFlipScale() => _item.Graphic.FlipScale;
+        public string GetTextCount() => _item.ItemCount.ToString();
+        public Vector2 GetCountLevelPosition() =>
+            new((_sizeSlot/2) * _item.Graphic.OffsetIconLevel.x,
+                (_sizeSlot/2) * _item.Graphic.OffsetIconLevel.y);
 
         public void SetPosition(Vector2 position)
         {

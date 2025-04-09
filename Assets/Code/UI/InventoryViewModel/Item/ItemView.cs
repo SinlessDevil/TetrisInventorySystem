@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Code.UI.InventoryViewModel.Item
@@ -8,6 +9,9 @@ namespace Code.UI.InventoryViewModel.Item
         [SerializeField] private RectTransform _mainRectTransform;
         [SerializeField] private RectTransform _rootRectTransform;
         [SerializeField] private RectTransform _iconContainer;
+        [Space(10)] [Header("Icon Count")]
+        [SerializeField] private RectTransform _iconCountRectTransform;
+        [SerializeField] private Text _textCount;
         [Space(10)] [Header("Icons")]
         [SerializeField] private Image _icon;
         [SerializeField] private Image _shadow;
@@ -45,6 +49,8 @@ namespace Code.UI.InventoryViewModel.Item
             SetRootCenterPosition(_viewModel.GetRootPosition());
             SetImageRotation(_viewModel.GetGraphicRotation());
             SetImageFlipScale(_viewModel.GetGraphicFlipScale());
+            SetTextCount(_viewModel.GetTextCount());
+            SetIconCountPosition(_viewModel.GetCountLevelPosition());
             
             _itemInputMover.Initialize(_viewModel, _rootRectTransform);
             _itemAnimator.Initialize(_viewModel, _mainRectTransform, _iconContainer);
@@ -87,6 +93,9 @@ namespace Code.UI.InventoryViewModel.Item
 
         private void SetImageFlipScale(Vector3 flipScale) => _iconContainer.localScale = flipScale;
 
+        private void SetTextCount(string count) => _textCount.text = count;
+        private void SetIconCountPosition(Vector2 position) => _iconCountRectTransform.localPosition = position;
+        
         private void Subscribe()
         {
             _viewModel.ChangedPositionViewEvent += OnChangedPosition;

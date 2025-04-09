@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Code.InventoryModel.Items.Data
 {
@@ -10,7 +11,7 @@ namespace Code.InventoryModel.Items.Data
         public string Id;
         public string Name;
         public string Description;
-        public int ItemLevel = 1;
+        [FormerlySerializedAs("ItemLevel")] public int ItemCount = 1;
         [Space(10)][Header("Addition Component")]
         public InventoryPlacement InventoryPlacement;
         public InventoryGraphic Graphic;
