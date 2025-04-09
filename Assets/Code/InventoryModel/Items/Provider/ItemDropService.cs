@@ -44,26 +44,30 @@ namespace Code.InventoryModel.Items.Provider
         
         public List<ItemContainer> DropItemContainers()
         {
+            List<Vector2> positions = _itemPositionFinding.GetRandomPositionsInFreeAreaContainer(_itemDataProvider.ItemDropData.CountItems);
             List<ItemContainer> itemsContainers = new List<ItemContainer>(ItemDropData.CountItems);
+            
+            Debug.Log(positions.Count);
             
             List<string> itemIds = GetItemsId();
 
-            foreach (var itemId in itemIds)
+            for (var index = 0; index < itemIds.Count; index++)
             {
+                var itemId = itemIds[index];
                 Item item = _itemFactory.Create(itemId);
-                ItemContainer itemContainer = CreateItems(item);
+                ItemContainer itemContainer = CreateItemСontainer(item, positions[index]);
                 itemsContainers.Add(itemContainer);
             }
 
             return itemsContainers;
         }
 
-        private ItemContainer CreateItems(Item item)
+        private ItemContainer CreateItemСontainer(Item item, Vector2 position)
         {
             ItemView itemView = _inventoryUIFactory.CreateItemView(_inventoryContainer.View.ItemsContainer);
             IItemViewModel itemViewModel = new ItemViewModel(item, _itemPositionFinding, _itemDataProvider,
                 _inventoryContainer.View.ItemsContainer, _inventoryContainer.View.ItemDragContainer,
-                InventorySize.CellSize,_inventoryContainer.View.ItemsContainer.position, Quaternion.identity);
+                InventorySize.CellSize, position, Quaternion.identity);
                 
             ItemContainer itemContainer = new ItemContainer()
             {

@@ -88,12 +88,10 @@ namespace Code.UI.InventoryViewModel.Inventory
                 CleanUpItemAsync(false, itemContainer).Forget();
             }
             
-            List<Vector2> positions = _itemPositionFinding.GetRandomPositionsInFreeAreaContainer(_itemDataProvider.ItemDropData.CountItems);
             List<ItemContainer> itemContainers = _itemDropService.DropItemContainers();
 
             for (int i = 0; i < itemContainers.Count; i++)
             {
-                itemContainers[i].ViewModel.SetPosition(positions[i]);
                 itemContainers[i].View.Initialize(itemContainers[i].ViewModel);
                 SubscribeItemViewModel(itemContainers[i].ViewModel);
                 itemContainers[i].ViewModel.PlayEffectDropItem();

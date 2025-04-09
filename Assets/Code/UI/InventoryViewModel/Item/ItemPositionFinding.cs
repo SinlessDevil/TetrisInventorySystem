@@ -53,10 +53,13 @@ namespace UI.Inventory
             if (_freeAreaItemContainer == null)
                 return positions;
 
-            Vector2 containerCenter = _freeAreaItemContainer.position;
-            float spreadRadius = 50f;
+            Vector2 containerCenter = (Vector2)_freeAreaItemContainer.localPosition + new Vector2(0, -300);
+            float spreadRadius = 300f;
 
-            for (int i = 0; i < count; i++)
+            int attempts = 0;
+            int maxAttempts = count * 10;
+
+            for (int i = 0; i < count && attempts < maxAttempts; attempts++)
             {
                 float angle = UnityEngine.Random.Range(0f, Mathf.PI * 2);
                 float radius = UnityEngine.Random.Range(0f, spreadRadius);
@@ -64,12 +67,10 @@ namespace UI.Inventory
                 float offsetX = Mathf.Cos(angle) * radius;
                 float offsetY = Mathf.Sin(angle) * radius;
 
-                Vector2 randomPosition = new Vector2(containerCenter.x + offsetX, containerCenter.y + offsetY);
-                
-                if (TryToPlaceItemFreeAreaContainer(randomPosition))
-                    positions.Add(randomPosition);
-                else
-                    i--;
+                Vector2 randomPosition = containerCenter + new Vector2(offsetX, offsetY);
+
+                positions.Add(randomPosition);
+                i++;
             }
             return positions;
         }

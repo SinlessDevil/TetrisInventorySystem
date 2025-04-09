@@ -6,11 +6,8 @@ namespace Code.InventoryModel.Items.Provider
 {
     public interface IItemDropService
     {
-        void Initialize(
-            InventoryContainer inventoryContainer, 
-            IItemPositionFinding itemPositionFinding);
-
-        void Dispose();
-        List<ItemContainer> DropItemContainers();
+        public void Initialize(InventoryContainer inventoryContainer, IItemPositionFinding itemPositionFinding);
+        public void Dispose();
+        public List<ItemContainer> DropItemContainers();
     }
 }
