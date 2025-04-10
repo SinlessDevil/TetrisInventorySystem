@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="fix: animation clicked buy slot">
+    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="fix: validate  OnChangedStateSlot">
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/Displayer/InventoryComponentDisplayer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/Displayer/InventoryComponentDisplayer.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/Displayer/InventoryLevelDisplayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/Displayer/InventoryLevelDisplayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/Displayer/InventoryPointDisplayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/Displayer/InventoryPointDisplayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/InventoryWindow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/InventoryWindow.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,15 +169,7 @@
       <workItem from="1744094540905" duration="28624000" />
       <workItem from="1744178256474" duration="3307000" />
       <workItem from="1744225610959" duration="2492000" />
-      <workItem from="1744265421283" duration="14538000" />
-    </task>
-    <task id="LOCAL-00010" summary="Added UI sprites , added configs">
-      <option name="closed" value="true" />
-      <created>1743579760952</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1743579760952</updated>
+      <workItem from="1744265421283" duration="15130000" />
     </task>
     <task id="LOCAL-00011" summary="Added items configs">
       <option name="closed" value="true" />
@@ -559,7 +555,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744283173732</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="fix: validate  OnChangedStateSlot">
+      <option name="closed" value="true" />
+      <created>1744283879805</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1744283879805</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -586,7 +590,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="feat : animation show inventory" />
     <MESSAGE value="feat : added new animation window" />
     <MESSAGE value="upd: edits animation window" />
     <MESSAGE value="feat : added display count items" />
@@ -611,6 +614,7 @@
     <MESSAGE value="fix: save inventory" />
     <MESSAGE value="fix: first state toggler button in cheat holder" />
     <MESSAGE value="fix: animation clicked buy slot" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: animation clicked buy slot" />
+    <MESSAGE value="fix: validate  OnChangedStateSlot" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: validate  OnChangedStateSlot" />
   </component>
 </project>

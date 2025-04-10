@@ -1,44 +1,26 @@
-using Code.Infrastructure.Services.PersistenceProgress;
-using UnityEngine;
-using UnityEngine.UI;
-using Zenject;
-
 namespace Code.UI.InventoryViewModel.Inventory.Displayer
 {
-    public class InventoryPointDisplayer : MonoBehaviour
+    public class InventoryPointDisplayer : InventoryComponentDisplayer
     {
-        [SerializeField] private Text _text;
-
-        private IPersistenceProgressService _persistenceProgressService;
-        
-        [Inject]
-        public void Construct(IPersistenceProgressService persistenceProgressService)
+        public override void Initialize()
         {
-            _persistenceProgressService = persistenceProgressService;
-
-            OnUpdatePoints();
-        }
-        
-        public void Initialize()
-        {
-            _persistenceProgressService.PlayerData.ResourceData.InventoryPointsChangeEvent += OnUpdatePoints;
+            _persistenceProgressService.PlayerData.ResourceData.InventoryPointsChangeEvent += OnUpdateLevel;
+            
+            OnUpdateLevel();
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
-            _persistenceProgressService.PlayerData.ResourceData.InventoryPointsChangeEvent -= OnUpdatePoints;
+            _persistenceProgressService.PlayerData.ResourceData.InventoryPointsChangeEvent -= OnUpdateLevel;
         }
-        
-        private void OnUpdatePoints()
+
+        protected override void OnUpdateLevel()
         {
             var points = _persistenceProgressService.PlayerData.ResourceData.InventoryPoints;
             var text = $"Points: {points}";
-            SetTextPoints(text);
-        }
-        
-        private void SetTextPoints(string text)
-        {
-            _text.text = text;
+            SetText(text);
+            
+            PlayGlowEffect();
         }
     }
 }
