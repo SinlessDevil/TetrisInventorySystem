@@ -49,8 +49,7 @@ namespace Code.UI.InventoryViewModel.Slot
             if (!_inventoryExpandService.IsOpened(TargetIndexGridCell) && 
                 _inventoryExpandService.IsEnoughPoints(TargetIndexGridCell))
             {
-                return !_inventoryExpandService.IsOpened(TargetIndexGridCell) &&
-                       _inventoryExpandService.IsAvailableToBuy(TargetIndexGridCell);
+                return _inventoryExpandService.IsAvailableToBuy(TargetIndexGridCell);
             }
 
             return !_inventoryExpandService.IsOpened(TargetIndexGridCell) && 
@@ -117,8 +116,7 @@ namespace Code.UI.InventoryViewModel.Slot
         
         private void OnUpdateStateSlots()
         {
-            if (_inventoryExpandService.IsEnoughPoints(TargetIndexGridCell) == false)
-                ChangedStateSlotEvent?.Invoke();
+            ChangedStateSlotEvent?.Invoke();
         }
         
         public void TryToUnlockSlot()

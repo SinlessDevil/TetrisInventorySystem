@@ -10,11 +10,13 @@ namespace Code.UI.InventoryViewModel.Slot
         public void Initialize(ISlotViewModel viewModel)
         {
             _viewModel = viewModel;
+            Subscribe();
         }
         
         public void Dispose()
         {
             _viewModel = null;
+            Unsubscribe();
         }
 
         private void Subscribe()
