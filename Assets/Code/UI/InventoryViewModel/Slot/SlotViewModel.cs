@@ -26,6 +26,7 @@ namespace Code.UI.InventoryViewModel.Slot
         }
 
         public event Action ChangedStateSlotEvent;
+        public event Action TryUnlockedSlotEvent;
         
         public event Action<bool> ColoredFillSlotEvent;
         public event Action<bool> ColoredReactionSlotEvent;
@@ -114,6 +115,21 @@ namespace Code.UI.InventoryViewModel.Slot
         {
             if (_inventoryExpandService.IsEnoughPoints(TargetIndexGridCell) == false)
                 ChangedStateSlotEvent?.Invoke();
+        }
+        
+        public void TryToUnlockSlot()
+        {
+            if(IsLockedSlot() == false)
+                return;
+            
+            if (_inventoryExpandService.IsEnoughPoints(TargetIndexGridCell) == false)
+                return;
+
+            if (_inventoryExpandService.IsAvailableToBuy(TargetIndexGridCell))
+                _inventoryExpandService.Open(TargetIndexGridCell);
+            
+            ChangedStateSlotEvent?.Invoke();
+            TryUnlockedSlotEvent?.Invoke();
         }
         
         private int TargetIndexGridCell => _inventory.GridIndex(_gridCell);

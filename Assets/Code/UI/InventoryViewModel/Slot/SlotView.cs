@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +18,7 @@ namespace Code.UI.InventoryViewModel.Slot
         [Space(10)] [Header("Additional")]
         [SerializeField] private SlotColorIntaractable _slotColorIntaractable;
         [SerializeField] private SlotEffecter _slotEffecter;
+        [SerializeField] private SlotAnimation _slotAnimation;
         
         private ISlotViewModel _slotVM;
 
@@ -29,6 +29,9 @@ namespace Code.UI.InventoryViewModel.Slot
             
             if(_slotEffecter == null)
                 _slotEffecter = GetComponent<SlotEffecter>();
+            
+            if(_slotAnimation == null)
+                _slotAnimation = GetComponent<SlotAnimation>();
         }
 
         public void Initialize(ISlotViewModel viewModel)
@@ -37,11 +40,12 @@ namespace Code.UI.InventoryViewModel.Slot
             
             _slotColorIntaractable.Initialize(viewModel, _unlocked);
             _slotEffecter.Initialize(viewModel);
+            _slotAnimation.Initialize(viewModel);
             
             SetInteractableButton(_slotVM.IsInteractableButton());
             SetTextLevel(_slotVM.GetTextLevel());
             SetSpriteForLockedState(_slotVM.HasNecessaryLevel(),_slotVM.IsLockedSlotAndIsAvailableToBuy());
-            SetSlotState(_slotVM.IsUnlockedSlot() ,_slotVM.IsLockedSlot());
+            SetSlotState(_slotVM.IsUnlockedSlot(), _slotVM.IsLockedSlot());
             
             Subscribe();
         }
@@ -50,6 +54,7 @@ namespace Code.UI.InventoryViewModel.Slot
         {
             _slotColorIntaractable.Dispose();
             _slotEffecter.Dispose();
+            _slotAnimation.Dispose();
             
             Unsubscribe();
             
@@ -85,11 +90,13 @@ namespace Code.UI.InventoryViewModel.Slot
 
         private void Subscribe()
         {
+            _buttonForUnlockedSlots.onClick.AddListener(OnTryToUnlockSlot);
             _slotVM.ChangedStateSlotEvent += OnChangedStateSlot;
         }
-
+        
         private void Unsubscribe()
         {
+            _buttonForUnlockedSlots.onClick.RemoveListener(OnTryToUnlockSlot);
             _slotVM.ChangedStateSlotEvent -= OnChangedStateSlot;
         }
         
@@ -98,6 +105,11 @@ namespace Code.UI.InventoryViewModel.Slot
             SetInteractableButton(_slotVM.IsInteractableButton());
             SetSpriteForLockedState(_slotVM.HasNecessaryLevel(),_slotVM.IsLockedSlotAndIsAvailableToBuy());
             SetSlotState(_slotVM.IsUnlockedSlot() ,_slotVM.IsLockedSlot());
+        }
+        
+        private void OnTryToUnlockSlot()
+        {
+            _slotVM.TryToUnlockSlot();
         }
     }
 }

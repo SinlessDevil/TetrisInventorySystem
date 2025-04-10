@@ -43,19 +43,5 @@ namespace Code.UI.InventoryViewModel.Slot
             dropAnimationEffect.sizeDelta = GetComponent<RectTransform>().sizeDelta;
             return dropAnimationEffect;
         }
-        
-        private void PlayAnimationClicked()
-        {
-            var targetScale = new Vector3(0.8f, 0.8f, 0.8f);
-            var endScale = Vector3.one;
-            gameObject.transform.DOScale(targetScale, 0.15f)
-                .SetEase(Ease.Linear)
-                .OnComplete(() =>
-                {
-                    gameObject.transform.DOScale(endScale, 0.15f)
-                        .SetEase(Ease.Linear);
-                });
-        }
-
     }
 }

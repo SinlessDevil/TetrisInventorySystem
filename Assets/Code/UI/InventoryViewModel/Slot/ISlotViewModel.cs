@@ -14,6 +14,8 @@ namespace Code.UI.InventoryViewModel.Slot
         
         public GridCell GridCell { get; }
         public InventoryModel.Items.Data.Item Item { get; }
+        public event Action TryUnlockedSlotEvent;
+        
         public bool IsInteractableButton();
         public bool HasNecessaryLevel();
         public bool IsLockedSlotAndIsAvailableToBuy();
@@ -25,6 +27,8 @@ namespace Code.UI.InventoryViewModel.Slot
 
         public void SetColorReaction(bool isCanPlace);
         public void SetToDefaultColorReaction();
+        
+        public void TryToUnlockSlot();
         
         public void PlayEffectFilledSlot();
         
