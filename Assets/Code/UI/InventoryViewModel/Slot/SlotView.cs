@@ -43,7 +43,7 @@ namespace Code.UI.InventoryViewModel.Slot
             _slotAnimation.Initialize(viewModel);
             
             SetInteractableButton(_slotVM.IsInteractableButton());
-            SetTextLevel(_slotVM.GetTextLevel());
+            SetTextLevel(_slotVM.IsLockedSlotAndIsAvailableToBuy(), _slotVM.GetTextLevel());
             SetSpriteForLockedState(_slotVM.HasNecessaryLevel(),_slotVM.IsLockedSlotAndIsAvailableToBuy());
             SetSlotState(_slotVM.IsUnlockedSlot(), _slotVM.IsLockedSlot());
             
@@ -66,14 +66,17 @@ namespace Code.UI.InventoryViewModel.Slot
             _buttonForUnlockedSlots.interactable = isInteractable;
         }
         
-        private void SetTextLevel(string text)
+        private void SetTextLevel(bool isValidate, string text)
         {
-            _textLevel.text = text;
+            if (isValidate)
+                _textLevel.text = "";
+            else
+                _textLevel.text = text;
         }
         
         private void SetSpriteForLockedState(bool hasNecessaryLevel, bool isValidate)
         {
-            if (hasNecessaryLevel)
+            if (!hasNecessaryLevel)
             {
                 _locked.sprite = _spiteLockedDontOpenWithLevel;
                 return;
@@ -102,6 +105,7 @@ namespace Code.UI.InventoryViewModel.Slot
         
         private void OnChangedStateSlot()
         {
+            SetTextLevel(_slotVM.IsLockedSlotAndIsAvailableToBuy(), _slotVM.GetTextLevel());
             SetInteractableButton(_slotVM.IsInteractableButton());
             SetSpriteForLockedState(_slotVM.HasNecessaryLevel(),_slotVM.IsLockedSlotAndIsAvailableToBuy());
             SetSlotState(_slotVM.IsUnlockedSlot() ,_slotVM.IsLockedSlot());

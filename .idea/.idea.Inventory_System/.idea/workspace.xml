@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="fix: first state toggler button in cheat holder">
+    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="fix: animation clicked buy slot">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotAnimation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotView.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,15 +165,7 @@
       <workItem from="1744094540905" duration="28624000" />
       <workItem from="1744178256474" duration="3307000" />
       <workItem from="1744225610959" duration="2492000" />
-      <workItem from="1744265421283" duration="13880000" />
-    </task>
-    <task id="LOCAL-00009" summary="Fixed Item config">
-      <option name="closed" value="true" />
-      <created>1743542324531</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1743542324531</updated>
+      <workItem from="1744265421283" duration="14538000" />
     </task>
     <task id="LOCAL-00010" summary="Added UI sprites , added configs">
       <option name="closed" value="true" />
@@ -560,7 +551,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744282762110</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="fix: animation clicked buy slot">
+      <option name="closed" value="true" />
+      <created>1744283173732</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1744283173732</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -587,7 +586,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="fix: fixed destroy item if his in out inventory" />
     <MESSAGE value="feat : animation show inventory" />
     <MESSAGE value="feat : added new animation window" />
     <MESSAGE value="upd: edits animation window" />
@@ -612,6 +610,7 @@
     <MESSAGE value="fix: save inventory" />
     <MESSAGE value="fix: save inventory" />
     <MESSAGE value="fix: first state toggler button in cheat holder" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: first state toggler button in cheat holder" />
+    <MESSAGE value="fix: animation clicked buy slot" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: animation clicked buy slot" />
   </component>
 </project>
