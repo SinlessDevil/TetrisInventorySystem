@@ -15,6 +15,8 @@ namespace Code.UI.InventoryViewModel.Inventory.Displayer
         public void Construct(IPersistenceProgressService persistenceProgressService)
         {
             _persistenceProgressService = persistenceProgressService;
+
+            OnUpdatePoints();
         }
         
         public void Initialize()

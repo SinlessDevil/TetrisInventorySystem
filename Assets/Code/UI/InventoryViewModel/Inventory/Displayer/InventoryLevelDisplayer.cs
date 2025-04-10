@@ -15,6 +15,8 @@ namespace Code.UI.InventoryViewModel.Inventory.Displayer
         public void Construct(IPersistenceProgressService persistenceProgressService)
         {
             _persistenceProgressService = persistenceProgressService;
+
+            OnUpdateLevel();
         }
         
         public void Initialize()
@@ -29,7 +31,7 @@ namespace Code.UI.InventoryViewModel.Inventory.Displayer
         
         private void OnUpdateLevel()
         {
-            var level = _persistenceProgressService.PlayerData.ResourceData.InventoryPoints;
+            var level = _persistenceProgressService.PlayerData.ResourceData.InventoryLevel;
             var text = $"Level: {level}";
             SetTextLevels(text);
         }

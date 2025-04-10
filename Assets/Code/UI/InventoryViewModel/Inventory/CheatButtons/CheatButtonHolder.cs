@@ -72,7 +72,7 @@ namespace Code.UI.InventoryViewModel.Inventory.CheatButtons
         private void OnClickInventoryLevel()
         {
             _persistenceProgressService.PlayerData.ResourceData.InventoryLevel++;
-            _persistenceProgressService.PlayerData.ResourceData.SetInventoryPoints(
+            _persistenceProgressService.PlayerData.ResourceData.SetInventoryLevel(
                 _persistenceProgressService.PlayerData.ResourceData.InventoryLevel);
         }
 
