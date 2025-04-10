@@ -29,7 +29,7 @@ namespace Services.Factories.Inventory
 
         public void Initialize(InventoryBalance.ItemId[] initialItems, InventoryBorders defaultBorders)
         {
-            CleanupInventory();
+           // CleanupInventory();
             OpenDefaultCells(defaultBorders);
             PlaceInitialItems(initialItems);
         }

@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="feat: added points , levels displayer , added cheat button holder , added new animation">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/CheatButtons/CheatButtonHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/CheatButtons/CheatButtonHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/Displayer/InventoryLevelDisplayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/Displayer/InventoryLevelDisplayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/Displayer/InventoryPointDisplayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/Displayer/InventoryPointDisplayer.cs" afterDir="false" />
+    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="fix: inventory point and level">
+      <change beforePath="$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryInitializer/InventorySaveInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryInitializer/InventorySaveInitializer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,15 +164,7 @@
       <workItem from="1744094540905" duration="28624000" />
       <workItem from="1744178256474" duration="3307000" />
       <workItem from="1744225610959" duration="2492000" />
-      <workItem from="1744265421283" duration="13189000" />
-    </task>
-    <task id="LOCAL-00006" summary="Edits names">
-      <option name="closed" value="true" />
-      <created>1743170961007</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1743170961007</updated>
+      <workItem from="1744265421283" duration="13322000" />
     </task>
     <task id="LOCAL-00007" summary="Added base scripts for Inventory">
       <option name="closed" value="true" />
@@ -561,7 +550,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744280286592</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="fix: inventory point and level">
+      <option name="closed" value="true" />
+      <created>1744282490524</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1744282490524</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -588,7 +585,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="plugins: Added UnitTask , feat: Added Destroy item" />
     <MESSAGE value="Added glow container holder for free area" />
     <MESSAGE value="feat: Added drop item out container in free" />
     <MESSAGE value="feat : added item drag container and use" />
@@ -613,6 +609,7 @@
     <MESSAGE value="fix: ref in CreateInventory" />
     <MESSAGE value="feat: added update state slot view and anim clicked" />
     <MESSAGE value="feat: added points , levels displayer , added cheat button holder , added new animation" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: added points , levels displayer , added cheat button holder , added new animation" />
+    <MESSAGE value="fix: inventory point and level" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: inventory point and level" />
   </component>
 </project>
