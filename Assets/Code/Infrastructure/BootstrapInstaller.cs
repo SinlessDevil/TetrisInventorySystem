@@ -1,6 +1,5 @@
 using Code.Infrastructure.Factory;
 using Code.Infrastructure.Services.PersistenceProgress;
-using Code.Infrastructure.Services.PlayerExperience;
 using Code.Infrastructure.Services.SaveLoad;
 using Code.Infrastructure.Services.StaticData;
 using Code.Inventory.Services.InventoryExpand;
@@ -28,7 +27,6 @@ namespace Code.Infrastructure
             BindFactory();
             BindSaveLoad();
             BindProgressData();
-            BindPlayerExperience();
             BindInventoryServices();
             BindStaticData();
         }
@@ -45,9 +43,6 @@ namespace Code.Infrastructure
 
         private void BindProgressData() =>
             Container.Bind<IPersistenceProgressService>().To<PersistenceProgressService>().AsSingle();
-        
-        private void BindPlayerExperience() =>
-            Container.Bind<IPlayerExperienceService>().To<PlayerExperienceService>().AsSingle();
         
         private void BindInventoryServices()
         {

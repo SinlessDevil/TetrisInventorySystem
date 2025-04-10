@@ -93,24 +93,28 @@ namespace Code.UI.InventoryViewModel.Slot
             _inventory.OnItemRemoved += OnRemovedItem;
             _inventory.OnItemAdded += OnAddedItem;
             _persistenceProgressService.PlayerData.ResourceData.InventoryPointsChangeEvent += OnUpdateStateSlots;
+            _persistenceProgressService.PlayerData.ResourceData.InventroyLevelChangeEvent += OnUpdateStateSlots;
         }
         public void Unsubscribe()
         {
             _inventory.OnItemRemoved -= OnRemovedItem;
             _inventory.OnItemAdded -= OnAddedItem;
             _persistenceProgressService.PlayerData.ResourceData.InventoryPointsChangeEvent -= OnUpdateStateSlots;
+            _persistenceProgressService.PlayerData.ResourceData.InventroyLevelChangeEvent -= OnUpdateStateSlots;
         }
         
         private void OnRemovedItem(InventoryActionData inventoryActionData)
         {
             if (_gridCell.Item == null)
                 ColoredFillSlotEvent?.Invoke(true);
-        } 
+        }
+        
         private void OnAddedItem(InventoryActionData inventoryActionData)
         {
             if (_gridCell.Item != null)
                 ColoredFillSlotEvent?.Invoke(false);
         }
+        
         private void OnUpdateStateSlots()
         {
             if (_inventoryExpandService.IsEnoughPoints(TargetIndexGridCell) == false)

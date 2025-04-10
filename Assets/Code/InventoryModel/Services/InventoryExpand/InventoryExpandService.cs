@@ -1,8 +1,6 @@
 using System;
 using Code.Infrastructure.Services.PersistenceProgress;
-using Services.PersistenceProgress;
 using Code.Infrastructure.Services.PersistenceProgress.Player;
-using Code.Infrastructure.Services.PlayerExperience;
 using Code.InventoryModel.Data;
 using Code.InventoryModel.Services.InventoryDataProvider;
 
@@ -11,18 +9,15 @@ namespace Code.Inventory.Services.InventoryExpand
     public class InventoryExpandService : IInventoryExpandService
     {
         private readonly IPersistenceProgressService _progress;
-        private readonly IPlayerExperienceService _playerExperienceService;
         private readonly IInventoryDataProvider _inventoryDataProvider;
         
         private InventoryBorders _defaultOpened;
 
         public InventoryExpandService(
             IPersistenceProgressService progress,
-            IPlayerExperienceService playerExperienceService,
             IInventoryDataProvider inventoryDataProvider)
         {
             _progress = progress;
-            _playerExperienceService = playerExperienceService;
             _inventoryDataProvider = inventoryDataProvider;
         }
 
@@ -30,6 +25,9 @@ namespace Code.Inventory.Services.InventoryExpand
         
         private InventoryOpeningData InventoryOpeningData => _progress.PlayerData.InventoryData.InventoryOpening;
 
+        public int InventoryPoints => _progress.PlayerData.ResourceData.InventoryPoints;
+        public int InventoryLevel => _progress.PlayerData.ResourceData.InventoryLevel;
+        
         public void SetDefaultOpenedBorders(InventoryBorders defaultBorder)
         {
             _defaultOpened = defaultBorder
@@ -45,7 +43,7 @@ namespace Code.Inventory.Services.InventoryExpand
 
         public bool IsAvailableToBuy(int targetIndex)
         {
-            int currentLevel = _playerExperienceService.GetCurrentLevel();
+            int currentLevel = _progress.PlayerData.ResourceData.InventoryLevel;
             InventoryExpandConfig expandConfig = _inventoryDataProvider.InventoryExpandForLevel(currentLevel);
             return expandConfig.Borders.IsAvailable(targetIndex);
         }

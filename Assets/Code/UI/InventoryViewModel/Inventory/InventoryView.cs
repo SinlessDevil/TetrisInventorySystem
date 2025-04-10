@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Code.UI.InventoryViewModel.Factory;
+using Code.UI.InventoryViewModel.Inventory.CheatButtons;
 using Code.UI.InventoryViewModel.Inventory.Chest;
+using Code.UI.InventoryViewModel.Inventory.Displayer;
 using UnityEngine;
 using UnityEngine.UI;
 using Code.UI.InventoryViewModel.Item;
@@ -25,6 +27,10 @@ namespace Code.UI.InventoryViewModel.Inventory
         [SerializeField] private FreeAreaItemHolder _freeAreaItemHolder;
         [Space(10)] [Header("Button")]
         [SerializeField] private Button _dropItemsButton;
+        [SerializeField] private CheatButtonHolder _cheatButtonHolder;
+        [Space(10)] [Header("Displayer")]
+        [SerializeField] private InventoryLevelDisplayer _inventoryLevelDisplayer;
+        [SerializeField] private InventoryPointDisplayer _inventoryPointDisplayer;
         [Space(10)] [Header("Animation")]
         [SerializeField] private Image _bg;
         [SerializeField] private Transform _mainPanel;
@@ -36,9 +42,12 @@ namespace Code.UI.InventoryViewModel.Inventory
         private Vector3 _leftButtonStartPos;
         private Vector3 _rightButtonStartPos;
         
+        private Vector3 _upPointDisplayerPosition;
+        private Vector3 _upLevelDisplayerPosition;
+        
         private IInventoryViewModel _inventoryVM;
         private IInventoryUIFactory _inventoryUIFactory;
-        
+
         [Inject]
         private void Construct(IInventoryUIFactory inventoryUIFactory)
         {
@@ -48,10 +57,19 @@ namespace Code.UI.InventoryViewModel.Inventory
         private void OnValidate()
         {
             if (_destroyItemHolder == null)
-                _destroyItemHolder.GetComponentInChildren<DestroyerItemHolder>();
+                _destroyItemHolder = GetComponentInChildren<DestroyerItemHolder>();
 
             if (_freeAreaItemHolder == null)
-                _freeAreaItemHolder.GetComponentInChildren<FreeAreaItemHolder>();
+                _freeAreaItemHolder =GetComponentInChildren<FreeAreaItemHolder>();
+            
+            if (_inventoryLevelDisplayer == null)
+                _inventoryLevelDisplayer =GetComponentInChildren<InventoryLevelDisplayer>();
+            
+            if (_inventoryPointDisplayer == null)
+                _inventoryPointDisplayer =GetComponentInChildren<InventoryPointDisplayer>();
+            
+            if(_cheatButtonHolder == null)
+                _cheatButtonHolder = GetComponentInChildren<CheatButtonHolder>();
         }
 
         public void Initialize(IInventoryViewModel inventoryM)
@@ -61,6 +79,11 @@ namespace Code.UI.InventoryViewModel.Inventory
             _destroyItemHolder.Initialize(_inventoryVM);
             _freeAreaItemHolder.Initialize(_inventoryVM);
             
+            _inventoryLevelDisplayer.Initialize();
+            _inventoryPointDisplayer.Initialize();
+            
+            _cheatButtonHolder.Initialize();
+            
             Subscribe();
         }
 
@@ -69,6 +92,11 @@ namespace Code.UI.InventoryViewModel.Inventory
             _destroyItemHolder.Dispose();
             _freeAreaItemHolder.Dispose();
 
+            _inventoryPointDisplayer.Dispose();
+            _inventoryLevelDisplayer.Dispose();
+            
+            _cheatButtonHolder.Dispose();
+            
             Unsubscribe();
             
             Destroy(this.gameObject);
@@ -82,6 +110,8 @@ namespace Code.UI.InventoryViewModel.Inventory
         
         public void PlayAnimationShow()
         {
+            _blockInput.blocksRaycasts = true;
+            
             List<SlotContainer> slotViews = _inventoryVM.GetSlotContainers();
             List<ItemView> itemViews = _inventoryVM.GetItemViews();
             
@@ -89,6 +119,8 @@ namespace Code.UI.InventoryViewModel.Inventory
 
             Sequence sequence = DOTween.Sequence();
             sequence.Append(_bg.DOFade(1f, 0.25f).SetEase(Ease.Linear));
+            sequence.Append(_inventoryLevelDisplayer.transform.DOMove(_upLevelDisplayerPosition, 0.4f).SetEase(Ease.OutBack));
+            sequence.Join(_inventoryPointDisplayer.transform.DOMove(_upPointDisplayerPosition, 0.4f).SetEase(Ease.OutBack));
             sequence.Append(_mainPanel.transform.DOScaleY(1f, 0.5f).SetEase(Ease.OutElastic));
             sequence.AppendInterval(0.1f);
             AnimateSlotWave(sequence, slotViews);
@@ -96,9 +128,14 @@ namespace Code.UI.InventoryViewModel.Inventory
             AnimateItemWave(sequence, itemViews);
             sequence.AppendInterval(0.1f);
             AnimateAdditionalHolders(sequence);
+            sequence.Append(_cheatButtonHolder.CanvasGroup.DOFade(1f, 0.25f).SetEase(Ease.InBack));
             sequence.AppendInterval(0.25f);
             sequence.Append(_leftButton.DOMove(_leftButtonStartPos, 0.4f).SetEase(Ease.OutBack));
             sequence.Join(_rightButton.DOMove(_rightButtonStartPos, 0.4f).SetEase(Ease.OutBack));
+            sequence.AppendCallback(() =>
+            {
+                _blockInput.blocksRaycasts = false;
+            });
         }
 
         private void Subscribe()
@@ -152,6 +189,14 @@ namespace Code.UI.InventoryViewModel.Inventory
             _destroyItemHolder.transform.localScale = Vector3.zero;
             _freeAreaItemHolder.transform.localScale = Vector3.zero;
 
+            _upPointDisplayerPosition = _inventoryPointDisplayer.transform.position;
+            _upLevelDisplayerPosition = _inventoryLevelDisplayer.transform.position;
+            
+            _inventoryPointDisplayer.transform.position = new Vector2(_inventoryPointDisplayer.transform.position.x, Screen.height + 300f);
+            _inventoryLevelDisplayer.transform.position = new Vector2(_inventoryLevelDisplayer.transform.position.x, Screen.height + 300f);
+            
+            _cheatButtonHolder.CanvasGroup.alpha = 0f;
+            
             slotViews.ForEach(x => x.View.transform.localScale = Vector3.zero);
             itemViews.ForEach(x => x.transform.localScale = Vector3.zero);
             
