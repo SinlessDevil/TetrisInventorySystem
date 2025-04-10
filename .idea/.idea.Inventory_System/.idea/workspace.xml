@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="fix: inventory point and level">
-      <change beforePath="$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryInitializer/InventorySaveInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryInitializer/InventorySaveInitializer.cs" afterDir="false" />
+    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="fix: save inventory">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/CheatButtons/CheatButtonHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/CheatButtons/CheatButtonHolder.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,15 +165,7 @@
       <workItem from="1744094540905" duration="28624000" />
       <workItem from="1744178256474" duration="3307000" />
       <workItem from="1744225610959" duration="2492000" />
-      <workItem from="1744265421283" duration="13322000" />
-    </task>
-    <task id="LOCAL-00007" summary="Added base scripts for Inventory">
-      <option name="closed" value="true" />
-      <created>1743178578662</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1743178578662</updated>
+      <workItem from="1744265421283" duration="13461000" />
     </task>
     <task id="LOCAL-00008" summary="Added services for inventory">
       <option name="closed" value="true" />
@@ -558,7 +551,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744282490524</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="Fixed save inventory">
+      <option name="closed" value="true" />
+      <created>1744282619816</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1744282619816</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -585,8 +586,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added glow container holder for free area" />
-    <MESSAGE value="feat: Added drop item out container in free" />
     <MESSAGE value="feat : added item drag container and use" />
     <MESSAGE value="fix: fixed destroy item if his in out inventory" />
     <MESSAGE value="feat : animation show inventory" />
@@ -610,6 +609,8 @@
     <MESSAGE value="feat: added update state slot view and anim clicked" />
     <MESSAGE value="feat: added points , levels displayer , added cheat button holder , added new animation" />
     <MESSAGE value="fix: inventory point and level" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: inventory point and level" />
+    <MESSAGE value="fix: save inventory" />
+    <MESSAGE value="fix: save inventory" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: save inventory" />
   </component>
 </project>

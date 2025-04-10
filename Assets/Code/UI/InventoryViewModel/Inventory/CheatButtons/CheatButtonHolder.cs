@@ -18,7 +18,7 @@ namespace Code.UI.InventoryViewModel.Inventory.CheatButtons
         [SerializeField] private RectTransform _centerRect;
         [SerializeField] private CanvasGroup _canvasGroup;
 
-        private bool _isPanelVisible = true;
+        private bool _isPanelVisible = false;
         
         private IPersistenceProgressService _persistenceProgressService;
         private ISaveLoadService _saveLoadService;
@@ -64,7 +64,7 @@ namespace Code.UI.InventoryViewModel.Inventory.CheatButtons
         {
             float targetX = _isPanelVisible ? 300f : 0f;
 
-            _centerRect.DOAnchorPosX(targetX, 0.5f).SetEase(Ease.InOutCubic);
+            _centerRect.DOAnchorPosX(targetX, 0.25f).SetEase(Ease.InOutCubic);
 
             _isPanelVisible = !_isPanelVisible;
         }
