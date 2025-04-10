@@ -15,8 +15,8 @@ namespace Code.UI.InventoryViewModel.Slot
         
         public void Dispose()
         {
-            _viewModel = null;
             Unsubscribe();
+            _viewModel = null;
         }
 
         private void Subscribe()
