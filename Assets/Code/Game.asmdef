@@ -6,7 +6,8 @@
         "DOTweenPro.Scripts",
         "DOTween.Modules",
         "Coffee.UIParticle",
-        "UniTask"
+        "UniTask",
+        "UniTask.DOTween"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

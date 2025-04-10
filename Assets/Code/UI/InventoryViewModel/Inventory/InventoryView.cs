@@ -1,10 +1,16 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Code.UI.InventoryViewModel.Factory;
+using Code.UI.InventoryViewModel.Inventory.Chest;
 using UnityEngine;
 using UnityEngine.UI;
 using Code.UI.InventoryViewModel.Item;
 using Code.UI.InventoryViewModel.Services.InventoryViewInitializer;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using Zenject;
 
 namespace Code.UI.InventoryViewModel.Inventory
 {
@@ -19,17 +25,26 @@ namespace Code.UI.InventoryViewModel.Inventory
         [SerializeField] private FreeAreaItemHolder _freeAreaItemHolder;
         [Space(10)] [Header("Button")]
         [SerializeField] private Button _dropItemsButton;
-        [Space(10)] [Header("Animation")] 
+        [Space(10)] [Header("Animation")]
         [SerializeField] private Image _bg;
         [SerializeField] private Transform _mainPanel;
         [SerializeField] private Transform _leftButton;
         [SerializeField] private Transform _rightButton;
+        [Space(10)] [Header("Additional")]
+        [SerializeField] private CanvasGroup _blockInput;
 
         private Vector3 _leftButtonStartPos;
         private Vector3 _rightButtonStartPos;
         
         private IInventoryViewModel _inventoryVM;
-
+        private IInventoryUIFactory _inventoryUIFactory;
+        
+        [Inject]
+        private void Construct(IInventoryUIFactory inventoryUIFactory)
+        {
+            _inventoryUIFactory = inventoryUIFactory;
+        }
+        
         private void OnValidate()
         {
             if (_destroyItemHolder == null)
@@ -98,7 +113,36 @@ namespace Code.UI.InventoryViewModel.Inventory
 
         private void OnDropItemsButtonClicked()
         {
-            _inventoryVM.DropItems();
+            DropItemsAsync(() => _inventoryVM.DropItems()).Forget();
+        }
+
+        private async UniTask DropItemsAsync(Action callBack)
+        {
+            SetActiveBlockInput(true);
+
+            ChestView chestView = _inventoryUIFactory.CreatChestView((RectTransform)_blockInput.transform);
+            chestView.transform.position = new Vector2(_freeAreaItemHolder.transform.position.x, Screen.height + 300f);
+            await chestView.transform.DOMove(_freeAreaItemHolder.transform.position, 1f)
+                .SetEase(Ease.InQuint)
+                .ToUniTask();
+            
+            await Task.Delay(250);
+            
+            chestView.OpenChest();
+
+            await UniTask.WaitUntil(() => chestView.IsOpen == true);
+            
+            chestView.CloseChest();
+
+            SetActiveBlockInput(false);
+
+            callBack?.Invoke();
+        }
+        
+        private void SetActiveBlockInput(bool isActive)
+        {
+            _blockInput.blocksRaycasts = isActive;
+            _blockInput.DOFade(isActive ? 1f : 0f, 0.25f).SetEase(Ease.Linear);
         }
         
         private void SetUpStartAnimationComponents(List<SlotContainer> slotViews, List<ItemView> itemViews)

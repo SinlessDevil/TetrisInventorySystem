@@ -1,7 +1,4 @@
 ﻿// asmdef Version Defines, enabled when com.demigiant.dotween is imported.
-
-#if UNITASK_DOTWEEN_SUPPORT
-
 using Cysharp.Threading.Tasks.Internal;
 using DG.Tweening;
 using System;
@@ -432,5 +429,3 @@ namespace Cysharp.Threading.Tasks
         }
     }
 }
-
-#endif

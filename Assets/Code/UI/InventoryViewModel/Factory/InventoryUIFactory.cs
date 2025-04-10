@@ -1,5 +1,6 @@
 using Code.Infrastructure.Factory;
 using Code.UI.InventoryViewModel.Inventory;
+using Code.UI.InventoryViewModel.Inventory.Chest;
 using Code.UI.InventoryViewModel.Item;
 using Code.UI.InventoryViewModel.Slot;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace Code.UI.InventoryViewModel.Factory
         private const string InventoryViewPath = "UI/Inventory/InventoryWindow";
         private const string SlotViewPath = "UI/Inventory/SlotView";
         private const string ItemViewPath = "UI/Inventory/ItemView";
+        private const string ChestViewPath = "UI/Inventory/ChestView";
         
         private readonly IUIFactory _uiFactory;
         public InventoryUIFactory(IUIFactory uiFactory, IInstantiator instantiator) : base(instantiator)
@@ -38,6 +40,13 @@ namespace Code.UI.InventoryViewModel.Factory
             var itemView = Instantiate(ItemViewPath, container);
             var itemViewComponent = itemView.GetComponent<ItemView>();
             return itemViewComponent;
+        }
+
+        public ChestView CreatChestView(RectTransform container)
+        {
+            var chestView = Instantiate(ChestViewPath, container);
+            var chestViewComponent = chestView.GetComponent<ChestView>();
+            return chestViewComponent;
         }
     }
 }
