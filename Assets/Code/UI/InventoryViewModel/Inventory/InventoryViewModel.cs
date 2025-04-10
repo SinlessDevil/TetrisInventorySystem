@@ -79,9 +79,9 @@ namespace Code.UI.InventoryViewModel.Inventory
 
         public void DropItems()
         {
-            foreach (var itemContainer in _itemContainers)
+            foreach (ItemContainer itemContainer in _itemContainers)
             {
-                var canPlace = _itemPositionFinding.TryToPlaceItemFreeAreaContainer(itemContainer.View.transform.position);
+                bool canPlace = _itemPositionFinding.TryToPlaceItemFreeAreaContainer(itemContainer.View.transform.position);
                 if(!canPlace)
                     continue;
                 
@@ -90,12 +90,12 @@ namespace Code.UI.InventoryViewModel.Inventory
             
             List<ItemContainer> itemContainers = _itemDropService.DropItemContainers();
 
-            for (int i = 0; i < itemContainers.Count; i++)
+            foreach (ItemContainer item in itemContainers)
             {
-                itemContainers[i].View.Initialize(itemContainers[i].ViewModel);
-                SubscribeItemViewModel(itemContainers[i].ViewModel);
-                itemContainers[i].ViewModel.PlayEffectDropItem();
-                _itemContainers.Add(itemContainers[i]);
+                item.View.Initialize(item.ViewModel);
+                SubscribeItemViewModel(item.ViewModel);
+                item.ViewModel.PlayEffectDropItem();
+                _itemContainers.Add(item);
             }
         }
 
@@ -119,6 +119,13 @@ namespace Code.UI.InventoryViewModel.Inventory
             
             //Try drop item out of inventory
             if (TryDropItemOutInventory(currentPosition, itemVM))
+            {
+                UpdateViewInventory(itemVM);
+                return;
+            }
+            
+            //Try change position item out of inventory
+            if(TryChangePositionOutInventory(currentPosition, itemVM))
             {
                 UpdateViewInventory(itemVM);
                 return;
@@ -294,7 +301,21 @@ namespace Code.UI.InventoryViewModel.Inventory
             
             return false;
         }
-
+        
+        private bool TryChangePositionOutInventory(Vector2 currentPosition, IItemViewModel itemVM)
+        {
+            bool isCanPlace = _itemPositionFinding.TryToPlaceItemFreeAreaContainer(currentPosition);
+            if (!isCanPlace)
+                return false;
+            
+            ItemContainer itemContainer = GetItemContainerByVM(itemVM);
+            if(itemContainer == null)
+                return false;
+            
+            itemContainer.ViewModel.SetPosition(itemContainer.View.transform.localPosition);
+            return true;
+        }
+        
         private bool TryStackItemOutInventory(Vector2 currentPosition, IItemViewModel itemVM)
         {
             bool isCanPlace = _itemPositionFinding.TryToPlaceItemFreeAreaContainer(currentPosition);
@@ -326,7 +347,6 @@ namespace Code.UI.InventoryViewModel.Inventory
                 return false;
             
             float currentDistanceSlot = (targetPosition - (Vector2)closesData.View.transform.position).sqrMagnitude;
-            Debug.Log(currentDistanceSlot);
             if (currentDistanceSlot > maxDistance)
                 return false;
             

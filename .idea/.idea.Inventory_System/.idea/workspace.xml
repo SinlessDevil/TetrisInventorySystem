@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Provider/IItemDropService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Provider/IItemDropService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Provider/ItemDropService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Provider/ItemDropService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemPositionFinding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemPositionFinding.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +162,8 @@
       <workItem from="1744059500940" duration="2052000" />
       <workItem from="1744094540905" duration="28624000" />
       <workItem from="1744178256474" duration="3307000" />
-      <workItem from="1744225610959" duration="736000" />
+      <workItem from="1744225610959" duration="2492000" />
+      <workItem from="1744265421283" duration="594000" />
     </task>
     <task id="LOCAL-00001" summary="Delete all unused files">
       <option name="closed" value="true" />
@@ -542,7 +541,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744211941115</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="fix: fixed GetRandomPositionsInFreeAreaContainer">
+      <option name="closed" value="true" />
+      <created>1744226416445</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1744226416445</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -569,7 +576,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added SetAsLastSibling" />
     <MESSAGE value="Added UI particle plugin" />
     <MESSAGE value="Added base display state slot" />
     <MESSAGE value="Added Slot Color Intaractable" />
@@ -594,6 +600,7 @@
     <MESSAGE value="feat: added  try to stack item out inventory" />
     <MESSAGE value="feat : added item drop items service" />
     <MESSAGE value="feat : added drop item in view" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : added drop item in view" />
+    <MESSAGE value="fix: fixed GetRandomPositionsInFreeAreaContainer" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: fixed GetRandomPositionsInFreeAreaContainer" />
   </component>
 </project>

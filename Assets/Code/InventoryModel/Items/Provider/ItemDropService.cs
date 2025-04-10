@@ -47,8 +47,6 @@ namespace Code.InventoryModel.Items.Provider
             List<Vector2> positions = _itemPositionFinding.GetRandomPositionsInFreeAreaContainer(_itemDataProvider.ItemDropData.CountItems);
             List<ItemContainer> itemsContainers = new List<ItemContainer>(ItemDropData.CountItems);
             
-            Debug.Log(positions.Count);
-            
             List<string> itemIds = GetItemsId();
 
             for (var index = 0; index < itemIds.Count; index++)
