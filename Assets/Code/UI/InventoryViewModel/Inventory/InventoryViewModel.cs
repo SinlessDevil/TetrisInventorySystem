@@ -18,7 +18,6 @@ namespace Code.UI.InventoryViewModel.Inventory
         private readonly IInventory _inventory;
         private readonly IItemPositionFinding _itemPositionFinding;
         private readonly IItemDropService _itemDropService;
-        private readonly IItemDataProvider _itemDataProvider;
         
         private List<SlotContainer> _slotContainers;
         private List<ItemContainer> _itemContainers;
@@ -26,13 +25,11 @@ namespace Code.UI.InventoryViewModel.Inventory
         public InventoryViewModel(
             IInventory inventory,
             IItemPositionFinding itemPositionFinding, 
-            IItemDropService itemDropService, 
-            IItemDataProvider itemDataProvider) 
+            IItemDropService itemDropService) 
         {
             _inventory = inventory;
             _itemPositionFinding = itemPositionFinding;
             _itemDropService = itemDropService;
-            _itemDataProvider = itemDataProvider;
         }
 
         public event Action<bool> EffectTogglePlayingDestroyGlowEvent;

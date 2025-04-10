@@ -54,7 +54,7 @@ namespace UI.Inventory
                 return positions;
 
             Vector2 containerCenter = (Vector2)_freeAreaItemContainer.localPosition + new Vector2(0, -300);
-            float spreadRadius = 300f;
+            float spreadRadius = 200f;
 
             int attempts = 0;
             int maxAttempts = count * 10;
