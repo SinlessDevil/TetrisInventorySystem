@@ -4,6 +4,7 @@
     "com.unity.feature.2d": "2.0.0",
     "com.unity.feature.development": "1.0.1",
     "com.unity.nuget.newtonsoft-json": "3.2.1",
+    "com.unity.recorder": "4.0.3",
     "com.unity.render-pipelines.universal": "14.0.10",
     "com.unity.shadergraph": "14.0.10",
     "com.unity.textmeshpro": "3.0.6",
