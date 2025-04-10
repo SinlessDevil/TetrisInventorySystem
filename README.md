@@ -15,6 +15,10 @@ A grid-based inventory system inspired by games like **Escape from Tarkov** and 
 
 ---
 
+## **🧠 Inventory is written on the MVVM architecture (Model / View / ViewModel)**
+
+---
+
 ## 🖼 Interface Preview
 
 <table>
