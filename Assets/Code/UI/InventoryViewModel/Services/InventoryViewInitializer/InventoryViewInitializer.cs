@@ -92,7 +92,7 @@ namespace Code.UI.InventoryViewModel.Services.InventoryViewInitializer
         {
             InventoryView inventoryView = _inventoryUIFactory.CreateInventoryView();
             IInventoryViewModel inventoryViewModel = new Inventory.InventoryViewModel(_inventory.Inventory,
-                _itemPositionFinding, _itemDropService, _itemDataProvider);
+                _itemPositionFinding, _itemDropService);
 
             InventoryContainer inventoryContainer = new InventoryContainer()
             {
