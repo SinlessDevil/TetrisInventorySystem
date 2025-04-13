@@ -77,3 +77,11 @@ A grid-based inventory system inspired by games like **Escape from Tarkov** and 
 - [UniTask](https://github.com/Cysharp/UniTask)
 
 ---
+
+---
+
+## 📌 Tags
+
+`#unity` `#unity3d` `#inventory-system` `#tetris-inventory` `#drag-and-drop` `#rpg` `#game-tools` `#game-dev` `#mvvm` `#zenject` `#dotween` `#editor-tools`
+
+---
