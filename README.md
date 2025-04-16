@@ -1,4 +1,4 @@
-# 🎒 Inventory Tetris
+# 🎒  Tetris Inventory System
 
 A grid-based inventory system inspired by games like **Escape from Tarkov** and **Diablo**. Built with flexibility and modularity in mind — perfect for RPGs, shooters, survival games, or any project needing a smart item management system.
 ---
