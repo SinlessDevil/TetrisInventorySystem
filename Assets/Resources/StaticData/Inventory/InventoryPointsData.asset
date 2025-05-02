@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97858bc64c76d414e9751aff938f4df3, type: 3}
+  m_Name: InventoryPointsData
+  m_EditorClassIdentifier: 
+  Configs:
+  - Level: 1
+    AdditionalPoints: 2
+  - Level: 2
+    AdditionalPoints: 1
+  - Level: 3
+    AdditionalPoints: 0
+  - Level: 4
+    AdditionalPoints: 1
+  - Level: 5
+    AdditionalPoints: 1
+  - Level: 6
+    AdditionalPoints: 1
+  - Level: 7
+    AdditionalPoints: 1
+  - Level: 8
+    AdditionalPoints: 1
+  - Level: 9
+    AdditionalPoints: 1
+  - Level: 10
+    AdditionalPoints: 1
+  - Level: 11
+    AdditionalPoints: 1
+  - Level: 12
+    AdditionalPoints: 1
+  - Level: 13
+    AdditionalPoints: 1
+  - Level: 14
+    AdditionalPoints: 1
+  - Level: 15
+    AdditionalPoints: 1
+  - Level: 16
+    AdditionalPoints: 1
+  - Level: 17
+    AdditionalPoints: 1

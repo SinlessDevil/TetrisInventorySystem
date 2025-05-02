@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -8,39 +11,80 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "SinlessDevil"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;SinlessDevil&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/SinlessDevil/Inventory_System.git",
-    "accountId": "3f9ff7c7-0f5a-4430-bbb6-c5b5a24766d6"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/SinlessDevil/Inventory_System.git&quot;,
+    &quot;accountId&quot;: &quot;3f9ff7c7-0f5a-4430-bbb6-c5b5a24766d6&quot;
   }
-}]]></component>
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/05/958422bd/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/4b/99f01f17/RectTransform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/60/fc9e4118/Transform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/69/20de43c9/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/77/5f9fbf40/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cf872124b3f4465e87923725fbaf943219200/b0/3cc64a98/ValidateInputAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/Projects/Inventory_System/Assets/Code/Infrastructure/BootstrapInstaller.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/Infrastructure/Factory/UIFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Data/WeaponData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Items/Provider/ItemDropService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryExpand/InventoryExpandService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/InventoryModel/Services/InventoryPlayer/InventoryPlayerSetUper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/UI/AlphaHit.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Factory/IInventoryUIFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/Displayer/InventoryPointDisplayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemPositionFinding.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Services/InventoryViewInitializer/InventoryViewInitializer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/Projects/Inventory_System/Assets/Code/UI/InventoryViewModel/Slot/ISlotViewModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/Projects/Inventory_System/Assets/Code/UI/InventoryViewModel/Slot/SlotAnimation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/Projects/Inventory_System/Assets/Code/UI/InventoryViewModel/Slot/SlotEffecter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/Projects/Inventory_System/Assets/Code/UI/InventoryViewModel/Slot/SlotView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/Projects/Inventory_System/Assets/Code/UI/InventoryViewModel/Slot/SlotViewModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/Utilities/Editor/WeaponIdSelectorAttributeDrawer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/Projects/Inventory_System/Assets/Plugins/UniTask/Runtime/External/DOTween/DOTweenAsyncExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/Projects/Inventory_System/Assets/Resources/UI/Inventory/SlotView.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@14.0.10/Editor/Data/Graphs/SerializableTexture.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.33/UnityEngine.TestRunner/TestRunner/PlaymodeTestsControllerSettings.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.7.6/Editor/Manipulators/Move/MovingItems.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2uweq2h19FZnIyt4IWw4IdWwk1v" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;inventory-tetris-0.0.1&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="E:\Unity\2022.3.21f1\Editor\Unity.exe" />
@@ -94,7 +138,426 @@
       <option name="presentableId" value="Default" />
       <updated>1743164250480</updated>
       <workItem from="1743164251583" duration="35000" />
+      <workItem from="1743164489502" duration="150000" />
+      <workItem from="1743164665770" duration="1274000" />
+      <workItem from="1743168082650" duration="2154000" />
+      <workItem from="1743170688152" duration="4698000" />
+      <workItem from="1743194462911" duration="3831000" />
+      <workItem from="1743515929324" duration="5125000" />
+      <workItem from="1743521664161" duration="32000" />
+      <workItem from="1743521700808" duration="4000" />
+      <workItem from="1743521744284" duration="10000" />
+      <workItem from="1743521757812" duration="4000" />
+      <workItem from="1743521862437" duration="2000" />
+      <workItem from="1743521927003" duration="10000" />
+      <workItem from="1743522321779" duration="41000" />
+      <workItem from="1743534961342" duration="5654000" />
+      <workItem from="1743579476210" duration="9456000" />
+      <workItem from="1743702652578" duration="133000" />
+      <workItem from="1743756068004" duration="16779000" />
+      <workItem from="1743928012879" duration="6719000" />
+      <workItem from="1743973084517" duration="1997000" />
+      <workItem from="1744019104277" duration="14014000" />
+      <workItem from="1744046800936" duration="2311000" />
+      <workItem from="1744059500940" duration="2052000" />
+      <workItem from="1744094540905" duration="28624000" />
+      <workItem from="1744178256474" duration="3307000" />
+      <workItem from="1744225610959" duration="2492000" />
+      <workItem from="1744265421283" duration="16159000" />
     </task>
+    <task id="LOCAL-00014" summary="Fixed Load Resources Balance">
+      <option name="closed" value="true" />
+      <created>1743587507516</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1743587507516</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Fixed initialize inventory">
+      <option name="closed" value="true" />
+      <created>1743587847505</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1743587847505</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Fixed UI Root">
+      <option name="closed" value="true" />
+      <created>1743615545086</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1743615545086</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added base ui scripts">
+      <option name="closed" value="true" />
+      <created>1743622204013</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1743622204013</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added base Factory">
+      <option name="closed" value="true" />
+      <created>1743622275449</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1743622275449</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Fixed instance object in scene">
+      <option name="closed" value="true" />
+      <created>1743759065908</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1743759065908</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added button Inventory">
+      <option name="closed" value="true" />
+      <created>1743760106153</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1743760106153</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Added display slots and items">
+      <option name="closed" value="true" />
+      <created>1743778152759</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1743778152759</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Added drag items">
+      <option name="closed" value="true" />
+      <created>1743937941290</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1743937941290</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Added item Animation component and setupped for slot , added dispose inventory">
+      <option name="closed" value="true" />
+      <created>1744023210449</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1744023210449</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Added check item out inventory">
+      <option name="closed" value="true" />
+      <created>1744024965700</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1744024965700</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Added SetAsLastSibling">
+      <option name="closed" value="true" />
+      <created>1744026957044</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1744026957044</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Added UI particle plugin">
+      <option name="closed" value="true" />
+      <created>1744027035252</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1744027035252</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Added base display state slot">
+      <option name="closed" value="true" />
+      <created>1744049064362</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1744049064362</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Added Slot Color Intaractable">
+      <option name="closed" value="true" />
+      <created>1744061405197</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1744061405197</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Added color reaction logic">
+      <option name="closed" value="true" />
+      <created>1744096939674</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1744096939674</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Added slot effecter">
+      <option name="closed" value="true" />
+      <created>1744101541121</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1744101541121</updated>
+    </task>
+    <task id="LOCAL-00031" summary="plugins: Added UnitTask , feat: Added Destroy">
+      <option name="closed" value="true" />
+      <created>1744115994425</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1744115994425</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Added glow container holder for free area">
+      <option name="closed" value="true" />
+      <created>1744119331244</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1744119331244</updated>
+    </task>
+    <task id="LOCAL-00033" summary="feat: Added drop item out container in free">
+      <option name="closed" value="true" />
+      <created>1744120976177</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1744120976177</updated>
+    </task>
+    <task id="LOCAL-00034" summary="feat : added item drag container and use">
+      <option name="closed" value="true" />
+      <created>1744137804766</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1744137804766</updated>
+    </task>
+    <task id="LOCAL-00035" summary="fix: fixed destroy item if his in out inventory">
+      <option name="closed" value="true" />
+      <created>1744138298696</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1744138298696</updated>
+    </task>
+    <task id="LOCAL-00036" summary="feat : animation show inventory">
+      <option name="closed" value="true" />
+      <created>1744140831365</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1744140831365</updated>
+    </task>
+    <task id="LOCAL-00037" summary="feat : added new animation window">
+      <option name="closed" value="true" />
+      <created>1744179790398</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1744179790398</updated>
+    </task>
+    <task id="LOCAL-00038" summary="upd: edits animation window">
+      <option name="closed" value="true" />
+      <created>1744180650707</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1744180650707</updated>
+    </task>
+    <task id="LOCAL-00039" summary="feat : added display count items">
+      <option name="closed" value="true" />
+      <created>1744189867464</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1744189867464</updated>
+    </task>
+    <task id="LOCAL-00040" summary="feat : added display item count">
+      <option name="closed" value="true" />
+      <created>1744189891151</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1744189891151</updated>
+    </task>
+    <task id="LOCAL-00041" summary="feat: added stacked items  in inventory">
+      <option name="closed" value="true" />
+      <created>1744192667368</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1744192667368</updated>
+    </task>
+    <task id="LOCAL-00042" summary="feat: Added isCanStack in OnUpdateColorToPlaceItem ,&#10;fix: Place item in his cell">
+      <option name="closed" value="true" />
+      <created>1744195603213</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1744195603213</updated>
+    </task>
+    <task id="LOCAL-00043" summary="vfx: edits partical effect for stack items">
+      <option name="closed" value="true" />
+      <created>1744195938755</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1744195938755</updated>
+    </task>
+    <task id="LOCAL-00044" summary="feat: effect glow outline items">
+      <option name="closed" value="true" />
+      <created>1744197296306</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1744197296306</updated>
+    </task>
+    <task id="LOCAL-00045" summary="feat: added  try to stack item out inventory">
+      <option name="closed" value="true" />
+      <created>1744201993739</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1744201993739</updated>
+    </task>
+    <task id="LOCAL-00046" summary="feat : added item drop items service">
+      <option name="closed" value="true" />
+      <created>1744206131488</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1744206131488</updated>
+    </task>
+    <task id="LOCAL-00047" summary="feat : added drop item in view">
+      <option name="closed" value="true" />
+      <created>1744211941115</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1744211941115</updated>
+    </task>
+    <task id="LOCAL-00048" summary="fix: fixed GetRandomPositionsInFreeAreaContainer">
+      <option name="closed" value="true" />
+      <created>1744226416445</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1744226416445</updated>
+    </task>
+    <task id="LOCAL-00049" summary="feat: added try changed position item out inventory">
+      <option name="closed" value="true" />
+      <created>1744266120707</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1744266120707</updated>
+    </task>
+    <task id="LOCAL-00050" summary="feat : chestView and Animation">
+      <option name="closed" value="true" />
+      <created>1744272151128</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1744272151128</updated>
+    </task>
+    <task id="LOCAL-00051" summary="fix: GetRandomPositionsInFreeAreaContainer">
+      <option name="closed" value="true" />
+      <created>1744272405237</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1744272405237</updated>
+    </task>
+    <task id="LOCAL-00052" summary="fix: ref in CreateInventory">
+      <option name="closed" value="true" />
+      <created>1744272464132</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1744272464132</updated>
+    </task>
+    <task id="LOCAL-00053" summary="feat: added update state slot view and anim clicked">
+      <option name="closed" value="true" />
+      <created>1744276576068</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1744276576068</updated>
+    </task>
+    <task id="LOCAL-00054" summary="feat: added points , levels displayer , added cheat button holder , added new animation">
+      <option name="closed" value="true" />
+      <created>1744280286592</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1744280286592</updated>
+    </task>
+    <task id="LOCAL-00055" summary="fix: inventory point and level">
+      <option name="closed" value="true" />
+      <created>1744282490524</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1744282490524</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Fixed save inventory">
+      <option name="closed" value="true" />
+      <created>1744282619816</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1744282619816</updated>
+    </task>
+    <task id="LOCAL-00057" summary="fix: first state toggler button in cheat holder">
+      <option name="closed" value="true" />
+      <created>1744282762110</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1744282762110</updated>
+    </task>
+    <task id="LOCAL-00058" summary="fix: animation clicked buy slot">
+      <option name="closed" value="true" />
+      <created>1744283173732</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1744283173732</updated>
+    </task>
+    <task id="LOCAL-00059" summary="fix: validate  OnChangedStateSlot">
+      <option name="closed" value="true" />
+      <created>1744283879805</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1744283879805</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Finish feat: added glow update for inventory component displayer">
+      <option name="closed" value="true" />
+      <created>1744284504319</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1744284504319</updated>
+    </task>
+    <task id="LOCAL-00061" summary="add: recorder">
+      <option name="closed" value="true" />
+      <created>1744284681746</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1744284681746</updated>
+    </task>
+    <task id="LOCAL-00062" summary="fix: unsubscribe slots">
+      <option name="closed" value="true" />
+      <created>1744284874010</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1744284874010</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,7 +571,44 @@
     <option name="unityProjectFolder" value="true" />
   </component>
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="feat : added display item count" />
+    <MESSAGE value="feat: added stacked items" />
+    <MESSAGE value="feat: added stacked items  in inventory" />
+    <MESSAGE value="feat: Added isCanStack in OnUpdateColorToPlaceItem ,&#10;fix: Place item in his cell" />
+    <MESSAGE value="vfx: edits partical effect for stack items" />
+    <MESSAGE value="feat: effect glow outline items" />
+    <MESSAGE value="feat: added  try to stack item out inventory" />
+    <MESSAGE value="feat : added item drop items service" />
+    <MESSAGE value="feat : added drop item in view" />
+    <MESSAGE value="fix: fixed GetRandomPositionsInFreeAreaContainer" />
+    <MESSAGE value="feat: added try changed position item out inventory" />
+    <MESSAGE value="feat : chestView and Animation" />
+    <MESSAGE value="fix: GetRandomPositionsInFreeAreaContainer" />
+    <MESSAGE value="fix: ref in CreateInventory" />
+    <MESSAGE value="feat: added update state slot view and anim clicked" />
+    <MESSAGE value="feat: added points , levels displayer , added cheat button holder , added new animation" />
+    <MESSAGE value="fix: inventory point and level" />
+    <MESSAGE value="fix: save inventory" />
+    <MESSAGE value="fix: save inventory" />
+    <MESSAGE value="fix: first state toggler button in cheat holder" />
+    <MESSAGE value="fix: animation clicked buy slot" />
+    <MESSAGE value="fix: validate  OnChangedStateSlot" />
+    <MESSAGE value="Finish feat: added glow update for inventory component displayer" />
+    <MESSAGE value="add: recorder" />
+    <MESSAGE value="fix: unsubscribe slots" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: unsubscribe slots" />
   </component>
 </project>
