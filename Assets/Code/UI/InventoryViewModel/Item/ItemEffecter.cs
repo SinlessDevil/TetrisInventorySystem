@@ -36,19 +36,26 @@ namespace Code.UI.InventoryViewModel.Item
             _itemVM = itemVM;
             _icon = icon;
 
-            _glowMaterial = Instantiate(icon.material);
-            _glowMaterial.name = icon.material.name + "_Clone";
+            SetUpGlowMaterial(icon);
 
             _icon.material = null;
+            
             SetGlowValue(0);
             ToggleGoldOutline(false);
 
             Subscribe();
         }
 
+        private void SetUpGlowMaterial(Image icon)
+        {
+            _glowMaterial = Instantiate(icon.material);
+            _glowMaterial.name = icon.material.name + "_Clone";
+        }
+
         public void Dispose()
         {
             _highlightCts?.Cancel();
+            
             Unsubscribe();
         }
 
@@ -164,7 +171,7 @@ namespace Code.UI.InventoryViewModel.Item
 
         private void SpawnParticles()
         {
-            var particle = Instantiate(_particlePrefab, transform.position, Quaternion.identity, transform);
+            UIParticle particle = Instantiate(_particlePrefab, transform.position, Quaternion.identity, transform);
             float sizeFactor = (GetComponent<RectTransform>().sizeDelta.x + GetComponent<RectTransform>().sizeDelta.y) / InventorySize.CellSize;
             particle.scale = Mathf.Min(5f * sizeFactor, 20f);
         }

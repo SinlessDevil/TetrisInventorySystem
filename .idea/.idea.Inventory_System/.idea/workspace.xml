@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/GlowPreset.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/GlowPreset.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ReturnItemAnimationPreset.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ReturnItemAnimationPreset.cs.meta" afterDir="false" />
+    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="ref: convert ItemEffecter and animator coroutines to UniTask">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemAnimator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemAnimator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/InventoryModel/TetrisInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/InventoryModel/TetrisInventory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemEffecter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemEffecter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Demos/Custom Attribute Processors.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Demos/Custom Drawers.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Demos/Editor Windows.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Demos/Sample - RPG Editor.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/ItemView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/ItemView.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,15 +168,7 @@
       <workItem from="1744178256474" duration="3307000" />
       <workItem from="1744225610959" duration="2492000" />
       <workItem from="1744265421283" duration="16159000" />
-      <workItem from="1753699198192" duration="3314000" />
-    </task>
-    <task id="LOCAL-00014" summary="Fixed Load Resources Balance">
-      <option name="closed" value="true" />
-      <created>1743587507516</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1743587507516</updated>
+      <workItem from="1753699198192" duration="4815000" />
     </task>
     <task id="LOCAL-00015" summary="Fixed initialize inventory">
       <option name="closed" value="true" />
@@ -571,7 +554,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744284874010</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="ref: convert ItemEffecter and animator coroutines to UniTask">
+      <option name="closed" value="true" />
+      <created>1753702840172</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1753702840172</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -598,7 +589,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="feat : added display item count" />
     <MESSAGE value="feat: added stacked items" />
     <MESSAGE value="feat: added stacked items  in inventory" />
     <MESSAGE value="feat: Added isCanStack in OnUpdateColorToPlaceItem ,&#10;fix: Place item in his cell" />
@@ -623,6 +613,7 @@
     <MESSAGE value="Finish feat: added glow update for inventory component displayer" />
     <MESSAGE value="add: recorder" />
     <MESSAGE value="fix: unsubscribe slots" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: unsubscribe slots" />
+    <MESSAGE value="ref: convert ItemEffecter and animator coroutines to UniTask" />
+    <option name="LAST_COMMIT_MESSAGE" value="ref: convert ItemEffecter and animator coroutines to UniTask" />
   </component>
 </project>

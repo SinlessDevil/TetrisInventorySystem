@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Code.Inventory;
 using Code.InventoryModel.InventoryAddCondition;
 using Code.InventoryModel.Items.Data;
@@ -20,27 +21,19 @@ namespace Code.InventoryModel
         public event Action<InventoryActionData> OnItemRemoved;
 
         public List<Item> Items => _data.Items;
-
         public List<GridCell> Cells => _data.Cells;
 
         private int Columns => _data.Columns;
-
         private int Rows => _data.Rows;
 
-        public void WithCondition(IInventoryAddCondition condition)
-        {
+        public void WithCondition(IInventoryAddCondition condition) => 
             _inventoryAddConditions.Add(condition ?? throw new ArgumentNullException(nameof(condition)));
-        }
 
-        public void WithoutCondition(IInventoryAddCondition condition)
-        {
+        public void WithoutCondition(IInventoryAddCondition condition) => 
             _inventoryAddConditions.Remove(condition);
-        }
-        
-        public PlaceTestResult CanPlace(GridCell targetCell, Item item, bool ignoreItself)
-        {
-            return CanPlace(item, GridIndex(targetCell), ignoreItself);
-        }
+
+        public PlaceTestResult CanPlace(GridCell targetCell, Item item, bool ignoreItself) => 
+            CanPlace(item, GridIndex(targetCell), ignoreItself);
 
         public bool TryRemove(Item item, out GridCell gridCell)
         {
@@ -62,38 +55,33 @@ namespace Code.InventoryModel
             return false;
         }
 
-        public bool TryAdd(GridCell cell, Item item)
-        {
-            int gridIndex = GridIndex(cell);
-
-            if (CanPlace(item, gridIndex, false))
-            {
-                Place(item, gridIndex);
-                return true;
-            }
-            
-            return false;
-        }
+        public bool TryAdd(GridCell cell, Item item) => 
+            TryAddAt(GridIndex(cell), item);
 
         public bool TryAdd(Item item)
         {
             for (int i = 0; i < Cells.Count; i++)
             {
-                if (!CanPlace(item, i, false))
-                    continue;
-
-                Place(item, i);
-                return true;
+                if (TryAddAt(i, item))
+                    return true;
             }
 
             return false;
         }
 
+        private bool TryAddAt(int gridIndex, Item item)
+        {
+            if (!CanPlace(item, gridIndex, false))
+                return false;
+
+            Place(item, gridIndex);
+            return true;
+        }
+
         public Item GetById(string itemId)
         {
-            for (int i = 0; i < Items.Count; i++)
+            foreach (Item item in Items)
             {
-                Item item = Items[i];
                 if (item.Id == itemId)
                     return item;
             }
@@ -112,10 +100,7 @@ namespace Code.InventoryModel
             throw new InvalidOperationException($"no cell with same pos {cell.GridX}, {cell.GridY}");
         }
 
-        public int GridIndex(int x, int y)
-        {
-            return x * Rows + y;
-        }
+        public int GridIndex(int x, int y) => x * Rows + y;
 
         private void Place(Item item, int gridIndex)
         {
@@ -129,49 +114,39 @@ namespace Code.InventoryModel
             GridCell cell = Cells[gridIndex];
             item.InventoryPlacement.SetRootPosition(cell.GridX, cell.GridY);
 
-            var indexShifts = item.InventoryPlacement.GetIndexShifts(Rows);
+            List<int> indexShifts = item.InventoryPlacement.GetIndexShifts(Rows);
 
-            for (int i = 0; i < indexShifts.Count; i++)
+            foreach (int index in indexShifts)
             {
-                int indexShift = indexShifts[i];
-                int targetIndex = gridIndex + indexShift;
-
+                int targetIndex = gridIndex + index;
                 Cells[targetIndex].Place(item);
             }
         }
 
         private void ClearCells(Item item)
         {
-            for (int i = 0; i < Cells.Count; i++)
+            foreach (GridCell cell in Cells)
             {
-                if (Cells[i].Item != item)
-                    continue;
-
-                Cells[i].Clear();
+                if (cell.Item == item)
+                {
+                    cell.Clear();
+                }
             }
         }
 
         private PlaceTestResult CanPlace(Item item, int gridIndex, bool ignoreItself)
         {
-            List<int> passed = new List<int>();
-            List<int> blocked = new List<int>();
-            
-            List<int> indexesShifts = item.InventoryPlacement.GetIndexShifts(Rows);
-            List<GridCell> willPlaced = new List<GridCell>();
-            List<GridCell> allTested = new List<GridCell>();
+            List<int> passed = new();
+            List<int> blocked = new();
+            List<int> indexShifts = item.InventoryPlacement.GetIndexShifts(Rows);
+            List<GridCell> willPlaced = new();
+            List<GridCell> allTested = new();
 
-            for (int i = 0; i < indexesShifts.Count; i++)
+            foreach (int t in indexShifts)
             {
-                int indexShift = indexesShifts[i];
-                int targetIndex = gridIndex + indexShift;
+                int targetIndex = gridIndex + t;
 
-                if (targetIndex < 0)
-                {
-                    blocked.Add(targetIndex);
-                    continue;
-                }
-
-                if (targetIndex >= Cells.Count)
+                if (targetIndex < 0 || targetIndex >= Cells.Count)
                 {
                     blocked.Add(targetIndex);
                     continue;
@@ -183,93 +158,61 @@ namespace Code.InventoryModel
                 if (targetCell.IsOccupied)
                 {
                     bool isMe = targetCell.Item.InstanceId == item.InstanceId;
-                    
-                    if(!(ignoreItself && isMe))
+                    if (!(ignoreItself && isMe))
                     {
                         blocked.Add(targetIndex);
                         continue;
                     }
                 }
 
-                for (var index = 0; index < _inventoryAddConditions.Count; index++)
-                {
-                    IInventoryAddCondition inventoryAddCondition = _inventoryAddConditions[index];
+                blocked.AddRange(from t1 in _inventoryAddConditions where !t1
+                        .CanPlace(item, targetIndex) select targetIndex);
 
-                    if (!inventoryAddCondition.CanPlace(item, targetIndex))
-                    {
-                        blocked.Add(targetIndex);
-                    }
-                }
                 willPlaced.Add(targetCell);
                 passed.Add(targetIndex);
             }
 
-            bool isValid = IsConsistent();
+            bool isValid = IsConsistent(allTested, willPlaced, blocked, passed);
 
-            for (int i = 0; i < _inventoryAddConditions.Count; i++)
+            foreach (IInventoryAddCondition inventoryAddCondition in _inventoryAddConditions)
             {
-                IInventoryAddCondition inventoryAddCondition = _inventoryAddConditions[i];
-                
                 if (!inventoryAddCondition.IsValid(willPlaced))
                     isValid = false;
             }
 
             bool isSuccess = isValid && blocked.Count == 0;
-            
             return new PlaceTestResult(isSuccess, passed, blocked);
+        }
 
-            bool IsConsistent()
+        private bool IsConsistent(List<GridCell> allTested, List<GridCell> willPlaced, List<int> blocked, List<int> passed)
+        {
+            if (willPlaced.Count <= 1)
+                return true;
+
+            bool allConsistent = true;
+
+            foreach (GridCell placedCell in allTested)
             {
-                if (willPlaced.Count <= 1)
-                    return true;
+                bool isConsistent = placedCell.Neighbors
+                    .Any(neighbor => neighbor != null && allTested
+                        .Contains(neighbor));
 
-                bool allConsistent = true;
-                for (int i = 0; i < allTested.Count; i++)
-                {
-                    GridCell placedCell = allTested[i];
+                if (isConsistent)
+                    continue;
 
-                    bool isConsistent = false;
-                    for (int j = 0; j < placedCell.Neighbors.Length; j++)
-                    {
-                        GridCell neighbor = placedCell.Neighbors[j];
-                        if (neighbor == null)
-                            continue;
-
-                        if (!allTested.Contains(neighbor))
-                            continue;
-
-                        isConsistent = true;
-                        break;
-                    }
-
-                    if (isConsistent)
-                        continue;
-                    
-                    allConsistent = false;
-                    
-                    int index = GridIndex(placedCell);
-                    blocked.Remove(index);
-                    passed.Remove(index);
-                }
-
-                return allConsistent;
+                allConsistent = false;
+                int index = GridIndex(placedCell);
+                blocked.Remove(index);
+                passed.Remove(index);
             }
+
+            return allConsistent;
         }
 
-        private void NotifyOnItemAdded(Item item)
-        {
-            OnItemAdded?.Invoke(new InventoryActionData
-            {
-                ItemId = item.Id
-            });
-        }
-        
-        private void NotifyOnItemRemove(Item item)
-        {
-            OnItemRemoved?.Invoke(new InventoryActionData
-            {
-                ItemId = item.Id
-            });
-        }
+        private void NotifyOnItemAdded(Item item) =>
+            OnItemAdded?.Invoke(new InventoryActionData { ItemId = item.Id });
+
+        private void NotifyOnItemRemove(Item item) =>
+            OnItemRemoved?.Invoke(new InventoryActionData { ItemId = item.Id });
     }
 }
