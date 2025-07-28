@@ -10,29 +10,25 @@ namespace Code.UI.InventoryViewModel.Slot
         public void Initialize(ISlotViewModel viewModel)
         {
             _viewModel = viewModel;
+            
             Subscribe();
         }
         
         public void Dispose()
         {
             Unsubscribe();
+            
             _viewModel = null;
         }
 
-        private void Subscribe()
-        {
-            _viewModel.TryUnlockedSlotEvent += PlayAnimationClicked;
-        }
+        private void Subscribe() => _viewModel.TryUnlockedSlotEvent += PlayAnimationClicked;
 
-        private void Unsubscribe()
-        {
-            _viewModel.TryUnlockedSlotEvent -= PlayAnimationClicked;
-        }
-        
+        private void Unsubscribe() => _viewModel.TryUnlockedSlotEvent -= PlayAnimationClicked;
+
         private void PlayAnimationClicked()
         {
-            var targetScale = new Vector3(0.8f, 0.8f, 0.8f);
-            var endScale = Vector3.one;
+            Vector3 targetScale = new Vector3(0.8f, 0.8f, 0.8f);
+            Vector3 endScale = Vector3.one;
             gameObject.transform.DOScale(targetScale, 0.15f)
                 .SetEase(Ease.Linear)
                 .OnComplete(() =>

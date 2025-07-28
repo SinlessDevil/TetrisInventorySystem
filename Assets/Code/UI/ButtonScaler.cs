@@ -1,63 +1,80 @@
-using System.Collections;
+using System;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Cysharp.Threading.Tasks;
 
 namespace UI.Effects
 {
     public class ButtonScaler : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         [SerializeField] private RectTransform _rectTransform;
+
         [Header("Setup")]
         [SerializeField] private float ScaleAmount = 0.8f;
         [SerializeField] private float ScaleDuration = 0.2f;
-    
+
         private Vector3 _originalScale;
+        private CancellationTokenSource _scaleCts;
 
         private void OnValidate()
         {
             if (_rectTransform == null)
-            {
                 _rectTransform = GetComponent<RectTransform>();
-            }
         }
 
-        private void Awake() => _originalScale = _rectTransform.transform.localScale;
+        private void Awake()
+        {
+            _originalScale = _rectTransform.localScale;
+        }
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            StopAllCoroutines();
-            _rectTransform.transform.localScale = _originalScale;
-            StartCoroutine(ScaleButton(_originalScale * ScaleAmount, ScaleDuration));
+            _scaleCts?.Cancel();
+            _scaleCts = new CancellationTokenSource();
+            
+            ScaleToAsync(_originalScale * ScaleAmount, ScaleDuration, _scaleCts.Token).Forget();
         }
+
         public void OnPointerUp(PointerEventData eventData)
         {
-            StopAllCoroutines();
-            StartCoroutine(ScaleButton(_originalScale, ScaleDuration));
+            _scaleCts?.Cancel();
+            _scaleCts = new CancellationTokenSource();
+            
+            ScaleToAsync(_originalScale, ScaleDuration, _scaleCts.Token).Forget();
         }
 
-        private IEnumerator ScaleButton(Vector3 targetScale, float duration)
+        private async UniTaskVoid ScaleToAsync(Vector3 targetScale, float duration, CancellationToken token)
         {
-            float time = 0;
-            Vector3 startScale = _rectTransform.transform.localScale;
+            float time = 0f;
+            Vector3 startScale = _rectTransform.localScale;
 
-            while (time < duration)
+            try
             {
-                float t = time / duration;
-                _rectTransform.transform.localScale = Vector3.Lerp(startScale, targetScale, t);
-                time += Time.unscaledDeltaTime;
-                yield return null;
-            }
+                while (time < duration && !token.IsCancellationRequested)
+                {
+                    float t = time / duration;
+                    _rectTransform.localScale = Vector3.Lerp(startScale, targetScale, t);
+                    time += Time.unscaledDeltaTime;
+                    await UniTask.Yield(PlayerLoopTiming.Update, token);
+                }
 
-            _rectTransform.transform.localScale = targetScale;
+                if (!token.IsCancellationRequested)
+                    _rectTransform.localScale = targetScale;
+            }
+            catch (OperationCanceledException) { }
         }
 
         private void OnEnable()
         {
-            _rectTransform.transform.localScale = _originalScale;
+            _rectTransform.localScale = _originalScale;
         }
+
         private void OnDisable()
         {
-            _rectTransform.transform.localScale = _originalScale;
+            _rectTransform.localScale = _originalScale;
+            _scaleCts?.Cancel();
+            _scaleCts = null;
         }
-    }   
+    }
 }

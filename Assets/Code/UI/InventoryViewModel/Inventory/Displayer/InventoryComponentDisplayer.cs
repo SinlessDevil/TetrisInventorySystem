@@ -17,13 +17,29 @@ namespace Code.UI.InventoryViewModel.Inventory.Displayer
         public void Construct(IPersistenceProgressService persistenceProgressService)
         {
             _persistenceProgressService = persistenceProgressService;
+        }
 
+        public virtual void Initialize()
+        {
+            Subscribe();
+            
             OnUpdateLevel();
         }
 
-        public abstract void Initialize();
+        public virtual void Dispose()
+        {
+            Unsubscribe();
+        }
 
-        public abstract void Dispose();
+        protected virtual void Subscribe()
+        {
+            _persistenceProgressService.PlayerData.ResourceData.InventoryPointsChangeEvent += OnUpdateLevel;
+        }
+        
+        protected virtual void Unsubscribe()
+        {
+            _persistenceProgressService.PlayerData.ResourceData.InventoryPointsChangeEvent -= OnUpdateLevel;
+        }
 
         protected abstract void OnUpdateLevel();
         

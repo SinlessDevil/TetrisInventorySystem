@@ -6,10 +6,10 @@ using Code.UI.InventoryViewModel.Factory;
 using Code.UI.InventoryViewModel.Inventory.CheatButtons;
 using Code.UI.InventoryViewModel.Inventory.Chest;
 using Code.UI.InventoryViewModel.Inventory.Displayer;
-using UnityEngine;
-using UnityEngine.UI;
 using Code.UI.InventoryViewModel.Item;
 using Code.UI.InventoryViewModel.Services.InventoryViewInitializer;
+using UnityEngine;
+using UnityEngine.UI;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Zenject;
@@ -60,13 +60,13 @@ namespace Code.UI.InventoryViewModel.Inventory
                 _destroyItemHolder = GetComponentInChildren<DestroyerItemHolder>();
 
             if (_freeAreaItemHolder == null)
-                _freeAreaItemHolder =GetComponentInChildren<FreeAreaItemHolder>();
+                _freeAreaItemHolder = GetComponentInChildren<FreeAreaItemHolder>();
             
             if (_inventoryLevelDisplayer == null)
-                _inventoryLevelDisplayer =GetComponentInChildren<InventoryLevelDisplayer>();
+                _inventoryLevelDisplayer = GetComponentInChildren<InventoryLevelDisplayer>();
             
             if (_inventoryPointDisplayer == null)
-                _inventoryPointDisplayer =GetComponentInChildren<InventoryPointDisplayer>();
+                _inventoryPointDisplayer = GetComponentInChildren<InventoryPointDisplayer>();
             
             if(_cheatButtonHolder == null)
                 _cheatButtonHolder = GetComponentInChildren<CheatButtonHolder>();
@@ -159,27 +159,24 @@ namespace Code.UI.InventoryViewModel.Inventory
 
             ChestView chestView = _inventoryUIFactory.CreatChestView((RectTransform)_blockInput.transform);
             chestView.transform.position = new Vector2(_freeAreaItemHolder.transform.position.x, Screen.height + 300f);
-            await chestView.transform.DOMove(_freeAreaItemHolder.transform.position, 1f)
+            await chestView.transform
+                .DOMove(_freeAreaItemHolder.transform.position, 1f)
                 .SetEase(Ease.InQuint)
                 .ToUniTask();
-            
             await Task.Delay(250);
-            
             chestView.OpenChest();
-
             await UniTask.WaitUntil(() => chestView.IsOpen == true);
-            
             chestView.CloseChest();
-
             SetActiveBlockInput(false);
-
             callBack?.Invoke();
         }
         
         private void SetActiveBlockInput(bool isActive)
         {
             _blockInput.blocksRaycasts = isActive;
-            _blockInput.DOFade(isActive ? 1f : 0f, 0.25f).SetEase(Ease.Linear);
+            _blockInput
+                .DOFade(isActive ? 1f : 0f, 0.25f)
+                .SetEase(Ease.Linear);
         }
         
         private void SetUpStartAnimationComponents(List<SlotContainer> slotViews, List<ItemView> itemViews)
@@ -216,9 +213,8 @@ namespace Code.UI.InventoryViewModel.Inventory
 
             float slotWaveStep = 0.02f;
 
-            for (int groupIndex = 0; groupIndex < diagonalGroups.Count; groupIndex++)
+            foreach (var group in diagonalGroups)
             {
-                IGrouping<int, SlotContainer> group = diagonalGroups[groupIndex];
                 foreach (var slot in group)
                 {
                     sequence.Join(slot.View.transform.DOScale(1f, 0.25f)

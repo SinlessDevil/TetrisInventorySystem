@@ -20,25 +20,19 @@ namespace Code.UI.InventoryViewModel.Slot
             Unsubscribe();
         }
 
-        private void Subscribe()
-        {
-            _slotVM.EffectFilledSlotEvent += PlayEffectSlotFilledAnimation;
-        }
+        private void Subscribe() => _slotVM.EffectFilledSlotEvent += PlayEffectSlotFilledAnimation;
 
-        private void Unsubscribe()
-        {
-            _slotVM.EffectFilledSlotEvent -= PlayEffectSlotFilledAnimation;
-        }
+        private void Unsubscribe() => _slotVM.EffectFilledSlotEvent -= PlayEffectSlotFilledAnimation;
 
         private void PlayEffectSlotFilledAnimation()
         {
-            var effect = GetDropAnimation();
+            RectTransform effect = GetDropAnimation();
             effect.transform.SetParent(transform);
         }
         
         private RectTransform GetDropAnimation()
         {
-            var dropAnimationEffect = Instantiate(_slotDropGlowPrefab);
+            RectTransform dropAnimationEffect = Instantiate(_slotDropGlowPrefab);
             dropAnimationEffect.position = transform.position;
             dropAnimationEffect.sizeDelta = GetComponent<RectTransform>().sizeDelta;
             return dropAnimationEffect;
