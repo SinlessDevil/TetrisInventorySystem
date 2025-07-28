@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Utilities.Editor
+namespace Code.Utilities.Extensions
 {
     public static class ArrayExtensions
     {

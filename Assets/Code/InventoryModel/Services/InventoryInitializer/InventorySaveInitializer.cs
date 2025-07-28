@@ -1,11 +1,11 @@
 using System;
 using Code.Infrastructure.Services.PersistenceProgress;
+using Code.Infrastructure.Services.PersistenceProgress.Player;
 using Code.Inventory.Services.InventoryExpand;
 using Code.InventoryModel;
 using Code.InventoryModel.Data;
 using Code.InventoryModel.Items.Data;
 using Code.InventoryModel.Items.Factory;
-using Services.PersistenceProgress.Player;
 
 namespace Services.Factories.Inventory
 {

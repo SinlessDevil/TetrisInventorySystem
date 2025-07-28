@@ -103,7 +103,7 @@ namespace Code.Infrastructure.Services.GameStater
         {
             Debug.Log("InitializeProgress");
 
-            var progress = new PlayerData(
+            PlayerData progress = new PlayerData(
                 columns: InventorySize.Columns,
                 rows: InventorySize.Rows);
             

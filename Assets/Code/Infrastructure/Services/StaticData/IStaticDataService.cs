@@ -1,4 +1,4 @@
-using StaticData;
+using Code.Infrastructure.StaticData;
 
 namespace Code.Infrastructure.Services.StaticData
 {

@@ -3,7 +3,7 @@ using Code.InventoryModel.Items.Data;
 using Code.Utilities.Attributes;
 using JetBrains.Annotations;
 
-namespace Utilities.Editor
+namespace Code.Utilities.Editor
 {
     [UsedImplicitly]
     public class ItemIdSelectorAttributeDrawer : IdSelectorAttributeDrawer<ItemIdSelectorAttribute, ItemData>

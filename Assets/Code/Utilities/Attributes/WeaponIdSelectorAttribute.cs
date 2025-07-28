@@ -1,6 +1,4 @@
-﻿using Code.Utilities.Attributes;
-
-namespace Utilities.Attributes
+﻿namespace Code.Utilities.Attributes
 {
     public class WeaponIdSelectorAttribute : IdSelectorAttribute
     {

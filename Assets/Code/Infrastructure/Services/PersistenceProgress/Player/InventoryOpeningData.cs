@@ -10,7 +10,6 @@ namespace Code.Infrastructure.Services.PersistenceProgress.Player
 
         public void SetBought(int index)
         {
-          //  Debug.Log($"Bougth index {index}");
             BoughtIndexes.Add(index);
         }
 

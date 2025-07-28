@@ -1,5 +1,5 @@
 using System;
-using Utilities.Attributes;
+using Code.Utilities.Attributes;
 
 namespace Code.InventoryModel.Items.Data
 {

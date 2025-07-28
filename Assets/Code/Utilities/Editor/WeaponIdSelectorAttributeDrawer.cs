@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using Code.InventoryModel.Items.Data;
+using Code.Utilities.Attributes;
 using JetBrains.Annotations;
-using Utilities.Attributes;
 
-namespace Utilities.Editor
+namespace Code.Utilities.Editor
 {
     [UsedImplicitly]
     public class WeaponIdSelectorAttributeDrawer : IdSelectorAttributeDrawer<WeaponIdSelectorAttribute, WeaponData>

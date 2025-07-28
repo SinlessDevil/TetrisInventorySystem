@@ -1,7 +1,7 @@
 using Code.InventoryModel.Data;
 using UnityEngine;
 
-namespace StaticData
+namespace Code.Infrastructure.StaticData
 {
     [CreateAssetMenu(menuName = "StaticData/Balance", fileName = "Balance", order = 0)]
     public class BalanceStaticData : ScriptableObject

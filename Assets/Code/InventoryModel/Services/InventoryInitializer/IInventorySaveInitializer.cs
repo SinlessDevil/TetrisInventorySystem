@@ -1,5 +1,5 @@
+using Code.Infrastructure.Services.PersistenceProgress.Player;
 using Code.InventoryModel.Data;
-using Services.PersistenceProgress.Player;
 
 namespace Services.Factories.Inventory
 {

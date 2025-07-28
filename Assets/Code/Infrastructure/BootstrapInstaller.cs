@@ -10,7 +10,6 @@ using Code.InventoryModel.Services.InventoryPlayer;
 using Code.UI.InventoryViewModel.Factory;
 using Code.UI.InventoryViewModel.Services.InventoryViewInitializer;
 using Services.Factories.Inventory;
-using Services.PersistenceProgress;
 using UnityEngine.SceneManagement;
 using Zenject;
 

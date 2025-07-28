@@ -1,7 +1,6 @@
 using System;
 using Code.InventoryModel;
 using JetBrains.Annotations;
-using Services.PersistenceProgress.Player;
 using UnityEngine;
 
 namespace Code.Infrastructure.Services.PersistenceProgress.Player

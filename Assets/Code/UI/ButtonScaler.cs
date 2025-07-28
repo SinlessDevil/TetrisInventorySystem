@@ -1,18 +1,17 @@
 using System;
 using System.Threading;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Cysharp.Threading.Tasks;
 
-namespace UI.Effects
+namespace Code.UI
 {
     public class ButtonScaler : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         [SerializeField] private RectTransform _rectTransform;
-
         [Header("Setup")]
-        [SerializeField] private float ScaleAmount = 0.8f;
-        [SerializeField] private float ScaleDuration = 0.2f;
+        [SerializeField] private float _scaleAmount = 0.8f;
+        [SerializeField] private float _scaleDuration = 0.2f;
 
         private Vector3 _originalScale;
         private CancellationTokenSource _scaleCts;
@@ -33,7 +32,7 @@ namespace UI.Effects
             _scaleCts?.Cancel();
             _scaleCts = new CancellationTokenSource();
             
-            ScaleToAsync(_originalScale * ScaleAmount, ScaleDuration, _scaleCts.Token).Forget();
+            ScaleToAsync(_originalScale * _scaleAmount, _scaleDuration, _scaleCts.Token).Forget();
         }
 
         public void OnPointerUp(PointerEventData eventData)
@@ -41,7 +40,7 @@ namespace UI.Effects
             _scaleCts?.Cancel();
             _scaleCts = new CancellationTokenSource();
             
-            ScaleToAsync(_originalScale, ScaleDuration, _scaleCts.Token).Forget();
+            ScaleToAsync(_originalScale, _scaleDuration, _scaleCts.Token).Forget();
         }
 
         private async UniTaskVoid ScaleToAsync(Vector3 targetScale, float duration, CancellationToken token)

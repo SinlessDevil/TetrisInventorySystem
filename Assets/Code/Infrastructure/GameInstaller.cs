@@ -2,7 +2,7 @@
 using Code.Infrastructure.Services.GameStater;
 using Zenject;
 
-namespace CodeBase.Infrastructure
+namespace Code.Infrastructure
 {
     public class GameInstaller : MonoInstaller, IInitializable, IDisposable
     {

@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="ref: backend tetris inventory">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/ButtonScaler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/ButtonScaler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/Displayer/InventoryComponentDisplayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/Displayer/InventoryComponentDisplayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/Displayer/InventoryLevelDisplayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/Displayer/InventoryLevelDisplayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/Displayer/InventoryPointDisplayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/Displayer/InventoryPointDisplayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Inventory/InventoryView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotAnimation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotEffecter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Slot/SlotEffecter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/InventoryWindow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/InventoryWindow.prefab" afterDir="false" />
+    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="ref: inventory view and slot view">
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/GameInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/GameInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/GameStater/GameStarter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Infrastructure/Services/GameStater/GameStarter.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,15 +165,7 @@
       <workItem from="1744178256474" duration="3307000" />
       <workItem from="1744225610959" duration="2492000" />
       <workItem from="1744265421283" duration="16159000" />
-      <workItem from="1753699198192" duration="6200000" />
-    </task>
-    <task id="LOCAL-00016" summary="Fixed UI Root">
-      <option name="closed" value="true" />
-      <created>1743615545086</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1743615545086</updated>
+      <workItem from="1753699198192" duration="6646000" />
     </task>
     <task id="LOCAL-00017" summary="Added base ui scripts">
       <option name="closed" value="true" />
@@ -566,7 +551,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753705343735</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="ref: inventory view and slot view">
+      <option name="closed" value="true" />
+      <created>1753706206437</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1753706206437</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -594,7 +587,6 @@
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="feat: added stacked items  in inventory" />
     <MESSAGE value="feat: Added isCanStack in OnUpdateColorToPlaceItem ,&#10;fix: Place item in his cell" />
     <MESSAGE value="vfx: edits partical effect for stack items" />
     <MESSAGE value="feat: effect glow outline items" />
@@ -619,6 +611,7 @@
     <MESSAGE value="fix: unsubscribe slots" />
     <MESSAGE value="ref: convert ItemEffecter and animator coroutines to UniTask" />
     <MESSAGE value="ref: backend tetris inventory" />
-    <option name="LAST_COMMIT_MESSAGE" value="ref: backend tetris inventory" />
+    <MESSAGE value="ref: inventory view and slot view" />
+    <option name="LAST_COMMIT_MESSAGE" value="ref: inventory view and slot view" />
   </component>
 </project>

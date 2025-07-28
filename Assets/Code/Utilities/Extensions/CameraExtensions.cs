@@ -1,22 +1,14 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-namespace Utilities.Extensions
+namespace Code.Utilities.Extensions
 {
     public static class CameraExtensions
     {
-        public static List<T> GetVisibleTargets<T>(Camera camera, List<T> targets, float visibilityOffset = 0f) where T : Component
-        {
-            List<T> visibleTargets = new List<T>();
-    
-            foreach (T target in targets)
-            {
-                if (IsTargetVisible(camera, target, visibilityOffset)) 
-                    visibleTargets.Add(target);
-            }
-
-            return visibleTargets;
-        }
+        public static List<T> GetVisibleTargets<T>(Camera camera, List<T> targets, float visibilityOffset = 0f) 
+            where T : Component => 
+            targets.Where(target => IsTargetVisible(camera, target, visibilityOffset)).ToList();
 
         public static bool IsTargetVisible<T>(Camera camera, T target, float visibilityOffset = 0f) where T : Component
         {

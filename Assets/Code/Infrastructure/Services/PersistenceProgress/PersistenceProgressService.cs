@@ -1,8 +1,6 @@
-﻿using Code.Infrastructure.Services.PersistenceProgress;
-using Code.Infrastructure.Services.PersistenceProgress.Player;
-using Services.PersistenceProgress.Player;
+﻿using Code.Infrastructure.Services.PersistenceProgress.Player;
 
-namespace Services.PersistenceProgress
+namespace Code.Infrastructure.Services.PersistenceProgress
 {
     public class PersistenceProgressService : IPersistenceProgressService
     {

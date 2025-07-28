@@ -1,12 +1,12 @@
-using System;
 using System.Linq;
+using Code.Utilities.Attributes;
+using Code.Utilities.Extensions;
 using Sirenix.OdinInspector.Editor;
 using Sirenix.Utilities.Editor;
 using UnityEditor;
 using UnityEngine;
-using Code.Utilities.Attributes;
 
-namespace Utilities.Editor
+namespace Code.Utilities.Editor
 {
     public abstract class IdSelectorAttributeDrawer<TAttribute, TData> : OdinAttributeDrawer<TAttribute, string>
         where TAttribute : IdSelectorAttribute

@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Extensions
+namespace Code.Utilities.Extensions
 {
-  public static class IEmumerableExtentions
-  {
-    public static T Random<T>(this IEnumerable<T> enumerable)
+    public static class IEmumerableExtentions
     {
-      var items = enumerable.ToArray();
-      return items[UnityEngine.Random.Range(0, items.Length)];
+        public static T Random<T>(this IEnumerable<T> enumerable)
+        {
+            var items = enumerable.ToArray();
+            return items[UnityEngine.Random.Range(0, items.Length)];
+        }
     }
-  }
 }
