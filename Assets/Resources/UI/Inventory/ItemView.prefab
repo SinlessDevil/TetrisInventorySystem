@@ -412,8 +412,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _outlineImage: {fileID: 1832317598680856104}
   _goldOutlineImage: {fileID: 3770483739536573247}
-  _particleSystem: {fileID: 9046771250469134116, guid: ea615581a0e718647a9affc4b7a6b7e1, type: 3}
-  _itemMergeGlowPreset:
+  _particlePrefab: {fileID: 9046771250469134116, guid: ea615581a0e718647a9affc4b7a6b7e1, type: 3}
+  _mergeGlow:
     TargetTime: 0.75
     Curve:
       serializedVersion: 2
@@ -544,8 +544,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    TargetEmissionColor: {r: 1, g: 0.473217, b: 0, a: 1}
-  _itemDropGlowPreset:
+    TargetEmissionColor: {r: 0.9911022, g: 0.46778384, b: 0, a: 1}
+  _dropGlow:
     TargetTime: 0.35
     Curve:
       serializedVersion: 2
@@ -613,38 +613,38 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    TargetEmissionColor: {r: 2, g: 2, b: 2, a: 1}
-  _sameItemGlowPreset:
+    TargetEmissionColor: {r: 0.75294244, g: 0.75294244, b: 0.75294244, a: 1}
+  _sameItemGlow:
     TargetTime: 1.5
     Curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
+        time: -0.0036743134
+        value: 0.00018310547
+        inSlope: 0.023422468
+        outSlope: 0.023422468
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.46060538
+      - serializedVersion: 3
+        time: 0.3
+        value: 0.19999279
+        inSlope: 0.03707631
+        outSlope: 0.03707631
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.41819453
+        outWeight: 0.26573992
+      - serializedVersion: 3
+        time: 1
         value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.29887086
-        value: 0.2005249
-        inSlope: 0.015797172
-        outSlope: 0.015797172
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.104708776
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0.04262944
-        outSlope: 0.04262944
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.17585504
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -691,7 +691,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    TargetEmissionColor: {r: 1, g: 0.59621054, b: 0, a: 1}
+    TargetEmissionColor: {r: 0.9911022, g: 0.5840786, b: 0, a: 1}
 --- !u!1 &5816863793814197246
 GameObject:
   m_ObjectHideFlags: 0

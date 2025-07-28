@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="" />
+    <list default="true" id="a2cc0697-c276-4d1a-a3b6-0b4093b8d809" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/GlowPreset.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/GlowPreset.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ReturnItemAnimationPreset.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ReturnItemAnimationPreset.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Inventory_System/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemAnimator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemAnimator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemEffecter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/InventoryViewModel/Item/ItemEffecter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Demos/Custom Attribute Processors.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Demos/Custom Drawers.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Demos/Editor Windows.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Demos/Sample - RPG Editor.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/ItemView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/Inventory/ItemView.prefab" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,12 +37,12 @@
     &quot;assignee&quot;: &quot;SinlessDevil&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/SinlessDevil/Inventory_System.git&quot;,
-    &quot;accountId&quot;: &quot;3f9ff7c7-0f5a-4430-bbb6-c5b5a24766d6&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/SinlessDevil/TetrisInventorySystem.git",
+    "accountId": "3f9ff7c7-0f5a-4430-bbb6-c5b5a24766d6"
   }
-}</component>
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/05/958422bd/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/4b/99f01f17/RectTransform.cs" root0="SKIP_HIGHLIGHTING" />
@@ -70,21 +83,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;inventory-tetris-0.0.1&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="E:\Unity\2022.3.21f1\Editor\Unity.exe" />
@@ -164,6 +177,7 @@
       <workItem from="1744178256474" duration="3307000" />
       <workItem from="1744225610959" duration="2492000" />
       <workItem from="1744265421283" duration="16159000" />
+      <workItem from="1753699198192" duration="3314000" />
     </task>
     <task id="LOCAL-00014" summary="Fixed Load Resources Balance">
       <option name="closed" value="true" />

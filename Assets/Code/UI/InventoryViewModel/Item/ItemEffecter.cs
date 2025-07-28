@@ -1,9 +1,10 @@
 using System;
-using System.Collections;
+using System.Threading;
 using Code.InventoryModel;
 using UnityEngine;
 using UnityEngine.UI;
 using Coffee.UIExtensions;
+using Cysharp.Threading.Tasks;
 
 namespace Code.UI.InventoryViewModel.Item
 {
@@ -12,165 +13,160 @@ namespace Code.UI.InventoryViewModel.Item
         private static readonly int EmissionValueID = Shader.PropertyToID("_Emission");
         private static readonly int GlowColorID = Shader.PropertyToID("_GlowColor");
 
-        [Space(10)] [Header("Main")]
+        [Header("Main")]
         [SerializeField] private Image _outlineImage;
         [SerializeField] private Image _goldOutlineImage;
-        [Space(10)] [Header("Additional")]
-        [SerializeField] private UIParticle _particleSystem;
-        [Space(10)] [Header("GlowPresets")]
-        [SerializeField] private GlowPreset _itemMergeGlowPreset;
-        [SerializeField] private GlowPreset _itemDropGlowPreset;
-        [SerializeField] private GlowPreset _sameItemGlowPreset;
-        
-        private Coroutine _playGlowCoroutine;
-        
+
+        [Header("Effects")]
+        [SerializeField] private UIParticle _particlePrefab;
+
+        [Header("Glow Presets")]
+        [SerializeField] private GlowPreset _mergeGlow;
+        [SerializeField] private GlowPreset _dropGlow;
+        [SerializeField] private GlowPreset _sameItemGlow;
+
         private Material _glowMaterial;
-        private bool _sameItemsEffectEnabled;
-        
         private IItemViewModel _itemVM;
         private Image _icon;
 
-        public void Initialize(
-            IItemViewModel itemVM,
-            Image icon)
+        private CancellationTokenSource _highlightCts;
+
+        public void Initialize(IItemViewModel itemVM, Image icon)
         {
-            _icon = icon;
             _itemVM = itemVM;
-            
-            _glowMaterial = Instantiate(_icon.material);
-            _glowMaterial.name = _icon.material.name + "_Clone";
-            
-            SetGlowMaterial(false);
+            _icon = icon;
+
+            _glowMaterial = Instantiate(icon.material);
+            _glowMaterial.name = icon.material.name + "_Clone";
+
+            _icon.material = null;
             SetGlowValue(0);
-            
-            SetActivateGoldOutline(false);
-            
+            ToggleGoldOutline(false);
+
             Subscribe();
         }
 
         public void Dispose()
         {
+            _highlightCts?.Cancel();
             Unsubscribe();
         }
 
-        private void SetGlowValue(float value) => _icon.material.SetFloat(EmissionValueID, value);
-
-        private void SetGlowMaterial(bool value) => _icon.material = value ? _glowMaterial : null;
-
-        private void SetGlowColor(Color glowColor) => _glowMaterial.SetColor(GlowColorID, glowColor);
-        
-        private void SetActivateGoldOutline(bool value)
-        {
-            _outlineImage.gameObject.SetActive(!value);
-            _goldOutlineImage.gameObject.SetActive(value);
-        }
-        
         private void Subscribe()
         {
-            _itemVM.EffectDropItemEvent += OnDropItemEffectWrap;
-            _itemVM.EffectStackItemEvent += OnStackItemsWrap;
-            _itemVM.EffectStartOutlineGlowEvent += OnPlayEffectStartHighlightItemWrap;
-            _itemVM.EffectEndOutlineGlowEvent += OnStopEffectHighlightItemWrap;
+            _itemVM.EffectDropItemEvent += OnDropEffect;
+            _itemVM.EffectStackItemEvent += OnStackEffect;
+            _itemVM.EffectStartOutlineGlowEvent += OnStartHighlight;
+            _itemVM.EffectEndOutlineGlowEvent += OnEndHighlight;
         }
+
         private void Unsubscribe()
         {
-            _itemVM.EffectDropItemEvent -= OnDropItemEffectWrap;
-            _itemVM.EffectStackItemEvent -= OnStackItemsWrap;
-            _itemVM.EffectStartOutlineGlowEvent -= OnPlayEffectStartHighlightItemWrap;
-            _itemVM.EffectEndOutlineGlowEvent -= OnStopEffectHighlightItemWrap;
+            _itemVM.EffectDropItemEvent -= OnDropEffect;
+            _itemVM.EffectStackItemEvent -= OnStackEffect;
+            _itemVM.EffectStartOutlineGlowEvent -= OnStartHighlight;
+            _itemVM.EffectEndOutlineGlowEvent -= OnEndHighlight;
         }
 
-        private void OnDropItemEffectWrap(IItemViewModel itemViewModel)
+        private void OnDropEffect(IItemViewModel _) => PlayGlow(_dropGlow);
+
+        private void OnStackEffect()
         {
-            StartCoroutine(PlayEffectGlowRoutine(_itemDropGlowPreset));
-        }
-        
-        private void OnStopEffectHighlightItemWrap()
-        {
-            _sameItemsEffectEnabled = false;
-        }
-        
-        private void OnPlayEffectStartHighlightItemWrap()
-        {
-            _sameItemsEffectEnabled = true;
-            if (_playGlowCoroutine != null)
-                StopCoroutine(_playGlowCoroutine);
-            
-            _playGlowCoroutine = StartCoroutine(PlayEffectHighlightRoutine(_sameItemGlowPreset));
-        }
-        
-        private void OnStackItemsWrap()
-        {
-            var particleEffect = Instantiate(_particleSystem, transform);
-            particleEffect.transform.position = transform.position;
-            var itemSize = this.GetComponent<RectTransform>().sizeDelta;
-            var grids = (itemSize.x + itemSize.y) / InventorySize.CellSize;
-            particleEffect.scale = Mathf.Min(5 * grids, 20);
-            
-            StartCoroutine(PlayEffectGlowRoutine(_itemMergeGlowPreset));
+            SpawnParticles();
+            PlayGlow(_mergeGlow);
         }
 
-        private IEnumerator PlayEffectGlowRoutine(GlowPreset glowPreset)
+        private void OnStartHighlight()
         {
-            var time = 0f;
-            SetGlowMaterial(true);
-            var startScale = Vector3.one;
-            SetGlowColor(glowPreset.TargetEmissionColor);
-            while (time < glowPreset.TargetTime)
-            {
-                if(this == null)
-                    yield break;
-                
-                time += Time.unscaledDeltaTime;
-                var value = Mathf.Clamp01(time / glowPreset.TargetTime);
-                SetGlowValue(glowPreset.Curve.Evaluate(value));
-                var scale = 1f + glowPreset.ScaleCurve.Evaluate(value);
-                transform.localScale = Vector3.one * scale;
-                yield return typeof(WaitForEndOfFrame);
-            }
-
-            transform.localScale = startScale;
-            SetGlowMaterial(false);
+            _highlightCts?.Cancel();
+            _highlightCts = new CancellationTokenSource();
+            HighlightLoopAsync(_sameItemGlow, _highlightCts.Token).Forget();
         }
-        
-        private IEnumerator PlayEffectHighlightRoutine(GlowPreset glowPreset)
+
+        private void OnEndHighlight()
         {
-            var time = 0f;
-            
-            transform.localScale = Vector3.one;
-            SetActivateGoldOutline(true);
-            SetGlowColor(glowPreset.TargetEmissionColor);
-            SetGlowMaterial(true);
-            
-            while (_sameItemsEffectEnabled)
+            _highlightCts?.Cancel();
+            _highlightCts = null;
+        }
+
+        private void PlayGlow(GlowPreset preset)
+        {
+            GlowOnceAsync(preset).Forget();
+        }
+
+        private async UniTaskVoid GlowOnceAsync(GlowPreset preset)
+        {
+            _icon.material = _glowMaterial;
+            SetGlowColor(preset.TargetEmissionColor);
+
+            float time = 0f;
+            float duration = preset.TargetTime;
+
+            while (time < duration)
             {
                 time += Time.unscaledDeltaTime;
-                var value = Mathf.Clamp01(time / glowPreset.TargetTime);
-                var scale = 1f + glowPreset.ScaleCurve.Evaluate(value);
-               
-                SetGlowValue(glowPreset.Curve.Evaluate(value));
-                transform.localScale = Vector3.one * scale;
-                
-                yield return typeof(WaitForEndOfFrame);
-                if (value >= 1)
-                    time = 0f;
-            }
-            
-            transform.localScale = Vector3.one;
-            SetActivateGoldOutline(false);
-            SetGlowMaterial(false);
+                float t = Mathf.Clamp01(time / duration);
 
-            _playGlowCoroutine = null;
+                SetGlowValue(preset.Curve.Evaluate(t));
+                transform.localScale = Vector3.one * (1f + preset.ScaleCurve.Evaluate(t));
+
+                await UniTask.Yield(PlayerLoopTiming.Update);
+            }
+
+            transform.localScale = Vector3.one;
+            _icon.material = null;
         }
-    }
-    
-            
-    [Serializable]
-    public class GlowPreset
-    {
-        public float TargetTime;
-        public AnimationCurve Curve;
-        public AnimationCurve ScaleCurve;
-        [SerializeField, ColorUsage(true, true)] public Color TargetEmissionColor;
+
+        private async UniTaskVoid HighlightLoopAsync(GlowPreset preset, CancellationToken token)
+        {
+            float time = 0f;
+            transform.localScale = Vector3.one;
+            _icon.material = _glowMaterial;
+            SetGlowColor(preset.TargetEmissionColor);
+            ToggleGoldOutline(true);
+
+            try
+            {
+                while (!token.IsCancellationRequested)
+                {
+                    time += Time.unscaledDeltaTime;
+                    float t = Mathf.Clamp01(time / preset.TargetTime);
+
+                    SetGlowValue(preset.Curve.Evaluate(t));
+                    transform.localScale = Vector3.one * (1f + preset.ScaleCurve.Evaluate(t));
+
+                    if (t >= 1f)
+                        time = 0f;
+
+                    await UniTask.Yield(PlayerLoopTiming.Update);
+                }
+            }
+            catch (OperationCanceledException) { }
+            finally
+            {
+                if (this != null)
+                {
+                    transform.localScale = Vector3.one;
+                    ToggleGoldOutline(false);
+                    _icon.material = null;
+                }
+            }
+        }
+
+        private void SetGlowValue(float value) => _icon.material.SetFloat(EmissionValueID, value);
+        private void SetGlowColor(Color color) => _glowMaterial.SetColor(GlowColorID, color);
+
+        private void ToggleGoldOutline(bool isGold)
+        {
+            _outlineImage.gameObject.SetActive(!isGold);
+            _goldOutlineImage.gameObject.SetActive(isGold);
+        }
+
+        private void SpawnParticles()
+        {
+            var particle = Instantiate(_particlePrefab, transform.position, Quaternion.identity, transform);
+            float sizeFactor = (GetComponent<RectTransform>().sizeDelta.x + GetComponent<RectTransform>().sizeDelta.y) / InventorySize.CellSize;
+            particle.scale = Mathf.Min(5f * sizeFactor, 20f);
+        }
     }
 }
